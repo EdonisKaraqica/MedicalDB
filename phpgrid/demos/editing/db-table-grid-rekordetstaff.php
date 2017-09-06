@@ -71,20 +71,35 @@ if (!empty($_GET["grid_id"]))
 
 $g = new jqgrid($db_conf);
 
-//$g->select_command = "select b.username from (tblrekordetstaff as a INNER JOIN tbldoktoret as b INNER JOIN tblpacientatstaff as c)";
-
 if (!empty($tab))
 {
 	// set few params
-	$grid["caption"] = "Grid for '$tab'";
-	//$grid["autowidth"] = true;
+	$grid["caption"] = "Regjistri i kontrollave te stafit";
+	$grid["autowidth"] = true;
+	//$grid["shrinkToFit"] = true; //e re
 	$grid["multiselect"] = true;
 	$grid["resizable"] = true;
-	$grid["width"] = "1000";
+	//$grid["autoresize"] = true;
+	$grid["loadtext"] = "Duke rifreskuar...";
+	$grid["altRows"] = true;
 	$g->set_options($grid);
+
+	$g->select_command = "SELECT c.rid,
+																CONCAT(a.emri,' ',a.mbiemri),
+																CONCAT(b.emri,' ',b.mbiemri),
+																c.data_regjistrimit,
+																c.shifra_veprimtarise,
+																c.anamneza_konstatimi,
+																c.diagnoza,
+																c.terapia,
+																c.ku_udhezohet,
+																c.data_paraqitjes_serishme
+	from (tblpacientatstaff as a INNER JOIN tbldoktoret as b INNER JOIN tblrekordetstaff as c)";
 
 	// set database table for CRUD operations
 	$g->table = $tab;
+
+
 
 	if (!empty($fields))
 	{
@@ -103,7 +118,7 @@ if (!empty($tab))
 	}
 
 	$g->set_actions(array(
-							"add"=>true, // allow/disallow add
+							"add"=>false, // allow/disallow add
 							"edit"=>true, // allow/disallow edit
 							"delete"=>true, // allow/disallow delete
 							"bulkedit"=>true, // allow/disallow delete

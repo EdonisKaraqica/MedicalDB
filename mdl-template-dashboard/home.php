@@ -179,22 +179,22 @@ $username=$_SESSION['CurrentUser'];
         <div class="mdl-grid demo-content">
           <!-- gridi per listen e staffit-->
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaff" style="display:none;">
-            <iframe src="http://localhost/theme/phpgrid/demos/editing/db-table-grid.php?tables=tblpacientatstaff&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+            <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tblpacientatstaff&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
           </div>
 
           <!-- gridi per listen e regjistrit te staffit-->
           <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaffrekordet" style="display:none;">
-            <iframe src="http://localhost/theme/phpgrid/demos/editing/db-table-grid.php?tables=tblrekordetstaff&fields%5B%5D=rid&fields%5B%5D=pid&fields%5B%5D=did&fields%5B%5D=data_regjistrimit&fields%5B%5D=shifra_veprimtarise&fields%5B%5D=pozita_punes&fields%5B%5D=anamneza_konstatimi&fields%5B%5D=diagnoza&fields%5B%5D=terapia&fields%5B%5D=ku_udhezohet&fields%5B%5D=data_paraqitjes_serishme&fields%5B%5D=cmimi" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+            <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid-rekordetstaff.php?tables=tbldoktoret" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
           </div>
 
           <!-- gridi per listen e regjistrit te pax-it-->
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpaxrekordet" style="display:none;">
-              <iframe src="http://localhost/theme/phpgrid/demos/editing/db-table-grid.php?tables=tblrekordetpax&fields%5B%5D=rid&fields%5B%5D=did&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=data_regjistrimit&fields%5B%5D=shifra_veprimtarise&fields%5B%5D=ankesa&fields%5B%5D=anamneza_konstatimi&fields%5B%5D=diagnoza&fields%5B%5D=terapia&fields%5B%5D=ku_udhezohet&fields%5B%5D=paraqitja_serishme&fields%5B%5D=cmimi" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+              <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tblrekordetpax&fields%5B%5D=rid&fields%5B%5D=did&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=data_regjistrimit&fields%5B%5D=shifra_veprimtarise&fields%5B%5D=ankesa&fields%5B%5D=anamneza_konstatimi&fields%5B%5D=diagnoza&fields%5B%5D=terapia&fields%5B%5D=ku_udhezohet&fields%5B%5D=paraqitja_serishme&fields%5B%5D=cmimi" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
             </div>
 
             <!-- gridi per listen e personelit(doktoret)-->
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpersonnel" style="display:none;">
-              <iframe src="http://localhost/theme/phpgrid/demos/editing/db-table-grid.php?tables=tbldoktoret&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+              <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tbldoktoret&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
             </div>
         </div>
       </main>
