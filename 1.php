@@ -1,6 +1,6 @@
 <?php
 
-$connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
+$connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor_rina");
 $sql = "select a.kid, b.emri, b.mbiemri, b.departamenti, b.njesia, a.data1, a.data2, a.arsyetimi, a.shqyrtuar, a.approved, a.plotesuar_nga, a.approved_by from (tblkerkesat as a INNER JOIN tblpacientatstaff as b) where a.pid=b.pid";
 $result = mysqli_query($connect, $sql);
 ?>
