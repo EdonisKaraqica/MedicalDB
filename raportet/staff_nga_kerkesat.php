@@ -1,25 +1,19 @@
-<?php
+<?php 
                      $kid=$_GET['kidselect'];
-<<<<<<< HEAD
                      $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
-=======
-                     echo $kid;
-                     $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor_rina");
->>>>>>> 4aa87fd3de22dd0aec611a54cfcf6441443318ff
                      $sql = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
                      $result = mysqli_query($connect, $sql);
-                     while ($row=mysqli_fetch_assoc($result))
-                        {
-                           $fillimi=$row[ 'data1'];
+                     while ($row=mysqli_fetch_assoc($result)) 
+                        { 
+                           $fillimi=$row[ 'data1']; 
                            $mbarimi=$row[ 'data2'];
                            $pid=$row['pid'];
-
+                           
                         }
 
-                     $sql="SELECT * FROM tblpacientatstaff where pid=2";
-						$res=mysqli_query($conn,$sql) or die( "Error");
+                     $sql="SELECT * FROM tblpacientatstaff where pid='".$pid."'"; 
+						$res=mysqli_query($conn,$sql) or die( "Error"); 
 
-<<<<<<< HEAD
 						while ($row=mysqli_fetch_assoc($res)) 
 						   { 
 						      $emri=$row[ 'emri']; 
@@ -28,16 +22,6 @@
 						      $telefoni=$row[ 'nrtel']; 
 						      $adresa=$row[ 'adresa']; 
 						      $email=$row[ 'email']; 
-=======
-						while ($row=mysqli_fetch_assoc($res))
-						   {
-						      $emri=$row[ 'emri'];
-						      $pid=$row[ 'pid'];
-						      $ditelindja=$row[ 'ditelindja'];
-						      $telefoni=$row[ 'nrtel'];
-						      $adresa=$row[ 'adresa'];
-						      $email=$row[ 'email'];
->>>>>>> 4aa87fd3de22dd0aec611a54cfcf6441443318ff
 						      }
 
                      ?>
@@ -66,7 +50,7 @@
                               </label>
                               <div class="input-field col s5">
                                  <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
-
+                                 
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Telefoni
