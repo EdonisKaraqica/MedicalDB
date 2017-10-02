@@ -6,6 +6,7 @@ require('dianapdf.php');
 require_once("databaze.php");
 // session_start();
 // include("ruajtjanedb.php");
+$_SESSION['uploadid']='null';
 
 if((isset($_POST['action'])||isset($_GET['kidselect'])) && ($_FILES['userfile']['size'] > 0))
 {
