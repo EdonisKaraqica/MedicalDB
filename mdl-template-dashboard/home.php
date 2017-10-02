@@ -93,6 +93,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divv = document.getElementById('shtokontroll');
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
+
+         var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
         divt.style.display = "none";
         divu.style.display = "none";
         divv.style.display = "none";
@@ -100,6 +109,14 @@ $nrkerkesave = $notificationres["requestsnr"];
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+         regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="none";
         div.style.height="100%";
     }
     function showHideRegjistriStaff(obj)
@@ -111,6 +128,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divv = document.getElementById('shtokontroll');
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
+
+         var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
         divt.style.display = "none";
         divu.style.display = "none";
         divv.style.display = "none";
@@ -118,6 +144,14 @@ $nrkerkesave = $notificationres["requestsnr"];
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+         regktr.style.display="none";
+        regstf.style.display = "";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="none";
         div.style.height="100%";
     }
     function showHideRegjistriPax(obj)
@@ -129,6 +163,16 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divv = document.getElementById('shtokontroll');
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
+
+         var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
+
         divt.style.display = "none";
         divu.style.display = "none";
         divv.style.display = "none";
@@ -136,7 +180,17 @@ $nrkerkesave = $notificationres["requestsnr"];
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+
+        regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="none";
         div.style.height="100%";
+
     }
     function showHidePersoneli(obj)
     {
@@ -147,6 +201,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divv = document.getElementById('shtokontroll');
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
+
+        var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
         divt.style.display = "none";
         divu.style.display = "none";
         divv.style.display = "none";
@@ -154,11 +217,30 @@ $nrkerkesave = $notificationres["requestsnr"];
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+
+        regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="none";
         div.style.height="100%";
+
     }
 
     function showHideKontrolla(obj)
     {
+        var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
+
         var div = document.getElementById(obj);
         var divv = document.getElementById('gridpersonnel');
         var divx = document.getElementById('gridstaffrekordet');
@@ -173,7 +255,16 @@ $nrkerkesave = $notificationres["requestsnr"];
         divz.style.display = "none";
         divv.style.display = "none";
         div.style.display="";
+        regktr.style.display="";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="none";
         div.style.height="100%";
+
     }
 
     function showHideExportxls(obj)
@@ -185,6 +276,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divz = document.getElementById('gridpaxrekordet');
         var divu = document.getElementById('shtokontroll');
         var divt = document.getElementById('viewkontrollat');
+
+         var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
         divt.style.display = "none";
         divu.style.display = "none";
         divx.style.display = "none";
@@ -193,6 +293,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         divv.style.display = "none";
         div.style.display="";
         div.style.height="100%";
+
+         regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "";
+        hdhome.style.display = "none";
+        krk.style.display="none";
     }
 
     function showHideKerkesat(obj)
@@ -204,6 +313,15 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divz = document.getElementById('gridpaxrekordet');
         var divu = document.getElementById('shtokontroll');
         var divt = document.getElementById('exportxls');
+
+         var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
         divt.style.display = "none";
         divu.style.display = "none";
         divx.style.display = "none";
@@ -211,13 +329,29 @@ $nrkerkesave = $notificationres["requestsnr"];
         divz.style.display = "none";
         divv.style.display = "none";
         div.style.display="";
+         regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display="";
         div.style.height="100%";
 
 
     }
 
-      function showHideListaPax(obj)
+    function showHideListaPax(obj)
       {
+           var regktr = document.getElementById('HeaderRegjistroKontrolle');
+        var hdhome = document.getElementById('HeaderHome');
+        var krk = document.getElementById('HeaderKerkesat');
+        var regstf = document.getElementById('HeaderRegjistriStaff');
+        var regpax = document.getElementById('HeaderRegjistriPax');
+        var lststf = document.getElementById('HeaderStaff');
+        var lstprs = document.getElementById('HeaderPersonnel');
+        var hexprt = document.getElementById('HeaderExport');
           var div = document.getElementById(obj);
           var divx = document.getElementById('gridstaff');
           divx.style.display = "none";
@@ -237,10 +371,12 @@ $nrkerkesave = $notificationres["requestsnr"];
         }
       }
       </script>
+
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+      <!-- headeri fillestar-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="HeaderHome">
           <div class="mdl-layout__header-row">
               <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>
 
@@ -248,6 +384,72 @@ $nrkerkesave = $notificationres["requestsnr"];
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
 
       </header>
+      <!-- headeri per regjistrin e kontrolles-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistroKontrolle">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Regjistro Kontrolle Te Re</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per shqyrtimin e kerkesave-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderKerkesat">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Kerkesat</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per regjistrin e stafit-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistriStaff">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Regjistri (Staff)</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per regjistrin e pax-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistriPax">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Regjistri i Udhetareve</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per listen e stafit-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderStaff">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Lista e Pacienteve (Staff)</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per personelin mjeksor-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderPersonnel">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Personeli Mjekesor</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+      <!-- headeri per export-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderExport">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Export</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+
+      <!-- fund i headerit-->
+
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
             <img src="images/logouser.png" class="demo-avatar">
@@ -271,16 +473,17 @@ $nrkerkesave = $notificationres["requestsnr"];
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 
             <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>
-            --><a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="list.png"/></i>Regjistri(Staff)</a>
-            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="list.png"/></i>Regjistri(Pax)</a>
-            <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="staff.png"/></i>Lista e Pacienteve(Staff)</a>
-            <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="personel.png"/></i>Personeli</a>
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="register.png"/></i>Regjistro kontrolle</a>
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="register.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
-                echo "(" . $nrkerkesave . ")<img src=\"220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
+            -->
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register.png"/></i>Regjistro kontrolle</a>
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
+                echo "(" . $nrkerkesave . ")<img src=\"images/220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
               } ?>
             </a>
-          <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="download.png"/></i>Export</a>
+            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/list.png"/></i>Regjistri(Staff)</a>
+            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/list.png"/></i>Regjistri(Pax)</a>
+            <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/personel.png"/></i>Lista e Pacienteve(Staff)</a>
+            <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>Personeli</a>
+            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/download.png"/></i>Export</a>
 
 
         </nav>
