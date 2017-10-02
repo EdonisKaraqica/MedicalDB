@@ -1,4 +1,4 @@
-<?php 
+<?php
                      $kid=$_GET['kidselect'];
                      $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
                      $sql = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
@@ -17,7 +17,7 @@
 						while ($row=mysqli_fetch_assoc($res)) 
 						   { 
 						      $emri=$row[ 'emri']; 
-						      $pid=$row[ 'pid'];
+						      $limakid=$row[ 'limakid'];
 						      $ditelindja=$row[ 'ditelindja']; 
 						      $telefoni=$row[ 'nrtel']; 
 						      $adresa=$row[ 'adresa']; 
@@ -68,7 +68,7 @@
                               <br><small>(ID no):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="numriID" type="text" placeholder="" value="<?php echo $pid; ?>" class="form-control input-md">
+                                 <input id="Emri" name="numriID" type="text" placeholder="" value="<?php echo $limakid; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Adresa
