@@ -1,6 +1,6 @@
 <?php 
                      $kid=$_GET['kidselect'];
-                     $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor_rina");
+                     $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
                      $sql = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
                      $result = mysqli_query($connect, $sql);
                      while ($row=mysqli_fetch_assoc($result)) 
