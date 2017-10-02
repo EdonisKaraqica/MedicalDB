@@ -96,9 +96,9 @@ html, body {
 .demo-layout .demo-navigation .mdl-navigation__link:hover {
 	background-color: #00BCD4;
   color: #37474F;
-	
 
-  text-transform: uppercase;
+  font-size:1.2em;
+  /*text-transform: uppercase;*/
 
 }
 .demo-navigation .mdl-navigation__link .material-icons {
