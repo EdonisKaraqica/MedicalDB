@@ -2,7 +2,7 @@
 
 // PHP Grid database connection settings, Only need to update these in new project
 
-define("PHPGRID_DBTYPE","mysql"); // mysql,oci8(for oracle),mssql,postgres,sybase
+define("PHPGRID_DBTYPE","mysqli"); // mysql,oci8(for oracle),mssql,postgres,sybase
 define("PHPGRID_DBHOST","localhost");
 define("PHPGRID_DBUSER","root");
 define("PHPGRID_DBPASS","");

@@ -1,0 +1,140 @@
+<?php 
+                     $kid=$_GET['kidselect'];
+                     $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor_rina");
+                     $sql = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
+                     $result = mysqli_query($connect, $sql);
+                     while ($row=mysqli_fetch_assoc($result)) 
+                        { 
+                           $fillimi=$row[ 'data1']; 
+                           $mbarimi=$row[ 'data2'];
+                           $pid=$row['pid'];
+                           
+                        }
+
+                     $sql="SELECT * FROM tblpacientatstaff where pid='".$pid."'"; 
+						$res=mysqli_query($conn,$sql) or die( "Error"); 
+
+						while ($row=mysqli_fetch_assoc($res)) 
+						   { 
+						      $emri=$row[ 'emri']; 
+						      $pid=$row[ 'pid'];
+						      $ditelindja=$row[ 'ditelindja']; 
+						      $telefoni=$row[ 'nrtel']; 
+						      $adresa=$row[ 'adresa']; 
+						      $email=$row[ 'email']; 
+						      }
+
+                     ?>
+<html>
+<head>
+
+<style>
+
+ .input-field input:focus + label {
+   color: blue !important;
+ }
+ /* label underline focus color */
+ .row .input-field input:focus {
+   border-bottom: 1px solid blue !important;
+   box-shadow: 0 1px 0 0 blue !important
+ }
+</style>
+</head>
+<body>
+<form>
+                     <div class="card-content">
+                        <div class="form-group">
+                           <div class="row center-align">
+                              <label class="col s1" for="Emri"> Emri
+                              <br> <small>(name):</small>
+                              </label>
+                              <div class="input-field col s5">
+                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
+                                 
+                              </div>
+                              <div class="form-group center-align">
+                                 <label class="col s1" for="Emri">Telefoni
+                                 <br><small>(Phone):</small>
+                                 </label>
+                                 <div class="input-field col s5">
+                                    <input id="Emri" name="telefoni" type="text" placeholder="" value="<?php echo $telefoni; ?>" size="120" class="form-control input-md">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group center-align">
+                           <div class="row">
+                              <label class="col s1" for="Emri">Numri ID
+                              <br><small>(ID no):</small>
+                              </label>
+                              <div class="input-field col s5">
+                                 <input id="Emri" name="numriID" type="text" placeholder="" value="<?php echo $pid; ?>" class="form-control input-md">
+                              </div>
+                              <div class="form-group center-align">
+                                 <label class="col s1" for="Emri">Adresa
+                                 <br><small>(Address):</small>
+                                 </label>
+                                 <div class="input-field col s5">
+                                    <input id="Emri" name="adresa" type="text" placeholder="" value="<?php echo $adresa; ?>" class="form-control input-md">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="row center-align">
+                              <label class="col s1" for="Emri">Ditëlindja
+                              <br><small>(DOB)</small>
+                              </label>
+                              <div class="input-field col s5">
+                                 <input id="Emri" name="ditelindja" type="text" placeholder="" value="<?php echo $ditelindja; ?>" class="form-control input-md">
+                              </div>
+                              <div class="form-group center-align">
+                                 <label class="col s1" for="Emri">Email<small>:</small>
+                                 <br>
+                                 </label>
+                                 <div class="input-field col s5">
+                                    <input id="Emri" name="email" type="text" placeholder="" value="<?php echo $email; ?>" class="form-control input-md">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="row center-align">
+                              <label class="col s1" for="Emri">Vendlindja
+                              <br><small>(Place of birth):</small>
+                              </label>
+                              <div class="input-field col s5">
+                                 <input id="Emri" name="vendlindja" type="text" placeholder="" class="form-control input-md">
+                              </div>
+                              <div class="form-group center-align">
+                                 <label class="col s1" for="height">Numri Dosjes
+                                 <br><small>(File No):</small>
+                                 </label>
+                                 <div class="input-field col s5">
+                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" class="form-control input-md">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <div class="row center-align">
+                              <label class="col s1" for="Emri">Gjinia
+                              <br> <small>(Gender):</small>
+                              </label>
+                              <div class="input-field col  s5">
+                                 <input id="Emri" name="gjinia" type="text" placeholder="" class="form-control input-md">
+                              </div>
+                              <div class="form-group center-align">
+                                 <label class="col s1" for="Emri">Njësia
+                                 <br><small>(Unit):</small>
+                                 </label>
+                                 <div class="input-field col s5">
+                                    <input id="Emri" name="njesia" type="text" placeholder="" class="form-control input-md">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     </form>
+          </body>
+   </html>

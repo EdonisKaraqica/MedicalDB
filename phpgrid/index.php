@@ -12,31 +12,31 @@ if(!file_exists("config.php"))
 	header("location: ./install.php");
 	die;
 }
-		
+
 if (!empty($_GET["file"]))
 {
 	$f = $_GET["file"];
-	
+
 	$f = str_replace(".php","",$f);
-	
+
 	// remote file inclusion attempt fix
 	if (strpos($f,".")!==false)
 		die("+1 for you");
-		
+
 	$f = "demos/$f.php";
 
 	if (!file_exists($f))
 		die("+1 for you");
 
 	$code = file_get_contents($f);
-	
+
 	// removed db settings
 	$code = preg_replace("/mysql_connect(.*)/i","mysql_connect('localhost','user','pass');",$code);
-	
+
 	highlight_string($code);
 	echo "<br>&nbsp;";
 	die;
-}	
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +79,7 @@ if (!empty($_GET["file"]))
 
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
+      <!--<div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -98,13 +98,13 @@ if (!empty($_GET["file"]))
               <li><a target="_blank" href="http://www.phpgrid.org/docs">Docs</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+          </div>--><!--/.nav-collapse -->
+        <!--</div>
+      </div>-->
     </div>
 
-	<?php 
-	function dirToArray($dir) 
+	<?php
+	function dirToArray($dir)
 	{
 		$result = array();
 		$cdir = scandir($dir);
@@ -134,25 +134,25 @@ if (!empty($_GET["file"]))
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-		
-		
-			<div class="alert alert-info" align="center" style="padding-bottom:20px">
+
+
+			<!--<div class="alert alert-info" align="center" style="padding-bottom:20px">
 		  	<span style="font-family:tahoma;color:red;font-size:13px"></span> Advance features are available in Licensed Version. <br /><br />
 			<strong>
 		  		<a style="padding:10px" class="btn-primary" target="_blank" href="http://www.phpgrid.org/download/">Get License Today!</a>
 		  	</strong>
-	        </div>
-			
-			
+			</div>-->
+
+
 			<div class="accordion" id="accordion_menu">
-					<?php 
-					foreach($samples as $k=>$v) 
+					<?php
+					foreach($samples as $k=>$v)
 					{
 						if (is_numeric($k)) continue;
 						$folder = ucwords($k);
 
 						$show = 0;
-						foreach($v as $f) 
+						foreach($v as $f)
 						{
 							if (!(filesize("demos/$k/$f") < 10))
 								$show = 1;
@@ -167,82 +167,82 @@ if (!empty($_GET["file"]))
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_menu" href="#collapse<?php echo $k?>">
 						  <strong><?php echo $folder;?></strong>
 						</a>
-						</div>	
+						</div>
 						<div id="collapse<?php echo $k?>" class="accordion-body collapse">
 							<div class="accordion-inner">
 								<?php
-								foreach($v as $f) 
+								foreach($v as $f)
 								{
 									$fname = str_replace(".php","",$f);
 									$fname = str_replace("-"," ",$fname);
 									$fname = ucwords($fname);
-									
+
 									//file_put_contents("demos/$k/$f","");
-									
+
 									$ver = "";
 									$star = "";
 									if (filesize("demos/$k/$f") < 10)
 									{
 										if ($_GET["filter"] == "free")
 										continue;
-										
+
 										$url = "http://www.phpgrid.org/demo/demos/$k/$f";
 										$star = " <font color='red'>*</font>";
 										$ver .= "jQuery('#div_version').html('Available in licensed version. Currently loaded from www.phpgrid.org');";
-										$ver .= "jQuery('#span_version').show();";										
+										$ver .= "jQuery('#span_version').show();";
 									}
 									else
 									{
 										$url = "demos/$k/$f";
 										$ver .= "jQuery('#span_version').hide();";
 									}
-										
+
 									echo "<a href='$url' onclick=\"$ver;jQuery('#code').load('index.php?file=/$k/$f'); $('#grid-demo-tabs a:first').tab('show');\" target='demo_frame'>$fname</a>$star<br/>";
 								}
 								?>
 							</div>
-						</div>				
-						</div>				
+						</div>
+						</div>
 						<?php
 					}
 					?>
 			</div>
-		  
+
 			<select name="filter" style="width:177px" onchange="location.href='?filter='+this.value;">
 		    	<option value="free" <?php echo ($_GET["filter"] == "free")?"selected":"";?>>Filter: Free Features</option>
 		    	<option value="all" <?php echo ($_GET["filter"] == "all")?"selected":"";?>>Filter: All Features</option>
 		    </select>
-			
+
         </div><!--/span-->
-		
+
         <div class="span10">
           <div class="row-fluid">
             <div class="span12">
-			
+
 				<ul class="nav nav-tabs" id="grid-demo-tabs">
 					<li class="active"><a href="#demo" data-toggle="tab">Demo</a></li>
 					<li><a href="#code" data-toggle="tab">Code</a></li>
 				</ul>
-				
+
 				<div class="tab-content" id="grid-demo-tabs-content">
-				  
+
 					<div id="demo" class="tab-pane fade in active">
 		        		<span id="span_version" style="display:none">
 		        		<a id="div_version" style="margin-left:9px; width:100px; font-family: tahoma; padding:5px; background-color: #117AC0; letter-spacing:1px; color: white; text-decoration:underline;" target="_blank" href="http://www.phpgrid.org/download/"></a>
 						<br>
-						</span>						
+						</span>
 						<iframe onload="iframeLoaded(this)" name="demo_frame" frameborder="0" width="100%" height="500" src="demos/editing/index.php"></iframe>
 					</div>
-				  
+
 					<div id="code" class="tab-pane fade">
 					</div>
-				  
+
 				</div>
 
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
-		
+
 		<div class="row-fluid">
 			<div class="span12">
 			  <div class="row-fluid">
@@ -255,7 +255,7 @@ if (!empty($_GET["file"]))
 			  </div><!--/row-->
 			</div><!--/span-->
 		  </div><!--/row-->
-		  
+
       </div><!--/row-->
 
 		<!-- Le javascript
@@ -264,17 +264,17 @@ if (!empty($_GET["file"]))
 		<script src="bootstrap/js/jquery.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script>
-		
+
 			$('#grid-demo-tabs a').click(function (e) {
 			e.preventDefault();
 			$(this).tab('show');
 			})
-			
+
 			jQuery('#code').load('index.php?file=/editing/index.php');
-				
-			function iframeLoaded(iFrameID,stop) 
+
+			function iframeLoaded(iFrameID,stop)
 			{
-				if(iFrameID) 
+				if(iFrameID)
 				{
 			        iFrameID.height = "600px";
 					if(iFrameID.contentDocument){
@@ -284,11 +284,11 @@ if (!empty($_GET["file"]))
 						iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 45 + "px";
 					}
 				}
-				
+
 				// if (!stop)
 				setTimeout(function(){iframeLoaded(iFrameID,1);},1000);
 			}
-			
+
 		</script>
 
 	</div><!--/.fluid-container-->

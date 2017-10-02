@@ -15,12 +15,25 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
+
 <?php
 include('../databaze.php');
 session_start();
-$username=$_SESSION['CurrentUser'];
+if(!isset($_SESSION['CurrentUser'])) {
+    header("Location: ../login.php");
+}
+$username1=$_SESSION['CurrentUser'];
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname="sherbimimjeksor";
+$conn = new mysqli($servername, $username, $password,$dbname);
 
+$sql = "select count(*) as requestsnr from tblkerkesat where shqyrtuar=0";
+$execsql = mysqli_query($conn,$sql);
+$notificationres = mysqli_fetch_array($execsql);
+$nrkerkesave = $notificationres["requestsnr"];
 
 ?>
 <html lang="en">
@@ -29,7 +42,7 @@ $username=$_SESSION['CurrentUser'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>MedicalDB</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -54,7 +67,7 @@ $username=$_SESSION['CurrentUser'];
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
@@ -77,10 +90,17 @@ $username=$_SESSION['CurrentUser'];
         var divx = document.getElementById('gridpaxrekordet');
         var divy = document.getElementById('gridstaffrekordet');
         var divz = document.getElementById('gridpersonnel');
+        var divv = document.getElementById('shtokontroll');
+        var divu = document.getElementById('exportxls');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divv.style.display = "none";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+        div.style.height="100%";
     }
     function showHideRegjistriStaff(obj)
     {
@@ -88,10 +108,17 @@ $username=$_SESSION['CurrentUser'];
         var divx = document.getElementById('gridpaxrekordet');
         var divy = document.getElementById('gridstaff');
         var divz = document.getElementById('gridpersonnel');
+        var divv = document.getElementById('shtokontroll');
+        var divu = document.getElementById('exportxls');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divv.style.display = "none";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+        div.style.height="100%";
     }
     function showHideRegjistriPax(obj)
     {
@@ -99,10 +126,17 @@ $username=$_SESSION['CurrentUser'];
         var divx = document.getElementById('gridstaffrekordet');
         var divy = document.getElementById('gridstaff');
         var divz = document.getElementById('gridpersonnel');
+        var divv = document.getElementById('shtokontroll');
+        var divu = document.getElementById('exportxls');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divv.style.display = "none";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+        div.style.height="100%";
     }
     function showHidePersoneli(obj)
     {
@@ -110,20 +144,89 @@ $username=$_SESSION['CurrentUser'];
         var divx = document.getElementById('gridstaffrekordet');
         var divy = document.getElementById('gridstaff');
         var divz = document.getElementById('gridpaxrekordet');
+        var divv = document.getElementById('shtokontroll');
+        var divu = document.getElementById('exportxls');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divv.style.display = "none";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
         div.style.display="";
+        div.style.height="100%";
     }
+
+    function showHideKontrolla(obj)
+    {
+        var div = document.getElementById(obj);
+        var divv = document.getElementById('gridpersonnel');
+        var divx = document.getElementById('gridstaffrekordet');
+        var divy = document.getElementById('gridstaff');
+        var divz = document.getElementById('gridpaxrekordet');
+        var divu = document.getElementById('exportxls');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divx.style.display = "none";
+        divy.style.display = "none";
+        divz.style.display = "none";
+        divv.style.display = "none";
+        div.style.display="";
+        div.style.height="100%";
+    }
+
+    function showHideExportxls(obj)
+    {
+        var div = document.getElementById(obj);
+        var divv = document.getElementById('gridpersonnel');
+        var divx = document.getElementById('gridstaffrekordet');
+        var divy = document.getElementById('gridstaff');
+        var divz = document.getElementById('gridpaxrekordet');
+        var divu = document.getElementById('shtokontroll');
+        var divt = document.getElementById('viewkontrollat');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divx.style.display = "none";
+        divy.style.display = "none";
+        divz.style.display = "none";
+        divv.style.display = "none";
+        div.style.display="";
+        div.style.height="100%";
+    }
+
+    function showHideKerkesat(obj)
+    {
+        var div = document.getElementById(obj);
+        var divv = document.getElementById('gridpersonnel');
+        var divx = document.getElementById('gridstaffrekordet');
+        var divy = document.getElementById('gridstaff');
+        var divz = document.getElementById('gridpaxrekordet');
+        var divu = document.getElementById('shtokontroll');
+        var divt = document.getElementById('exportxls');
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divx.style.display = "none";
+        divy.style.display = "none";
+        divz.style.display = "none";
+        divv.style.display = "none";
+        div.style.display="";
+        div.style.height="100%";
+
+
+    }
+
       function showHideListaPax(obj)
       {
           var div = document.getElementById(obj);
           var divx = document.getElementById('gridstaff');
           divx.style.display = "none";
           div.style.display="";
+          div.style.height="100%";
 
 
       }
+
 
       function showHide2(obj)
       {
@@ -150,7 +253,7 @@ $username=$_SESSION['CurrentUser'];
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
-            echo $username;
+            echo $username1;
             ?></span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -158,45 +261,67 @@ $username=$_SESSION['CurrentUser'];
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">  <a href="../logout.php">Log Out</a></li>
+                <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusr.php">Ndrysho Profilin</a></li>
+                <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
 
 
             </ul>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-            <a class="mdl-navigation__link" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Staff)</a>
+
             <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>
-            --><a class="mdl-navigation__link" href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Regjistri(Staff)</a>
-            <a class="mdl-navigation__link" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Regjistri(Pax)</a>
-            <a class="mdl-navigation__link" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Personeli</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">edit</i>Regjistro Pacient</a>
+            --><a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="list.png"/></i>Regjistri(Staff)</a>
+            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="list.png"/></i>Regjistri(Pax)</a>
+            <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="staff.png"/></i>Lista e Pacienteve(Staff)</a>
+            <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="personel.png"/></i>Personeli</a>
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="register.png"/></i>Regjistro kontrolle</a>
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="register.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
+                echo "(" . $nrkerkesave . ")<img src=\"220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
+              } ?>
+            </a>
+          <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="download.png"/></i>Export</a>
 
 
         </nav>
       </div>
-      <main class="mdl-layout__content mdl-color--grey-100" id="listastaff">
-        <div class="mdl-grid demo-content">
+      <main class="mdl-layout__content mdl-color--grey-100" id="listastaff" style="height:100%;">
+
           <!-- gridi per listen e staffit-->
-          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaff" style="display:none;">
-            <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tblpacientatstaff&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaff" style="height:100%;width:100%;display:none;">
+            <iframe src="../phpgrid/gridpacientetstaff.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
           </div>
 
           <!-- gridi per listen e regjistrit te staffit-->
-          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaffrekordet" style="display:none;">
-            <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid-rekordetstaff.php?tables=tbldoktoret" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaffrekordet" style="height:100%;width:100%;display:none;">
+            <iframe src="../phpgrid/gridrekordetstaff.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
           </div>
 
           <!-- gridi per listen e regjistrit te pax-it-->
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpaxrekordet" style="display:none;">
-              <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tblrekordetpax&fields%5B%5D=rid&fields%5B%5D=did&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=data_regjistrimit&fields%5B%5D=shifra_veprimtarise&fields%5B%5D=ankesa&fields%5B%5D=anamneza_konstatimi&fields%5B%5D=diagnoza&fields%5B%5D=terapia&fields%5B%5D=ku_udhezohet&fields%5B%5D=paraqitja_serishme&fields%5B%5D=cmimi" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpaxrekordet" style="height:100%;width:100%;display:none;">
+              <iframe src="../phpgrid/gridrekordetpax.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
             </div>
 
             <!-- gridi per listen e personelit(doktoret)-->
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpersonnel" style="display:none;">
-              <iframe src="http://localhost/MedicalDB-diana/phpgrid/demos/editing/db-table-grid.php?tables=tbldoktoret&fields%5B%5D=limakid&fields%5B%5D=username&fields%5B%5D=emri&fields%5B%5D=prindi&fields%5B%5D=mbiemri&fields%5B%5D=gjinia&fields%5B%5D=ditelindja&fields%5B%5D=vendlindja&fields%5B%5D=adresa&fields%5B%5D=email&fields%5B%5D=departamenti&fields%5B%5D=mbikqyresi&fields%5B%5D=nrtel" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridpersonnel" style="height:100%;width:100%;display:none;">
+              <iframe src="../phpgrid/gridpersoneli.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
             </div>
-        </div>
+
+            <!-- gridi per regjistrimin e kontrolles se re-->
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="shtokontroll" style="height:100%;width:100%;display:none;">
+              <iframe src="../pacienti.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
+            </div>
+
+            <!-- gridi per shqyrtimin e kerkesave per pushim-->
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="viewkontrollat" style="height:100%;width:100%;display:none;">
+              <iframe src="../1.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
+            </div>
+
+            <!-- gridi per exportimin e te dhenave/xls-->
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="exportxls" style="height:100%;width:100%;display:none;">
+              <iframe src="../phpgrid/statistikat.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
+            </div>
+
       </main>
 
 
