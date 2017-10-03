@@ -8,10 +8,10 @@
  */
 
 // include db config
-include_once("config_rina.php");
+include_once("config.php");
 
 // include and create object
-include(PHPGRID_LIBPATH."inc/jqgrid_dist_regjistri_pax.php");
+include(PHPGRID_LIBPATH."inc/jqgrid_dist_regjistri_staff.php");
 
 // Database config file to be passed in phpgrid constructor
 $db_conf = array(
@@ -27,10 +27,11 @@ $g = new jqgrid($db_conf);
 $opt = array();
 $opt["rowNum"] = 10; // by default 20
 $opt["sortname"] = 'rid'; // by default sort grid by this field
-$opt["sortorder"] = "desc"; // ASC or DESC
-$opt["caption"] = "Regjistri i kontrollave te pasagjereve"; // caption of grid
+$opt["sortorder"] = "asc"; // ASC or DESC
+$opt["caption"] = "Regjistri i kontrollave te stafit"; // caption of grid
 //$opt["autowidth"] = true; // expand grid to screen width
 $opt["width"] = "100%";
+//$opt["width"] = "100%";
 $opt["multiselect"] = true; // allow you to multi-select through checkboxes
 $opt["altRows"] = true;
 $opt["resizable"] = true;
@@ -39,17 +40,20 @@ $opt["altclass"] = "myAltRowClass";
 $opt["rowactions"] = true; // allow you to multi-select through checkboxes
 $opt["view_options"] = array('width'=>'600');
 
-
 // export XLS file
 // export to excel parameters
 //$opt["export"] = array("format"=>"pdf", "filename"=>"my-file", "sheetname"=>"test");
 
 // export PDF file params
-$opt["export"] = array("filename"=>"RegjistriPax", "heading"=>"Regjistri i kontrolleve per udhetare", "orientation"=>"landscape", "paper"=>"a4");
+$grid["export"] = array("filename"=>"RekordetStaf", "heading"=>"Regjistri i kontrolleve per personelin e LKIA", "orientation"=>"landscape", "paper"=>"a4");
 // for excel, sheet header
-$opt["export"]["sheetname"] = "RegjistriPax";
+$grid["export"]["sheetname"] = "RegjistriStaf";
 // export filtered data or all data
-$opt["export"]["range"] = "filtered"; // or "all"
+$grid["export"]["range"] = "filtered"; // or "all"
+
+//echo $grid["export"]["range"];
+//session_start();
+$_SESSION["exprange"] = "filtered";
 
 $g->set_options($opt);
 
@@ -71,78 +75,63 @@ $g->set_actions(array(
 				);
 
 // you can provide custom SQL query to display data
-$g->select_command = "SELECT a.rid as rid,
-																a.emri as emri,
-												        a.prindi as prindi,
-												        a.mbiemri as mbiemri,
-												        /*b.emri as demri,
-												        b.mbiemri as dmbiemri,*/
+$g->select_command = "SELECT *
 
-																a.gjinia as gjinia,
-												        a.ditelindja as ditelindja,
-												        a.vendlindja as adresa,
-
-												        a.shifra_veprimtarise as shifra_veprimtarise,
-												        a.ankesa as ankesa,
-												        a.anamnezaesemundjes as anamneza_konstatimi,
-												        a.diagnoza as diagnoza,
-												        a.trajtimi as terapia,
-																concat(b.emri, ' ',b.mbiemri) as demri,
-
-																a.data_regjistrimit as data_regjistrimit,
-
-												        a.cmimi as cmimi,
-																a.rid as download
-
-
-
-
-FROM tblrekordetpax as a inner join tbldoktoret as b on a.did=b.did";
+FROM ((tblrekordetstaff as a
+INNER JOIN tblpacientatstaff as b on a.pid = b.pid)
+INNER JOIN tbldoktoret as c on a.did = c.did)";
 
 // this db table will be used for add,edit,delete
-$g->table = "tblrekordetpax";
+$g->table = "tblrekordetstaff";
 
 // you can customize your own columns ...
 $col = array();
-$col["title"] = "Nr Dosjes"; // caption of column
-$col["name"] = "rid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
-$col["autowidth"] = true;
+$col["title"] = "Nr. Dosjes"; // caption of column
+$col["name"] = "a.rid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
+$col["width"] = "60";
 $col["align"] = "center";
-$col["editable"] = false;
+//$col["editable"] = true;
 $col["hidden"] = false;
-$col["width"] = "55";
-$col["export"] = true;
 //$col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Emri i pacientit";
-$col["dbname"] = "a.emri";
-$col["name"] = "emri";
-$col["autowidth"] = true;
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "100";
+$col["title"] = "Limak ID"; // caption of column
+$col["name"] = "b.limakid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
+$col["width"] = "55";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
+$col["editable"] = false;
+$col["hidden"] = true;
+//$col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Prindi";
-$col["dbname"] = "a.prindi";
-$col["name"] = "prindi";
+$col["title"] = "Limak ID"; // caption of column
+$col["dbname"] = "b.pid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
+$col["width"] = "55";
+$col["align"] = "center";
+$col["editable"] = false;
+$col["hidden"] = true;
+//$col["editrules"] = array("edithidden"=>true);
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Limak ID"; // caption of column
+$col["dbname"] = "c.pid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
+$col["width"] = "55";
+$col["align"] = "center";
+$col["editable"] = false;
+$col["hidden"] = true;
+//$col["editrules"] = array("edithidden"=>true);
+$cols[] = $col;
+
+
+$col = array();
+$col["title"] = "Emri i pacientit";
+$col["name"] = "b.emri";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["export"] = false;
+$col["editable"] = false;
 $col["width"] = "100";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
@@ -157,11 +146,10 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Mbiemri i pacientit";
-$col["dbname"] = "a.mbiemri";
-$col["name"] = "mbiemri";
+$col["name"] = "b.mbiemri";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
-$col["editable"] = true;
+$col["editable"] = false;
 $col["width"] = "105";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
@@ -182,7 +170,7 @@ $col["editrules"] = array("edithidden"=>true);
 //$col["sortable"] = true; // this column is not sortable
 //$col["search"] = true; // this column is not searchable
 //$col["editable"] = false;
-//$col["width"] = "105";
+//$col["width"] = "100";
 //$col["align"] = "center";
 //$col["edittype"] = "textarea"; // render as textarea on edit
 //$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -195,69 +183,12 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Gjinia";
-$col["name"] = "gjinia";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["export"] = false;
-$col["width"] = "50";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
-
-$col = array();
-$col["title"] = "Ditelindja";
-$col["name"] = "ditelindja";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "80";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
-
-$col = array();
-$col["title"] = "Adresa";
-$col["name"] = "adresa";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "120";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
-
-
-
-$col = array();
 $col["title"] = "Shifra e v.";
 $col["name"] = "shifra_veprimtarise";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["width"] = "80";
+$col["width"] = "65";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -270,31 +201,12 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Ankesa";
-$col["name"] = "ankesa";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["align"] = "center";
-$col["export"] = false;
-$col["width"] = "120";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
-
-$col = array();
-$col["title"] = "Amneza e semundjes";
+$col["title"] = "Anamneza dhe konstatimi";
 $col["name"] = "anamneza_konstatimi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["width"] = "120";
+$col["width"] = "165";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -312,7 +224,7 @@ $col["name"] = "diagnoza";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["width"] = "120";
+$col["width"] = "105";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -325,12 +237,12 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Trajtimi";
+$col["title"] = "Terapia";
 $col["name"] = "terapia";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["width"] = "120";
+$col["width"] = "105";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -342,14 +254,143 @@ $col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
-/*$col = array();
+$col = array();
 $col["title"] = "Ku udhezohet";
 $col["name"] = "ku_udhezohet";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
+$col["align"] = "center";
 $col["export"] = false;
-$col["width"] = "120";
+$col["width"] = "105";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Data regjistrimit";
+$col["name"] = "data_regjistrimit";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["export"] = true;
+$col["align"] = "center";
+$col["width"] = "105";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Data paraqitjes se serishme";
+$col["name"] = "data_paraqitjes_serishme";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["align"] = "center";
+$col["export"] = false;
+$col["width"] = "165";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Kontrolloi";
+$col["name"] = "demri";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["width"] = "100";
+$col["editable"] = false;
+$col["align"] = "center";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Download";
+$col["name"] = "download";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+//$col["default"] = "View More";
+$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id='+cellval+'\">'+\"Download\"+'</a>'; }";
+$col["editable"] = false;
+$col["align"] = "center";
+$col["export"] = false;
+$col["width"] = "165";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+/*
+$col = array();
+$col["title"] = "Diagnoza";
+$col["name"] = "diagnoza";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["align"] = "center";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Terapia";
+$col["name"] = "terapia";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["align"] = "center";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Ku udhezohet";
+$col["name"] = "ku_udhezohet";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -367,26 +408,6 @@ $col["name"] = "paraqitja_serishme";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["export"] = false;
-$col["width"] = "100";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;*/
-
-$col = array();
-$col["title"] = "Data";
-$col["name"] = "data_regjistrimit";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "80";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -404,8 +425,6 @@ $col["name"] = "cmimi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
-$col["export"] = false;
-$col["width"] = "70";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -415,46 +434,7 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 $col["hidden"] = true;
 $col["editrules"] = array("edithidden"=>true);
 
-$cols[] = $col;
-
-$col = array();
-$col["title"] = "Kontrolloi";
-$col["name"] = "demri";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = false;
-$col["width"] = "100";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
-
-$col = array();
-$col["title"] = "Download";
-$col["name"] = "download";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["export"] = false;
-//$col["default"] = "View More";
-$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=p'+cellval+'\">'+\"Download\"+'</a>'; }";
-$col["editable"] = true;
-$col["align"] = "center";
-$col["width"] = "165";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
+$cols[] = $col;*/
 
 // pass the cooked columns to grid
 $g->set_columns($cols);
@@ -470,16 +450,6 @@ $out = $g->render("list1");
 
 
 		.ui-jqgrid tr.jqgrow td {white-space: normal !important;}
-
-		.ui-jqdialog-content .CaptionTD
-		{
-				vertical-align: top;
-		}
-
-		.ui-jqdialog-content .form-view-data
-		{
-				white-space: normal;
-		}
 	</style>
 
 	<link rel="stylesheet" type="text/css" media="screen" href="lib/js/themes/redmond/jquery-ui.custom.css"></link>
@@ -489,21 +459,14 @@ $out = $g->render("list1");
 	<script src="lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 	<script src="lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-
-<!--	<style>
-		.myAltRowClass { background-color: #F1F1F1; background-image: none; }
+</head>
+<body>
+	<style>
+    .myAltRowClass { background-color: #F1F1F1; background-image: none; }
 
 
 		.ui-jqgrid tr.jqgrow td {white-space: normal !important;}
-
-
-
-
-
 	</style>
--->
-</head>
-<body>
 
 
 	<?php echo $out?>

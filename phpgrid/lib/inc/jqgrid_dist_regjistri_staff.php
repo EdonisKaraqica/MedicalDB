@@ -1257,15 +1257,15 @@ class jqgrid
 
 						$html .= '<tr bgcolor="lightgrey">';
 						$html .= '<th><strong>Nr. Dosjes</strong></th>
-											<th><strong>Limak ID</strong></th>
+											<th><strong>Nr. ID</strong></th>
 											<th><strong>Emri</strong></th>
 											<th><strong>Mbiemri</strong></th>
-											<th><strong>Kontrolloi</strong></th>
 											<th><strong>Shifra e v.</strong></th>
-											<th><strong>Anamneza</strong></th>
+											<th><strong>Ankesa</strong></th>
 											<th><strong>Diagnoza</strong></th>
 											<th><strong>Terapia</strong></th>
-											<th><strong>Data</strong></th>';
+											<th><strong>Data</strong></th>
+											<th><strong>Kontrolloi</strong></th>';
 						//$kolonat = count(current($arr));
 						$kolonat = 10; //nr i kolonave qe dalin n'export
 						//for ($i=0; $i < $kolonat; $i++) {
@@ -1393,15 +1393,15 @@ class jqgrid
 					$html .= "<table border='1' cellpadding='2' cellspacing='2'>";
 					$html .= '<tr bgcolor="lightgrey"'; //ktu tr e excelit
 					$html .= '<th><strong>Nr. Dosjes</strong></th>
-										<th><strong>Limak ID</strong></th>
+										<th><strong>Nr. ID</strong></th>
 										<th><strong>Emri</strong></th>
 										<th><strong>Mbiemri</strong></th>
-										<th><strong>Kontrolloi</strong></th>
 										<th><strong>Shifra e v.</strong></th>
-										<th><strong>Anamneza</strong></th>
+										<th><strong>Ankesa</strong></th>
 										<th><strong>Diagnoza</strong></th>
 										<th><strong>Terapia</strong></th>
-										<th><strong>Data</strong></th>';
+										<th><strong>Data</strong></th>
+										<th><strong>Kontrolloi</strong></th>';
 					$html .= '</tr>';
 					$i = 0;
 					foreach($arr as $v)
