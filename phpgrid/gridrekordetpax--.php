@@ -8,7 +8,7 @@
  */
 
 // include db config
-include_once("config_rina.php");
+include_once("config.php");
 
 // include and create object
 include(PHPGRID_LIBPATH."inc/jqgrid_dist_regjistri_pax.php");
@@ -72,28 +72,27 @@ $g->set_actions(array(
 
 // you can provide custom SQL query to display data
 $g->select_command = "SELECT a.rid as rid,
-																a.emri as emri,
-												        a.prindi as prindi,
-												        a.mbiemri as mbiemri,
-												        /*b.emri as demri,
-												        b.mbiemri as dmbiemri,*/
+		a.emri as emri,
+        a.prindi as prindi,
+        a.mbiemri as mbiemri,
+        /*b.emri as demri,
+        b.mbiemri as dmbiemri,*/
 
-																a.gjinia as gjinia,
-												        a.ditelindja as ditelindja,
-												        a.vendlindja as adresa,
+				a.gjinia as gjinia,
+        a.ditelindja as ditelindja,
+        a.adresa as adresa,
 
-												        a.shifra_veprimtarise as shifra_veprimtarise,
-												        a.ankesa as ankesa,
-												        a.anamnezaesemundjes as anamneza_konstatimi,
-												        a.diagnoza as diagnoza,
-												        a.trajtimi as terapia,
-																concat(b.emri, ' ',b.mbiemri) as demri,
-
-																a.data_regjistrimit as data_regjistrimit,
-
-												        a.cmimi as cmimi,
-																a.rid as download
-
+        a.shifra_veprimtarise as shifra_veprimtarise,
+        a.ankesa as ankesa,
+        a.anamneza_konstatimi as anamneza_konstatimi,
+        a.diagnoza as diagnoza,
+        a.terapia as terapia,
+				concat(b.emri, ' ',b.mbiemri) as demri,
+        a.ku_udhezohet as ku_udhezohet,
+				a.data_regjistrimit as data_regjistrimit,
+        a.paraqitja_serishme as paraqitja_serishme,
+        a.cmimi as cmimi,
+				a.rdownload as download
 
 
 
@@ -117,7 +116,6 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Emri i pacientit";
-$col["dbname"] = "a.emri";
 $col["name"] = "emri";
 $col["autowidth"] = true;
 $col["sortable"] = true; // this column is not sortable
@@ -137,7 +135,6 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Prindi";
-$col["dbname"] = "a.prindi";
 $col["name"] = "prindi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -157,7 +154,6 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Mbiemri i pacientit";
-$col["dbname"] = "a.mbiemri";
 $col["name"] = "mbiemri";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -249,7 +245,23 @@ $col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
+$col = array();
+$col["title"] = "Data";
+$col["name"] = "data_regjistrimit";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["width"] = "80";
+$col["align"] = "center";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
 
 $col = array();
 $col["title"] = "Shifra e v.";
@@ -289,7 +301,7 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Amneza e semundjes";
+$col["title"] = "Amneza & Konstatimi";
 $col["name"] = "anamneza_konstatimi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -325,7 +337,7 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Trajtimi";
+$col["title"] = "Terapia";
 $col["name"] = "terapia";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -342,7 +354,7 @@ $col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
-/*$col = array();
+$col = array();
 $col["title"] = "Ku udhezohet";
 $col["name"] = "ku_udhezohet";
 $col["sortable"] = true; // this column is not sortable
@@ -369,24 +381,6 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "100";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;*/
-
-$col = array();
-$col["title"] = "Data";
-$col["name"] = "data_regjistrimit";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "80";
 $col["align"] = "center";
 $col["edittype"] = "textarea"; // render as textarea on edit
 $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
@@ -442,7 +436,7 @@ $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["export"] = false;
 //$col["default"] = "View More";
-$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=p'+cellval+'\">'+\"Download\"+'</a>'; }";
+$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id='+cellval+'\">'+\"Download\"+'</a>'; }";
 $col["editable"] = true;
 $col["align"] = "center";
 $col["width"] = "165";

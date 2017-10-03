@@ -9,14 +9,18 @@ $res=mysqli_query($conn,$sql) or die( "Error");
 
 while ($row=mysqli_fetch_assoc($res)) 
    { 
-      $emri=$row[ 'emri']; 
+      $emri=$row['emri']; 
+      $mbiemri=$row['mbiemri'];
+      
       $pid=$row[ 'pid'];
       $limakid=$row[ 'limakid'];
       $ditelindja=$row[ 'ditelindja']; 
       $telefoni=$row[ 'nrtel']; 
       $adresa=$row[ 'adresa']; 
       $email=$row[ 'email']; 
+      $alergjite=$row['alergjite'];
       }
+
 } 
 
  ?>
@@ -240,6 +244,7 @@ $(document).ready(function(){
                            <input id="Emri" name="perfundimi" type="text" placeholder="" size="400" class="form-control input-md">
                         </div>
                      </div>
+                     
                   
                      <div class="section">
                         <div class="row">
