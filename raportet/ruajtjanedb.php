@@ -21,9 +21,7 @@
 
         $currentDate=date("Y/m/d");
        $emri = $_POST['emri'];
-        $emrimbiemri=explode(" ", $emri);
-       $emri1=$emrimbiemri[0];
-       $mbiemri=$emrimbiemri[1];
+        
        $telefoni = $_POST['telefoni'];
        $numriID = $_POST['numriID'];
        $adresa = $_POST['adresa'];
