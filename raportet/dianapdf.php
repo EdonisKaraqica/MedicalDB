@@ -50,7 +50,8 @@ class createPDF
         $this->gjiniaInput=$_POST['gjinia'];
         $this->nrDosjes=$_POST['nrDosjes'];
         $this->njesiaInput=$_POST['njesia'];
-
+		
+		$this->alergjiteInput=$_POST['alergjite'];
         $this->ankesaInput=$_POST['ankesa'];
         $this->anamnezaInput=$_POST['anamneza'];
         $this->anamnezaFamiljes=$_POST['anFamiljes'];
@@ -123,7 +124,8 @@ class createPDF
         $this->adresa="<pre>ADRESA</pre><i> (Address):</i>";
         $this->email="<pre>EMAIL:</pre><i></i>";
         $this->telefoni="<pre>TEL</pre><i> (Telephone):</i>";
-       
+
+       $this->alergjite="<pre>ALERGJITE</pre><i> (Allergy):</i>";
         $this->ankesa="<pre>ANKESA</pre><i> (Complaint):</i>";
         $this->anamneza_semundjes="<pre>ANAMNEZA E S".EeMadhe."MUNDJES</pre><i> (Disease Anamnesis):</i>";
         $this->ekzaminimi_fizikal="<pre>EKZAMINIMI FIZIKAL</pre><i> (Physical Examination):</i>";
@@ -266,6 +268,11 @@ class createPDF
 		$pdf->WriteHTML($this->njesia);
 		$pdf->Cell(10.8);
 		$pdf->Cell(52,5,$this->njesiaInput,0,1);
+
+		$pdf->Cell(500,5,"",0,1);
+		$pdf->WriteHTML($this->alergjite);
+		$pdf->Cell(44);
+		$pdf->MultiCell(116,5,$this->alergjiteInput,0,"L",false);
      
 		$pdf->Cell(500,5,"",0,1);
 		$pdf->WriteHTML($this->ankesa);
