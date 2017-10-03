@@ -34,6 +34,7 @@ $name1=$_SESSION['CurrentUser'];
        $diagnoza=$_POST['diagnoza'];
        $trajtimi=$_POST['trajtimi'];
        $perfundimi=$_POST['perfundimi'];
+       $alergjite=$_POST['alergjite'];
        $raporti=$_POST['rap'];
        $rp=$_POST['rp'];
        $udhPer=$_POST['udhPer'];
@@ -204,7 +205,7 @@ $name1=$_SESSION['CurrentUser'];
     $uplid=$_SESSION['uploadid'];
   }
 
-  $sql9="INSERT INTO `tblrekordetpax`(`did`, `emri`, `prindi`, `mbiemri`, `gjinia`, `ditelindja`, `adresa`, `data_regjistrimit`, `shifra_veprimtarise`, `cmimi`, `NumriID`, `email`, `vendlindja`, `NumriDosjes`, `njesia`, `telefoni`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportudhetimiperpasagjerid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES ($did,'$emri1',null,'$mbiemri','$gjinia','$ditelindja','$adresa','$currentDate',null,null,'$numriID','$email','$vendlindja','$nrDosjes','$njesia','$telefoni','$diagnoza','$ankesa','$anamneza','$anFamiljes','$laboratori','$trajtimi','$perfundimi',$rmid,$rupid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
+  $sql9="INSERT INTO `tblrekordetpax`(`did`, `emri`, `prindi`, `mbiemri`, `gjinia`, `ditelindja`, `adresa`, `data_regjistrimit`, `shifra_veprimtarise`, `cmimi`, `NumriID`, `email`, `vendlindja`, `NumriDosjes`, `njesia`, `telefoni`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `alergjite`, `raportimjeksorid`, `raportudhetimiperpasagjerid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES ($did,'$emri1',null,'$mbiemri','$gjinia','$ditelindja','$adresa','$currentDate',null,null,'$numriID','$email','$vendlindja','$nrDosjes','$njesia','$telefoni','$diagnoza','$ankesa','$anamneza','$anFamiljes','$laboratori','$trajtimi','$perfundimi','$alergjite',$rmid,$rupid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
         if ($conn->query($sql9) === TRUE) {
        //
        } else {
