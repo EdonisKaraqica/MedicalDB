@@ -6,7 +6,7 @@ define("PHPGRID_DBTYPE","mysqli"); // mysql,oci8(for oracle),mssql,postgres,syba
 define("PHPGRID_DBHOST","localhost");
 define("PHPGRID_DBUSER","root");
 define("PHPGRID_DBPASS","");
-define("PHPGRID_DBNAME","sherbimimjeksor_rina");
+define("PHPGRID_DBNAME","sherbimimjeksor");
 
 // Basepath for lib
 define("PHPGRID_LIBPATH",dirname(__FILE__).DIRECTORY_SEPARATOR."lib".DIRECTORY_SEPARATOR);
