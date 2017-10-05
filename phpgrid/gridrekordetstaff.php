@@ -96,7 +96,7 @@ $g->select_command = "SELECT a.rid as rid,
 
 
 FROM ((tblrekordetstaff as a
-INNER JOIN tblpacientatstaff as b on a.pid = b.pid)
+INNER JOIN tblpacientatstaff as b on a.pid = b.limakid)
 INNER JOIN tbldoktoret as c on a.did = c.did)";
 
 // this db table will be used for add,edit,delete
