@@ -81,7 +81,7 @@
       
        $sql1="INSERT INTO raportimjeksor(raporti) VALUES('".$raporti. "')";
        if ($conn->query($sql1) === TRUE) {
-       echo "Sql record created successfully <br>";
+       // echo "Sql record created successfully <br>";
        } else {
            echo "Error: " . $sql1 . "<br>" . $conn->error;
        }
@@ -103,7 +103,7 @@
            {
             $sql8="INSERT INTO udhezimperkonsultime(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar) VALUES ('".$udhPer."','".$gjPrez."','".$terapiaAp."')";
         if ($conn->query($sql8) === TRUE) {
-       echo "Sql8 record created successfully <br>";
+       // echo "Sql8 record created successfully <br>";
        } else {
            echo "Error: " . $sql8 . "<br>" . $conn->error;
        }
@@ -123,7 +123,7 @@
            {
        $sql2="INSERT INTO largimngapuna(qellimiilargimit,prej,deri) VALUES ('".$qellimiLar."','".$prej."','".$deri."')";
         if ($conn->query($sql2) === TRUE) {
-       echo "Sql2 record created successfully <br>";
+       // echo "Sql2 record created successfully <br>";
        } else {
            echo "Error: " . $sql2 . "<br>" . $conn->error;
        }
@@ -164,7 +164,7 @@
            {
         $sql4="INSERT INTO raportudhetimiperpasagjer(Origjina,Destinimi,Shenime,FileID) VALUES ('".$origjina."','".$destinacioni."','".$shenime."','1')";
         if ($conn->query($sql4) === TRUE) {
-       echo "Sql4 record created successfully <br>";
+       // echo "Sql4 record created successfully <br>";
        } else {
            echo "Error: " . $sql4 . "<br>" . $conn->error;
        }
@@ -184,7 +184,7 @@
         {
         $sql5="INSERT INTO recete(Rp) VALUES ('".$rp."')";
         if ($conn->query($sql5) === TRUE) {
-       echo "Sql5 record created successfully <br>";
+       // echo "Sql5 record created successfully <br>";
        } else {
            echo "Error: " . $sql5 . "<br>" . $conn->error;
        }
@@ -204,7 +204,7 @@
            {
         $sql6="INSERT INTO udhezimperekzaminimelaboratorike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar,FileID) VALUES ('".$udhPerLab."','".$gjPrezLab."','".$terLab."','1')";
         if ($conn->query($sql6) === TRUE) {
-       echo "Sql6 record created successfully <br>";
+       // echo "Sql6 record created successfully <br>";
        } else {
            echo "Error: " . $sql6 . "<br>" . $conn->error;
        }
@@ -225,7 +225,7 @@
            {
            $sql7="INSERT INTO udhezimperekzaminimerentgenologjike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar) VALUES ('".$udhezohetPerRent."','".$gjPrezenteRent."','".$terapiaApRent."')";
         if ($conn->query($sql7) === TRUE) {
-       echo "Sql7 record created successfully <br>";
+       // echo "Sql7 record created successfully <br>";
        } else {
            echo "Error: " . $sql7 . "<br>" . $conn->error;
        }
@@ -245,7 +245,7 @@
            {
             $sql8="INSERT INTO udhezimperkonsultime(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar) VALUES ('".$udhPer."','".$gjPrez."','".$terapiaAp."')";
         if ($conn->query($sql8) === TRUE) {
-       echo "Sql8 record created successfully <br>";
+       // echo "Sql8 record created successfully <br>";
        } else {
            echo "Error: " . $sql8 . "<br>" . $conn->error;
        }
