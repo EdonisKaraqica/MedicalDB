@@ -33,9 +33,14 @@ $fundi="";
 $numri="";
 $komentRaport="";
 
+if(isset($_GET['sid'])){
 $id=$_GET['sid'];
 
 $sql="SELECT * FROM tblrekordetstaff where rid=".$id;
+}elseif (isset($_GET['pxid'])) {
+  $pxid=$_GET['pxid'];
+  $sql="SELECT * FROM tblrekordetpax where rid=".$pxid;
+}
 
 $res=mysqli_query($conn,$sql) or die( "Error"); 
 while ($row=mysqli_fetch_assoc($res)) 
@@ -55,6 +60,7 @@ while ($row=mysqli_fetch_assoc($res))
       $perfundimi=$row['perfundimi'];
 
       $raportimjeksorid=$row['raportimjeksorid'];
+      if(isset($_GET['sid'])){
       $raportinderprerjesseperkohshmeperpuneID=$row['raportinderprerjesseperkohshmeperpuneID'];
       $raportudhetimiperpasagjerid=$row['raportudhetimiperpasagjerid'];
       $largimngapunaid=$row['largimngapunaid'];
@@ -62,9 +68,12 @@ while ($row=mysqli_fetch_assoc($res))
       $udhezimperekzaminimelaboratorikeid=$row['udhezimperekzaminimelaboratorikeid'];
       $udhezimperekzaminimerentgenologjikeid=$row['udhezimperekzaminimerentgenologjikeid'];
       $udhezimperkonsultimeid=$row['udhezimperkonsultimeid'];
+    }
 
       
       }
+      if(isset($_GET['sid']))
+    {
 
       $sql1="SELECT * FROM ((tblrekordetstaff as t1 inner join tbldoktoret as t2 on t1.did=t2.did) INNER JOIN tblpacientatstaff as c on t1.pid = c.limakid";
         
@@ -96,8 +105,34 @@ while ($row=mysqli_fetch_assoc($res))
         
 
         $sql1=$sql1.")";
+}
+// 
+else if(isset($_GET['pxid'])) {
+  $sql1="SELECT * FROM ((tbldoktoret as t2 inner join tblrekordetpax as t1 on t1.did=t2.did )";
+        
 
+        if (!empty($raportimjeksorid)) {
+            $sql1=$sql1." INNER JOIN raportimjeksor as t4 on t1.raportimjeksorid = t4.ID";
+        }
+        if (!empty($receteid)) {
+            $sql1=$sql1." INNER JOIN recete as r on t1.receteid = r.ID";
+        }
+        if (!empty($udhezimperkonsultimeid)) {
+            $sql1=$sql1." INNER JOIN udhezimperkonsultime as t5 on t1.udhezimperkonsultimeid = t5.ID";
+        }
+        if (!empty($udhezimperekzaminimelaboratorikeid)) {
+            $sql1=$sql1." INNER JOIN udhezimperekzaminimelaboratorike as t6 on t1.udhezimperekzaminimelaboratorikeid = t6.ID";
+        }
+        if (!empty($udhezimperekzaminimerentgenologjikeid)) {
+            $sql1=$sql1." INNER JOIN udhezimperekzaminimerentgenologjike as t7 on t1.udhezimperekzaminimerentgenologjikeid = t7.ID";
+        }
+        if (!empty($raportudhetimiperpasagjerid)) {
+            $sql1=$sql1." INNER JOIN raportudhetimiperpasagjer as t10 on t1.raportudhetimiperpasagjerid = t10.ID";
+        }
+        $sql1=$sql1.") where rid=".$pxid;
+}
 
+// echo $sql1;
       $res1=mysqli_query($conn,$sql1) or die("Error"); 
 
 
