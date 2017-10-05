@@ -2,7 +2,7 @@
 
 require('fpdf181/fpdf.php');
 require_once( 'databaze.php');
-session_start();
+
 
 /************************************/
 /* global functions                 */
@@ -753,7 +753,7 @@ class PDF extends FPDF
 
     function Footer()
     {
-    	$this->data=$_POST['data'];
+    	// $this->data=date("Y/m/d");
     	$this->emriDok=$_SESSION['emriDok'];
     	$this->mbiemriDok=$_SESSION['mbiemriDok'];
     	$this->email=$_SESSION['emailDok'];
@@ -769,7 +769,7 @@ class PDF extends FPDF
         //Print centered page number
         $this->SetTextColor(0,0,0);
         //$this->Cell(0,4,'dfsdf',0,1,'C');
-        $this->Cell(0,4,$this->emriDok.' '.$this->mbiemriDok.', '. $this->data.' '.date("h:i"),0,1,'C');
+        $this->Cell(0,4,$this->emriDok.' '.$this->mbiemriDok.', '. '$this->data'.' '.date("h:i"),0,1,'C');
         //$this->Cell(0,4,$this->data.', '.date("h:i:sa").', '.$this->emriDok.' '.$this->mbiemriDok,0,1,'C');
 
         
