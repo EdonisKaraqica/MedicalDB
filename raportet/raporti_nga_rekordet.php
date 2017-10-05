@@ -33,7 +33,7 @@ $fundi="";
 $numri="";
 $komentRaport="";
 
-$id=$_GET['rid'];
+$id=$_GET['sid'];
 
 $sql="SELECT * FROM tblrekordetstaff where rid=".$id;
 
@@ -257,7 +257,7 @@ if (!empty($udhezimperkonsultimeid)) {
 
 ?>
 <?php
-       session_start();
+       // session_start();
        $username=$_SESSION['CurrentUser'];
        $sql1="SELECT emri,mbiemri,email,nrtel FROM tbldoktoret where username='".$username."'"; 
          $res1=mysqli_query($conn,$sql1) or die( "Error");
@@ -274,15 +274,12 @@ if (!empty($udhezimperkonsultimeid)) {
       $_SESSION['emailDok']=$email;
       $_SESSION['nrtel']=$nrtel;
       $_SESSION['emriDok']=$emriDok;
-            $currentDate = date("Y/m/d")
+            
 
 
 
       ?>
-<form action="ushtrime2.php" method="post">
-           <input type="hidden" name="data" value="<?php echo $currentDate; ?>">
 
 
-<input type="submit">
-</form>
+<?php require("ushtrime2.php"); ?>
 
