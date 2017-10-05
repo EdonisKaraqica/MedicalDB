@@ -479,7 +479,7 @@ $nrkerkesave = $notificationres["requestsnr"];
                 echo "(" . $nrkerkesave . ")<img src=\"images/220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
               } ?>
             </a>
-            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/list.png"/></i>Regjistri(Staff)</a>
+            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/list--.png"/></i>Regjistri(Staff)</a>
             <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img width="32px" height="48px" src="images/5.png"/></i>Regjistri(Pax)</a>
             <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/personel.png"/></i>Lista e Pacienteve(Staff)</a>
             <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>Personeli</a>
