@@ -442,7 +442,7 @@ $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["export"] = false;
 //$col["default"] = "View More";
-$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=p'+cellval+'\">'+\"Download\"+'</a>'; }";
+$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?pxid='+cellval+'\">'+\"Download\"+'</a>'; }";
 $col["editable"] = true;
 $col["align"] = "center";
 $col["width"] = "165";
