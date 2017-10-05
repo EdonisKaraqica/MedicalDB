@@ -2,8 +2,13 @@
 session_start();
 $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
 
+if($connect){
+  echo "inter";
+}
+else{echo "milan";}
+
 $sqluserinfo = "select emri,mbiemri from tbldoktoret where username='" . $_SESSION['CurrentUser'] . "'";
-//echo $sqluserinfo;
+echo $sqluserinfo;
 
 $users = mysqli_query($connect, $sqluserinfo);
 $userinfo = mysqli_fetch_array($users);
@@ -14,7 +19,7 @@ $lastname = $userinfo['mbiemri'];
 $_SESSION['emri'] = $firstname;
 $_SESSION['mbiemri'] = $lastname;
 
-//echo $firstname; echo $lastname;
+echo $firstname; echo $lastname;
 
 if(isset($_GET['btnMuaji'])){
   $muaji = $_GET['muajiinput'];
@@ -65,135 +70,157 @@ if(isset($_GET['btnMuaji'])){
 }
 
   //echo $muajiviti . $muajimuaji;
-  $sql = "select * from
-     (SELECT r.rid,
-        p.emri as pemri,
-        p.mbiemri as pmbiemri,
-        p.gjinia,
-        d.emri as 'demri',
-        d.mbiemri as 'dmbiemri',
-        r.shifra_veprimtarise,
-        r.pozita_punes,
-        r.anamneza_konstatimi,
-        r.diagnoza,
-        r.terapia,
-        r.ku_udhezohet,
-        r.data_regjistrimit,
-        r.data_paraqitjes_serishme,
-        r.cmimi
-        from tblrekordetstaff as r INNER JOIN tblpacientatstaff as p INNER JOIN tbldoktoret as d WHERE p.pid=r.pid and r.did=d.did and month(r.data_regjistrimit)='" . $muajimuaji . "' and year(r.data_regjistrimit)='" . $muajiviti . "') as t1";
-  $sql2 = "select * from
-	   (SELECT r.rid,
-     		r.emri as pemri,
-     		r.mbiemri as pmbiemri,
-     		d.emri as 'demri',
-     		d.mbiemri as 'dmbiemri',
-         	r.gjinia,
-     		r.shifra_veprimtarise,
-     		r.anamneza_konstatimi,
-     		r.diagnoza,
-     		r.terapia,
-     		r.ku_udhezohet,
-     		r.data_regjistrimit,
-     		r.paraqitja_serishme,
-     		r.cmimi
-     		from tblrekordetpax as r INNER JOIN tbldoktoret as d WHERE r.did=d.did and month(r.data_regjistrimit)='" . $muajimuaji . "' and year(r.data_regjistrimit)='" . $muajiviti . "') as t1";
+  $sql = "select
+					a.rid,
+					b.emri as pemri,
+                    b.mbiemri as pmbiemri,
+                    b.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+				 from ((tblrekordetstaff as a
+                      INNER JOIN tblpacientatstaff as b on a.pid=b.pid)
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where month(a.data_regjistrimit)='" . $muajimuaji . "' and year(data_regjistrimit)='" . $muajiviti . "'";
+
+
+  $sql2 = "select
+          					a.rid,
+          					a.emri as pemri,
+                    a.mbiemri as pmbiemri,
+                    a.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+				 from (tblrekordetpax as a
+
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where month(a.data_regjistrimit)='" . $muajimuaji . "' and year(data_regjistrimit)='" . $muajiviti . "'";
+
+
+
+
   $_SESSION['sqlsearch'] = $sql;
   $_SESSION['sqlsearch2'] = $sql2;
   $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per muajin <u>" . $muajitext . "-" . $muajiviti . ":</u></p>";
-  //echo $_SESSION['chosenstats'];
+  echo $_SESSION['chosenstats'];
   $_SESSION['filename']="Regjistri-" . $muajiviti . "-" . $muajimuaji;
 
 }
 else if(isset($_GET['btnJava'])){
   $java = $_GET['javainput'];
-  //echo $java;
+  echo $java;
   $javaviti = substr($java,0,4);
   //echo $javaviti; //viti
   $javajava = substr($java,6,2);
   //echo $javajava; //java
   //$sql = "select * from (SELECT r.rid,p.emri,p.mbiemri,d.emri as 'emri doktorit',d.mbiemri as 'mbiemri doktorit',r.shifra_veprimtarise,r.pozita_punes,r.anamneza_konstatimi,r.diagnoza,r.terapia,r.ku_udhezohet,r.data_regjistrimit,r.data_paraqitjes_serishme,r.cmimi from tblrekordetstaff as r INNER JOIN tblpacientatstaff as p INNER JOIN tbldoktoret as d WHERE p.pid=r.pid and r.did=d.did and week(r.data_regjistrimit)='36' and year(r.data_regjistrimit)='2017') as t1";
   //echo $sql;
-  $sql = "select * from
-              (SELECT r.rid,
-                      p.emri as pemri,
-                      p.mbiemri as pmbiemri,
-                      p.gjinia,
-                      d.emri as 'demri',
-                      d.mbiemri as 'dmbiemri',
-                      r.shifra_veprimtarise,
-                      r.pozita_punes,
-                      r.anamneza_konstatimi,
-                      r.diagnoza,
-                      r.terapia,
-                      r.ku_udhezohet,
-                      r.data_regjistrimit,
-                      r.data_paraqitjes_serishme,
-                      r.cmimi
-                      from tblrekordetstaff as r INNER JOIN tblpacientatstaff as p INNER JOIN tbldoktoret as d WHERE p.pid=r.pid and r.did=d.did and week(r.data_regjistrimit)='" . $javajava . "' and year(r.data_regjistrimit)='" . $javaviti . "') as t1";
-  //echo $sql;
-    $sql2 = "select * from
-       (SELECT r.rid,
-          r.emri as pemri,
-          r.mbiemri as pmbiemri,
-          d.emri as 'demri',
-          d.mbiemri as 'dmbiemri',
-            r.gjinia,
-          r.shifra_veprimtarise,
-          r.anamneza_konstatimi,
-          r.diagnoza,
-          r.terapia,
-          r.ku_udhezohet,
-          r.data_regjistrimit,
-          r.paraqitja_serishme,
-          r.cmimi
-          from tblrekordetpax as r INNER JOIN tbldoktoret as d WHERE r.did=d.did and week(r.data_regjistrimit)='" . $javajava . "' and year(r.data_regjistrimit)='" . $javaviti . "') as t1";
+  $sql = "select
+					a.rid,
+					b.emri as pemri,
+                    b.mbiemri as pmbiemri,
+                    b.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+				 from ((tblrekordetstaff as a
+                      INNER JOIN tblpacientatstaff as b on a.pid=b.pid)
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where week(a.data_regjistrimit)='" . $javajava . "' and year(data_regjistrimit)='" . $javaviti . "'";
+
+
+  $sql2 = "select
+          					a.rid,
+          					a.emri as pemri,
+                    a.mbiemri as pmbiemri,
+                    a.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+				 from (tblrekordetpax as a
+
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where week(a.data_regjistrimit)='" . $javajava . "' and year(data_regjistrimit)='" . $javaviti . "'";
+
     $_SESSION['sqlsearch'] = $sql;
     $_SESSION['sqlsearch2'] = $sql2;
     $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per javen <u>" . $javajava . " te vitit " . $javaviti . ":</u></p>";
-    //echo $_SESSION['chosenstats'];
+    echo $_SESSION['chosenstats'];
     $_SESSION['filename']="Regjistri-" . $javaviti . "-Java-" . $javajava;
 }
 else{
   $viti = $_GET['vitiinput'];
-  $sql = "select * from
-            (SELECT r.rid,
-            p.emri as pemri,
-            p.mbiemri as pmbiemri,
-            p.gjinia,
-            d.emri as 'demri',
-            d.mbiemri as 'dmbiemri',
-            r.shifra_veprimtarise,
-            r.pozita_punes,
-            r.anamneza_konstatimi,
-            r.diagnoza,
-            r.terapia,
-            r.ku_udhezohet,
-            r.data_regjistrimit,
-            r.data_paraqitjes_serishme,
-            r.cmimi
-            from tblrekordetstaff as r INNER JOIN tblpacientatstaff as p INNER JOIN tbldoktoret as d WHERE p.pid=r.pid and r.did=d.did and year(r.data_regjistrimit)='" . $viti . "') as t1";
-  //echo $sql;
-    $sql2 = "select * from
-       (SELECT r.rid,
-          r.emri as pemri,
-          r.mbiemri as pmbiemri,
-          d.emri as 'demri',
-          d.mbiemri as 'dmbiemri',
-            r.gjinia,
-          r.shifra_veprimtarise,
-          r.anamneza_konstatimi,
-          r.diagnoza,
-          r.terapia,
-          r.ku_udhezohet,
-          r.data_regjistrimit,
-          r.paraqitja_serishme,
-          r.cmimi
-          from tblrekordetpax as r INNER JOIN tbldoktoret as d WHERE r.did=d.did and year(r.data_regjistrimit)='" . $viti . "') as t1";
+
+  $sql = "select
+          a.rid,
+          b.emri as pemri,
+                    b.mbiemri as pmbiemri,
+                    b.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+         from ((tblrekordetstaff as a
+                      INNER JOIN tblpacientatstaff as b on a.pid=b.pid)
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where year(data_regjistrimit)='" . $viti . "'";
+
+
+  $sql2 = "select
+                    a.rid,
+                    a.emri as pemri,
+                    a.mbiemri as pmbiemri,
+                    a.gjinia,
+                    concat(c.emri, \" \", c.mbiemri) as kontrolloi,
+                    a.ankesa,
+                    a.shifra_veprimtarise as shv,
+                    a.anamnezaesemundjes as anamneza,
+                    a.diagnoza,
+                    a.trajtimi,
+                    a.perfundimi,
+                    a.data_regjistrimit as data
+
+
+         from (tblrekordetpax as a
+
+                      INNER JOIN tbldoktoret as c on a.did=c.did) where year(data_regjistrimit)='" . $viti . "'";
+
+
+
     $_SESSION['sqlsearch'] = $sql;
     $_SESSION['sqlsearch2'] = $sql2;
   $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per vitin <u>" . $viti . ":</u></p>";
-  //echo $_SESSION['chosenstats'];
+  echo $_SESSION['chosenstats'];
   $_SESSION['filename']="Regjistri-" . "Viti-" . $viti;
 }
 
@@ -232,15 +259,18 @@ $result2 = mysqli_query($connect, $sql2);
     <p>Regjistri per Staff:</p>
     <table class="table table-bordered">
      <tr><th>Nr. i Dosjes</th>
-       <th>Emri</th>
-       <th>Mbiemri</th>
-       <th>Emri i Dr.</th>
-         <th>Mbiemri i Dr.</th><th>Gjinia</th>
+         <th>Emri</th>
+         <th>Mbiemri</th>
+         <th>Gjinia</th>
+         <th>Ankesa</th>
          <th>Shifra e v.</th>
-       <th>Pozita e punes</th><th>Anamneza & Konstatimi</th><th>Diagnoza</th>
-       <th>Terapia</th><th>Ku udhezohet</th><th>Data</th><th>Paraqitja e serishme</th>
-          <th>Cmimi</th>
-                    </tr>
+         <th>Anamneza</th>
+         <th>Diagnoza</th>
+         <th>Trajtimi</th>
+         <th>Perfundimi</th>
+         <th>Data</th>
+         <th>Kontrolloi</th>
+      </tr>
      <?php
      while($row = mysqli_fetch_array($result))
      {
@@ -249,15 +279,21 @@ $result2 = mysqli_query($connect, $sql2);
         <td>'.$row["rid"].'</td>
          <td>'.$row["pemri"].'</td>
            <td>'.$row["pmbiemri"].'</td>
-            <td>'.$row["demri"].'</td>
-            <td>'.$row["dmbiemri"].'</td>
             <td>'.$row["gjinia"].'</td>
-             <td>'.$row["shifra_veprimtarise"].'</td><td>'.$row["pozita_punes"].'</td><td>'.$row["anamneza_konstatimi"].'</td>
-                 <td>'.$row["diagnoza"].'</td><td>'.$row["terapia"].'</td>
-                     <td>'.$row["ku_udhezohet"].'</td><td>'.$row["data_regjistrimit"].'</td>
-                         <td>'.$row["data_paraqitjes_serishme"].'</td>
 
-         <td>'.$row["cmimi"].'</td></tr>
+            <td>'.$row["ankesa"].'</td>
+              <td>'.$row["shv"].'</td>
+              <td>'.$row["anamneza"].'</td>
+              <td>'.$row["diagnoza"].'</td>
+
+                   <td>'.$row["trajtimi"].'</td>
+
+                     <td>'.$row["perfundimi"].'</td>
+
+                        <td>'.$row["data"].'</td>
+                         <td>'.$row["kontrolloi"].'</td>
+
+         </tr>
         ';
      }
      ?>
@@ -266,20 +302,18 @@ $result2 = mysqli_query($connect, $sql2);
 
     <table class="table table-bordered">
      <tr>
-         <th>Nr. i Dosjes</th>
-         <th>Emri</th>
-         <th>Mbiemri</th>
-         <th>Emri i Dr.</th>
-         <th>Mbiemri i Dr.</th>
-         <th>Gjinia</th>
-         <th>Shifra e v.</th>
-         <th>Anamneza & Konstatimi</th>
-         <th>Diagnoza</th>
-         <th>Terapia</th>
-         <th>Ku udhezohet</th>
-         <th>Data</th>
-         <th>Paraqitja e serishme</th>
-         <th>Cmimi</th>
+       <th>Nr. i Dosjes</th>
+           <th>Emri</th>
+           <th>Mbiemri</th>
+           <th>Gjinia</th>
+           <th>Ankesa</th>
+           <th>Shifra e v.</th>
+           <th>Anamneza</th>
+           <th>Diagnoza</th>
+           <th>Trajtimi</th>
+           <th>Perfundimi</th>
+           <th>Data</th>
+           <th>Kontrolloi</th>
         </tr>
 
         <?php
@@ -290,25 +324,25 @@ $result2 = mysqli_query($connect, $sql2);
            <td>'.$row["rid"].'</td>
             <td>'.$row["pemri"].'</td>
               <td>'.$row["pmbiemri"].'</td>
-               <td>'.$row["demri"].'</td>
-               <td>'.$row["dmbiemri"].'</td>
                <td>'.$row["gjinia"].'</td>
-               <td>'.$row["shifra_veprimtarise"].'</td>
-               <td>'.$row["anamneza_konstatimi"].'</td>
+               <td>'.$row["ankesa"].'</td>
+               <td>'.$row["shv"].'</td>
+               <td>'.$row["anamneza"].'</td>
                <td>'.$row["diagnoza"].'</td>
-               <td>'.$row["terapia"].'</td>
-               <td>'.$row["ku_udhezohet"].'</td>
-               <td>'.$row["data_regjistrimit"].'</td>
-               <td>'.$row["paraqitja_serishme"].'</td>
-               <td>'.$row["cmimi"].'</td>
+               <td>'.$row["trajtimi"].'</td>
+               <td>'.$row["perfundimi"].'</td>
+               <td>'.$row["data"].'</td>
+               <td>'.$row["kontrolloi"].'</td>
             </tr>
            ';
           }
         ?>
        </table>
 
+
+
     <form method="post" action="export2.php">
-     <input type="submit" name="export" class="btn btn-success" value="Shkarko ne Excel file" />
+     <input type="submit" name="export" id="btnexport" class="btn btn-success" value="Shkarko ne Excel file" />
     </form>
    </div>
   </div>

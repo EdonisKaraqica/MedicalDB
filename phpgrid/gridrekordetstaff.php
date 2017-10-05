@@ -25,7 +25,7 @@ $db_conf = array(
 $g = new jqgrid($db_conf);
 
 $opt = array();
-$opt["rowNum"] = 10; // by default 20
+$opt["rowNum"] = 20; // by default 20
 $opt["sortname"] = 'rid'; // by default sort grid by this field
 $opt["sortorder"] = "asc"; // ASC or DESC
 $opt["caption"] = "Regjistri i kontrollave te stafit"; // caption of grid
