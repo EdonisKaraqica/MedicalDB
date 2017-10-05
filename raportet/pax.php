@@ -92,3 +92,11 @@
                            </div>
                         </div>
                      </div>
+                     <div class="form-group">
+                        <label class="col-md-1 control-label" for="Emri">Alergjitë
+                        <br><small>(Allergy):</small>
+                        </label>
+                        <div class="input-field col-md-11">
+                           <input id="Emri" name="alergjite" type="text" placeholder="" value="" size="400" class="form-control input-md">
+                        </div>
+                     </div>
