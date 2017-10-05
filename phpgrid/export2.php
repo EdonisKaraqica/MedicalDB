@@ -17,6 +17,8 @@ if(isset($_POST["export"]))
  //$query = "select emri,prindi,mbiemri,gjinia,ditelindja,adresa,data_regjistrimit,shifra_veprimtarise,ankesa,anamneza_konstatimi,diagnoza,terapia,ku_udhezohet,paraqitja_serishme,cmimi from tblrekordetpax where YEAR(data_regjistrimit)='2017'";
  $result = mysqli_query($connect, $query);
  $result2 = mysqli_query($connect, $query2);
+
+
  if(mysqli_num_rows($result) > 0)
  {
   //$output .= "<p style=\"";
@@ -26,32 +28,39 @@ if(isset($_POST["export"]))
   $output .= '
    <table class="table" border="1">
    <tr><th>Nr. i Dosjes</th>
-     <th>Emri</th>
-     <th>Mbiemri</th>
-     <th>Emri i Dr.</th>
-       <th>Mbiemri i Dr.</th><th>Gjinia</th>
+       <th>Emri</th>
+       <th>Mbiemri</th>
+       <th>Gjinia</th>
+       <th>Ankesa</th>
        <th>Shifra e v.</th>
-     <th>Pozita e punes</th><th>Anamneza & Konstatimi</th><th>Diagnoza</th>
-     <th>Terapia</th><th>Ku udhezohet</th><th>Data</th><th>Paraqitja e serishme</th>
-        <th>Cmimi</th>
+       <th>Anamneza</th>
+       <th>Diagnoza</th>
+       <th>Trajtimi</th>
+       <th>Perfundimi</th>
+       <th>Data</th>
+       <th>Kontrolloi</th>
                   </tr>
   ';
   while($row = mysqli_fetch_array($result))
   {
    $output .= '
    <tr>
-    <td>'.$row["rid"].'</td>
-     <td>'.$row["pemri"].'</td>
-       <td>'.$row["pmbiemri"].'</td>
-        <td>'.$row["demri"].'</td>
-        <td>'.$row["dmbiemri"].'</td>
-        <td>'.$row["gjinia"].'</td>
-         <td>'.$row["shifra_veprimtarise"].'</td><td>'.$row["pozita_punes"].'</td><td>'.$row["anamneza_konstatimi"].'</td>
-             <td>'.$row["diagnoza"].'</td><td>'.$row["terapia"].'</td>
-                 <td>'.$row["ku_udhezohet"].'</td><td>'.$row["data_regjistrimit"].'</td>
-                     <td>'.$row["data_paraqitjes_serishme"].'</td>
+   <td>'.$row["rid"].'</td>
+    <td>'.$row["pemri"].'</td>
+      <td>'.$row["pmbiemri"].'</td>
+       <td>'.$row["gjinia"].'</td>
 
-     <td>'.$row["cmimi"].'</td></tr>
+       <td>'.$row["ankesa"].'</td>
+         <td>'.$row["shv"].'</td>
+         <td>'.$row["anamneza"].'</td>
+         <td>'.$row["diagnoza"].'</td>
+
+              <td>'.$row["trajtimi"].'</td>
+
+                <td>'.$row["perfundimi"].'</td>
+
+                   <td>'.$row["data"].'</td>
+                    <td>'.$row["kontrolloi"].'</td></tr>
         ';
 
 
@@ -74,38 +83,36 @@ if(mysqli_num_rows($result2) > 0)
   $output .= '
    <table class="table" border="1">
    <tr>
-       <th>Nr. i Dosjes</th>
+   <th>Nr. i Dosjes</th>
        <th>Emri</th>
        <th>Mbiemri</th>
-       <th>Emri i Dr.</th>
-       <th>Mbiemri i Dr.</th>
        <th>Gjinia</th>
+       <th>Ankesa</th>
        <th>Shifra e v.</th>
-       <th>Anamneza & Konstatimi</th>
+       <th>Anamneza</th>
        <th>Diagnoza</th>
-       <th>Terapia</th>
-       <th>Ku udhezohet</th>
+       <th>Trajtimi</th>
+       <th>Perfundimi</th>
        <th>Data</th>
-       <th>Paraqitja e serishme</th>
-       <th>Cmimi</th>
+       <th>Kontrolloi</th>
       </tr>
   ';
   while($row = mysqli_fetch_array($result2))
   {
    $output .= '
    <tr>
-    <td>'.$row["rid"].'</td>
-     <td>'.$row["pemri"].'</td>
-       <td>'.$row["pmbiemri"].'</td>
-        <td>'.$row["demri"].'</td>
-        <td>'.$row["dmbiemri"].'</td>
-        <td>'.$row["gjinia"].'</td>
-         <td>'.$row["shifra_veprimtarise"].'</td><td>'.$row["anamneza_konstatimi"].'</td>
-             <td>'.$row["diagnoza"].'</td><td>'.$row["terapia"].'</td>
-                 <td>'.$row["ku_udhezohet"].'</td><td>'.$row["data_regjistrimit"].'</td>
-                     <td>'.$row["paraqitja_serishme"].'</td>
-
-     <td>'.$row["cmimi"].'</td></tr>
+   <td>'.$row["rid"].'</td>
+    <td>'.$row["pemri"].'</td>
+      <td>'.$row["pmbiemri"].'</td>
+       <td>'.$row["gjinia"].'</td>
+       <td>'.$row["ankesa"].'</td>
+       <td>'.$row["shv"].'</td>
+       <td>'.$row["anamneza"].'</td>
+       <td>'.$row["diagnoza"].'</td>
+       <td>'.$row["trajtimi"].'</td>
+       <td>'.$row["perfundimi"].'</td>
+       <td>'.$row["data"].'</td>
+       <td>'.$row["kontrolloi"].'</td></tr>
         ';
   }
   $output .= '</table>';
