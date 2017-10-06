@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($res1)) {
 
 $msg = "Kerkesa juaj per pushim mjekesor eshte aprovuar!";
 $subj = 'Aprovimi i Kerkeses';
-$to = "sarakuqi94@gmail.com";
+$to = $email;
 $from = 'medical.db2@gmail.com';
 $name = 'MedicalDB';
 //$body = $msg;
