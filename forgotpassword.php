@@ -2,7 +2,7 @@
 session_start();
 ?>
 <head>
-    <title>MedicalDB</title>
+    <title>Forgot Password</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -15,7 +15,6 @@ require_once('mailing/PHPMailer-5.2.10/class.phpmailer.php');
 require_once('mailing/PHPMailer-5.2.10/class.smtp.php');    //library added in download source.
 $passwordi = "";
 $passwordiErr = $nameErr = "";
-require_once 'C:\Windows\SysWOW64\vendor\autoload.php';
 
 function test_input($data)
 {
@@ -42,7 +41,6 @@ function test_input($data)
         <input type="submit" class="btn btn-primary btn-block" name="forgotPass" value="Request Password">
 
         <?php
-        require_once 'C:\Windows\SysWOW64\vendor\autoload.php';
         if (isset($_POST['forgotPass'])) {
             include('databaze.php');
             $conn = new mysqli($servername, $username, $password, $dbname);
