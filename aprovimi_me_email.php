@@ -46,7 +46,7 @@ while ($row=mysqli_fetch_assoc($res1))
 // $result = $mailer->send($message);
 
 // Create the Transport
-$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465,'ssl'))
+$transport = (new Swift_SmtpTransport('smtp.example.org', 465,'ssl'))
   ->setUsername('medical.db2@gmail.com')
   ->setPassword('limakasi202A')
 ;

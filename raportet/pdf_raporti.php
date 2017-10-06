@@ -48,7 +48,7 @@ class createPDF
         $this->emailInput=$_SESSION['email'];
         $this->vendlindja=$_SESSION['vendlindja'];
         $this->gjiniaInput=$_SESSION['gjinia'];
-        //$this->nrDosjes=$_SESSION['nrDosjes'];
+        $this->nrDosjes=$_SESSION['nrDosjes'];
         $this->njesiaInput=$_SESSION['njesia'];
 		
 		$this->alergjiteInput=$_SESSION['alergjite'];

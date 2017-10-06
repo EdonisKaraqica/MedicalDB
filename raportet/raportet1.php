@@ -150,7 +150,7 @@ $(document).ready(function(){
                      }elseif (isset($_GET['kidselect'])) {
                       $sql2 = "UPDATE tblkerkesat set approved=1,shqyrtuar=1 where kid='" . $_GET['kidselect'] . "'";
                       $query2 = mysqli_query($conn,$sql2);
-                      include("../aprovimi_me_email.php");
+                      include("../mailing/mail.php");
                        include("staff_nga_kerkesat.php");
 
                      }
