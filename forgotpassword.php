@@ -2,15 +2,17 @@
 session_start();
 ?>
 <head>
-    <title>Bootstrap Example</title>
+    <title>MedicalDB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel='stylesheet' type='text/css' href='style.css' />
+    <link rel='stylesheet' type='text/css' href='style.css'/>
 </head>
 <?php
+require_once('mailing/PHPMailer-5.2.10/class.phpmailer.php');
+require_once('mailing/PHPMailer-5.2.10/class.smtp.php');    //library added in download source.
 $passwordi = "";
 $passwordiErr = $nameErr = "";
 require_once 'C:\Windows\SysWOW64\vendor\autoload.php';
@@ -59,23 +61,58 @@ function test_input($data)
                 $url = "Please click the link to reset your password:
                         http://localhost/MedicalDB/resetpassword.php?token=$str&email=$email";
 
-                //mail($email,"Reset your Password", "To reset your password please visit this: $url","From: noreply@medicaldb.com\r\n");
 
-                $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-                    ->setUsername('medical.db2@gmail.com')
-                    ->setPassword('limakasi202A');
+                $msg = "To reset your password please visit this: $url";
+                $subj = 'Reset your Password';
+                $to = $email;
+                $from = 'medical.db2@gmail.com';
+                $name = 'MedicalDB';
+                $body = $url;
 
-                // Create the Mailer using your created Transport
-                $mailer = new Swift_Mailer($transport);
 
-                $message = (new Swift_Message('Password recovery'))
-                    ->setFrom(['medical.db2@gmail.com' => 'noreply@limak.medical'])
-                    ->setTo($email)
-                    ->setBody($url);
+                function smtpmailer($to, $from, $from_name = 'MedicalDB', $subject, $body, $is_gmail = true)
+                {
+                    global $error;
+                    $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->SMTPAuth = true;
+                    $mail->SMTPOptions = array(
+                        'ssl' => array(
+                            'verify_peer' => false,
+                            'verify_peer_name' => false,
+                            'allow_self_signed' => true
+                        )
+                    );
+                    if ($is_gmail) {
+                        $mail->SMTPSecure = 'ssl';
+                        $mail->Host = 'smtp.gmail.com';
+                        $mail->Port = 465;
+                        $mail->Username = 'medical.db2@gmail.com';
+                        $mail->Password = 'limakasi202A';
+                    } else {
+                        $mail->Host = 'smtp.mail.google.com';
+                        $mail->Username = 'medical.db2@gmail.com';
+                        $mail->Password = 'limakasi202A';
+                    }
+                    $mail->IsHTML(true);
+                    $mail->From = "noreply@medical.db";
+                    $mail->FromName = "noreply@medical.db";
+                    $mail->Sender = $from; // indicates ReturnPath header
+                    $mail->AddReplyTo($from, $from_name); // indicates ReplyTo headers
+//        $mail->AddCC('cc@site.com.com', 'CC: to site.com');
+                    $mail->Subject = $subject;
+                    $mail->Body = $body;
+                    $mail->AddAddress($to);
+                    if (!$mail->Send()) {
+                        $error = 'Mail error: ' . $mail->ErrorInfo;
+                        return true;
+                    } else {
+                        $error = 'Message sent!';
+                        return false;
+                    }
+                }
 
-               // Send the message
-                $result = $mailer->send($message);
-
+                echo smtpmailer($to, $from, $name, $subj, $msg);
                 $conn->query("UPDATE tbldoktoret SET token='$str' WHERE email='$email'");
                 echo "Please check your email!";
             } else {
