@@ -478,7 +478,7 @@ $nrkerkesave = $notificationres["requestsnr"];
             -->
             <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register.png"/></i>Regjistro kontrolle</a>
             <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
-                echo "(" . $nrkerkesave . ")<img src=\"images/220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
+                echo "(" . $nrkerkesave . ")";
               } ?>
             </a>
             <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/staf.png"/></i>Staf</a>
@@ -486,11 +486,11 @@ $nrkerkesave = $notificationres["requestsnr"];
 
             <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/export.png"/></i>Export</a>
             <div class="dropdown">
-   <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/personel.png"/></i><a class="dropbtn">Perdoruesit</a>
-   <div class="dropdown-content">
-     <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>Personeli</a>
-     <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/personel.png"/></i>Stafi</a>
-     
+               <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/icons/avatar.png"/></i><a class="dropbtn">Perdoruesit</a>
+               <div class="dropdown-content">
+               <a id="agdr" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>&nbsp;&nbsp;&nbsp;Personeli</a>
+                 <a id="agstaff" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/team.png"/></i>&nbsp;&nbsp;&nbsp;Stafi</a>
+
    </div>
   </div>
 
