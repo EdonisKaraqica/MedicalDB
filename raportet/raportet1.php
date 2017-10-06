@@ -18,6 +18,7 @@ while ($row=mysqli_fetch_assoc($res))
       $telefoni=$row[ 'nrtel']; 
       $adresa=$row[ 'adresa']; 
       $email=$row[ 'email']; 
+      $vendlindja=$row[ 'vendlindja']; 
       $alergjite=$row['alergjite'];
       }
 
