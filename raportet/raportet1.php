@@ -21,8 +21,33 @@ while ($row=mysqli_fetch_assoc($res))
       $vendlindja=$row[ 'vendlindja']; 
       $alergjite=$row['alergjite'];
       }
+     
+     
+    }
+    if(isset($_GET['id'])||isset($_GET['kidselect'])){
+     $sql22="SELECT rid FROM tblrekordetstaff ORDER BY rid DESC LIMIT 1;";
+     
+      $res2=mysqli_query($conn,$sql22) or die( "Error");   
+while ($row1=mysqli_fetch_assoc($res2)) 
+   { 
+      $rid=$row1['rid']; 
+      
+      }
+    }else{
+      $sql22="SELECT rid FROM tblrekordetpax ORDER BY rid DESC LIMIT 1;";
+     
+      $res2=mysqli_query($conn,$sql22) or die( "Error");   
+while ($row1=mysqli_fetch_assoc($res2)) 
+   { 
+      $rid=$row1['rid']; 
+      
+      }
 
-} 
+    }
+
+
+
+
 
  ?>
 
