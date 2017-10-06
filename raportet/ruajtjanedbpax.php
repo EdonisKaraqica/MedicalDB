@@ -144,7 +144,10 @@ $name1=$_SESSION['CurrentUser'];
    }
    if (!empty($_POST["udhPerLab"])||!empty($_POST["gjPrezLab"])||!empty($_POST["terLab"])) 
            {
-        $sql6="INSERT INTO udhezimperekzaminimelaboratorike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar,FileID) VALUES ('".$udhPerLab."','".$gjPrezLab."','".$terLab."','1')";
+            $udhezimperLabID='NULL';
+           if(($_FILES['userfile']['size'] > 0)){
+    $udhezimperLabID=$_SESSION['udhezimperLabID'];}
+        $sql6="INSERT INTO udhezimperekzaminimelaboratorike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar,FileID) VALUES ('".$udhPerLab."','".$gjPrezLab."','".$terLab."','$udhezimperLabID')";
         if ($conn->query($sql6) === TRUE) {
        // echo "Sql6 record created successfully <br>";
        } else {
