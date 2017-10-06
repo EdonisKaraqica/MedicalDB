@@ -81,6 +81,8 @@ $nrkerkesave = $notificationres["requestsnr"];
     }
 
 
+
+
     </style>
 
     <script type="text/javascript">
@@ -475,15 +477,28 @@ $nrkerkesave = $notificationres["requestsnr"];
             <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>
             -->
             <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register.png"/></i>Regjistro kontrolle</a>
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img width="32px" height="32px" src="images/kerkesa2.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
+
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
                 echo "(" . $nrkerkesave . ")<img src=\"images/220px-Achtung.png\" height=\"24px\" width=\"24px\"></img>";
               } ?>
             </a>
-            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img width="32px" height="53px" src="images/staff (2).png"/></i>Staff</a>
-            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img width="32px" height="53px" src="images/pax (2).png"/></i>Pax</a>
-            <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img width="32px" height="32px" src="images/group.png"/></i>Perdoruesit</a>
-            <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img width="32px" height="32px" src="images/doctor.png"/></i>Personeli</a>
-            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img width="32px" height="53px" src="images/export3.png"/></i>Export</a>
+            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/staf.png"/></i>Staf</a>
+            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/pax.png"/></i>Pax</a>
+
+            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/export.png"/></i>Export</a>
+            <div class="dropdown">
+   <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/personel.png"/></i><a class="dropbtn">Perdoruesit</a>
+   <div class="dropdown-content">
+     <a id="agdr" class="mdl-navigation__link" style="color:white;" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>Personeli</a>
+     <a id="agstaff" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/personel.png"/></i>Stafi</a>
+
+   </div>
+  </div>
+
+
+
+
+
 
 
         </nav>

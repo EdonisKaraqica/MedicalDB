@@ -3,7 +3,7 @@
 	require_once('PHPMailer-5.2.10/class.smtp.php');	//library added in download source.
     $msg  = 'Hello World';
     $subj = 'test mail message';
-    $to   = 'edoniskaraqica@gmail.com';
+    $to   = 'sarakuqi94@gmail.com';
     $from = 'medical.db2@gmail.com';
     $name = 'My Name';
  

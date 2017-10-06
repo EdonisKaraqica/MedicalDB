@@ -217,3 +217,43 @@ _:-ms-input-placeholder, :root .demo-graph {
       -ms-flex-align: center;
           align-items: center;
 }
+.dropbtn {
+
+   color: white;
+   padding: 33px;
+     font-weight: 500;
+   border: none;
+   cursor: pointer;
+
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+}
+
+.dropdown-content {
+   margin-top: 20px;
+   display: none;
+   position: relative;
+   background-color: none;
+
+
+   z-index: 1;
+}
+
+.dropdown-content a {
+   color: white;
+   padding: 12px 106px;
+   text-decoration: none;
+   display: block;
+}
+
+.dropdown-content a:hover {background-color: #00aac3 }
+
+.dropdown:hover .dropdown-content {
+   display: block;
+}
+
+.dropdown:hover .dropbtn {
+   background-color: none;}
