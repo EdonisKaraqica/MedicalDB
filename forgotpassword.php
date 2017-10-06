@@ -49,8 +49,13 @@ function test_input($data)
             }
 
             $email = $conn->real_escape_string($_POST['email']);
+
             $data = $conn->query("SELECT did FROM tbldoktoret WHERE email='$email'");
-            if ($data->num_rows > 0) {
+            
+            $data2= $conn->query("SELECT pid FROM tblpacientatstaff WHERE email='$email'");
+
+
+            if (($data->num_rows > 0) || ($data2->num_rows >0)) {
 
 
                 $str = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
