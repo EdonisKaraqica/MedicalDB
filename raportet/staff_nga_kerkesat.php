@@ -1,4 +1,4 @@
-<?php 
+<?php
                      $kid=$_GET['kidselect'];
                      $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
                      $sql = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
@@ -22,6 +22,7 @@
 						      $telefoni=$row[ 'nrtel']; 
 						      $adresa=$row[ 'adresa']; 
 						      $email=$row[ 'email']; 
+                        $alergjite=$row['alergjite'];
 						      }
 
                      ?>
@@ -111,7 +112,7 @@
                                  <br><small>(File No):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" class="form-control input-md">
+                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" value="<?php echo $rid+1; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -135,6 +136,23 @@
                            </div>
                         </div>
                      </div>
+                      <?php if(!$alergjite==NULL){ ?>
+                     <div class="form-group">
+                        <label class="col-md-1 control-label" for="Emri">Alergjitë
+                        <br><small>(Allergy):</small>
+                        </label>
+                        <div class="input-field col-md-11">
+                           <input id="Emri" name="alergjite" type="text" placeholder="" value="<?php echo $alergjite; ?>" size="400" class="form-control input-md">
+                        </div>
+                     </div><?php }else{?>
+                     <div class="form-group">
+                        <label class="col-md-1 control-label" for="Emri">Alergjitë
+                        <br><small>(Allergy):</small>
+                        </label>
+                        <div class="input-field col-md-11">
+                           <input id="Emri" name="alergjite" type="text" placeholder="" value="" size="400" class="form-control input-md">
+                        </div>
+                     </div><?php }?>
                      </form>
           </body>
    </html>

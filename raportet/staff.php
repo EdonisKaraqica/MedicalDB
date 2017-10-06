@@ -80,14 +80,14 @@
                               <br><small>(Place of birth):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="vendlindja" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="vendlindja" type="text" placeholder="" value="<?php echo $vendlindja; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="height">Numri Dosjes
                                  <br><small>(File No):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" class="form-control input-md">
+                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" value="<?php echo $rid+1; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
