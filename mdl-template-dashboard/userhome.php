@@ -16,9 +16,21 @@
   limitations under the License
 -->
 <?php
-include('../databaze.php');
 session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname="sherbimimjeksor";
+$conn = new mysqli($servername, $username, $password,$dbname);
 $username=$_SESSION['CurrentUser'];
+
+
+$perdoruesisql = "select pid,emri,mbiemri,departamenti,njesia,manager,supervisor from tblpacientatstaff where username='" . $username ."'";
+$result = mysqli_query($conn, $perdoruesisql);
+$pidplotesuesi = mysqli_fetch_array($result);
+
+$_SESSION["emri"] = $pidplotesuesi["emri"];
+$_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
 
 
 

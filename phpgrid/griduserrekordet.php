@@ -30,7 +30,7 @@ $db_conf = array(
 				$opt = array();
 				$opt["rowNum"] = 10; // by default 20
 				$opt["sortname"] = 'rid'; // by default sort grid by this field
-				$opt["sortorder"] = "asc"; // ASC or DESC
+				$opt["sortorder"] = "desc"; // ASC or DESC
 				$opt["caption"] = "Regjistri i kontrollave te stafit"; // caption of grid
 				//$opt["autowidth"] = true; // expand grid to screen width
 				$opt["width"] = "100%";
@@ -48,11 +48,12 @@ $db_conf = array(
 				//$opt["export"] = array("format"=>"pdf", "filename"=>"my-file", "sheetname"=>"test");
 
 				// export PDF file params
-				$grid["export"] = array("filename"=>"RekordetStaf", "heading"=>"Regjistri i kontrolleve per personelin e LKIA", "orientation"=>"landscape", "paper"=>"a4");
+				$opt["export"] = array("filename"=>"RegjistriStaf", "heading"=>"Regjistri i kontrolleve per staf", "orientation"=>"landscape", "paper"=>"a4");
 				// for excel, sheet header
-				$grid["export"]["sheetname"] = "RegjistriStaf";
+				$opt["export"]["filename"] = "RegjistriStaf-" . date('Y-m-d');
+				$opt["export"]["sheetname"] = "RegjistriStaf";
 				// export filtered data or all data
-				$grid["export"]["range"] = "filtered"; // or "all"
+				$opt["export"]["range"] = "filtered"; // or "all"
 
 				//echo $grid["export"]["range"];
 				//session_start();
@@ -95,7 +96,7 @@ $db_conf = array(
 																		 a.perfundimi as perfundimi,
 																		 b.alergjite as alergjite,
 																		 a.rid as download,
-																		 b.username
+																		 b.username as usnm
 
 
 
@@ -276,6 +277,44 @@ $db_conf = array(
 				//edited from true(bes)$col["hidden"] = true;
 				$col["hidden"] = false;
 				$col["editrules"] = array("edithidden"=>true);
+
+				$cols[] = $col;
+
+				$col = array();
+				$col["title"] = "Lab.";
+				$col["name"] = "laboratori";
+				$col["sortable"] = false; // this column is not sortable
+				$col["search"] = false; // this column is not searchable
+				//$col["default"] = "View More";
+				$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=s'+cellval+'\">'+\"Download\"+'</a>'; }";
+				$col["editable"] = false;
+				$col["align"] = "center";
+				$col["export"] = false;
+				$col["width"] = "165";
+
+				// don't show this column in list, but in edit/add mode
+				//edited from true(bes)$col["hidden"] = true;
+				$col["hidden"] = true;
+				$col["editrules"] = array("edithidden"=>false);
+
+				$cols[] = $col;
+
+				$col = array();
+				$col["title"] = "Usnm";
+				$col["name"] = "usnm";
+				$col["sortable"] = false; // this column is not sortable
+				$col["search"] = false; // this column is not searchable
+				//$col["default"] = "View More";
+				$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=s'+cellval+'\">'+\"Download\"+'</a>'; }";
+				$col["editable"] = false;
+				$col["align"] = "center";
+				$col["export"] = false;
+				$col["width"] = "165";
+
+				// don't show this column in list, but in edit/add mode
+				//edited from true(bes)$col["hidden"] = true;
+				$col["hidden"] = true;
+				$col["editrules"] = array("edithidden"=>false);
 
 				$cols[] = $col;
 
