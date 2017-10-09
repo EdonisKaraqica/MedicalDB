@@ -27,7 +27,7 @@ $g = new jqgrid($db_conf);
 $opt = array();
 $opt["rowNum"] = 20; // by default 20
 $opt["sortname"] = 'rid'; // by default sort grid by this field
-$opt["sortorder"] = "asc"; // ASC or DESC
+$opt["sortorder"] = "desc"; // ASC or DESC
 $opt["caption"] = "Regjistri i kontrollave te stafit"; // caption of grid
 //$opt["autowidth"] = true; // expand grid to screen width
 $opt["width"] = "100%";
@@ -38,7 +38,7 @@ $opt["resizable"] = true;
 $opt["altclass"] = "myAltRowClass";
 
 $opt["rowactions"] = true; // allow you to multi-select through checkboxes
-$opt["view_options"] = array('width'=>'600');
+$opt["view_options"] = array('width'=>'800');
 
 // export XLS file
 // export to excel parameters
