@@ -22,14 +22,23 @@ $oldpwdvalue = $pwdrow['hashedpwd']; //marrja e pwd-se nga db
 
 if($oldpwd != $oldpwdvalue)
 {
-  echo "Fjalekalimi aktual nuk eshte i sakte!";
-  echo "<a href=\"javascript:history.back()\"><p><b>Kthehu prapa</b></p></a>";
+  ?>
+  <body>
+  <h2 style="font-family:'Book Antiqua'">Fjalekalimi aktual nuk eshte i sakte!</h2>
+  <h3 style="font-family:'Book Antiqua'"><a href="javascript:history.back()"><b>Kthehu prapa</b></a></h3>
+  </body>
+  <?php
 }
 else{
 
-  if($newpwd != $newpwd2){
-    echo "Fjalekalimi i ri me fjalekalimin e konfirmuar nuk jane te njejte!";
-    echo "<a href=\"javascript:history.back()\"><p><b>Kthehu prapa</b></p></a>";
+  if(($newpwd != $newpwd2) || (strlen($newpwd) < 6))
+  {
+    //echo strlen($newpwd) ?>
+  <body>
+  <h2>Fjalekalimi i ri me fjalekalimin e konfirmuar nuk jane te njejte! Fjalekalimi duhet te kete se paku 6 karaktere!</h2>
+  <h3><a href="javascript:history.back()"><b>Kthehu prapa</b></a></h3>
+  </body>
+  <?php
   }
   else {
     $newpwd = md5($newpwd);

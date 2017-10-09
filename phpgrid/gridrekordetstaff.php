@@ -45,11 +45,12 @@ $opt["view_options"] = array('width'=>'600');
 //$opt["export"] = array("format"=>"pdf", "filename"=>"my-file", "sheetname"=>"test");
 
 // export PDF file params
-$grid["export"] = array("filename"=>"RekordetStaf", "heading"=>"Regjistri i kontrolleve per personelin e LKIA", "orientation"=>"landscape", "paper"=>"a4");
+$opt["export"] = array("filename"=>"RegjistriStaf", "heading"=>"Regjistri i kontrolleve per staf", "orientation"=>"landscape", "paper"=>"a4");
 // for excel, sheet header
-$grid["export"]["sheetname"] = "RegjistriStaf";
+$opt["export"]["filename"] = "RegjistriStaf-" . date('Y-m-d');
+$opt["export"]["sheetname"] = "RegjistriStaf";
 // export filtered data or all data
-$grid["export"]["range"] = "filtered"; // or "all"
+$opt["export"]["range"] = "filtered"; // or "all"
 
 //echo $grid["export"]["range"];
 //session_start();
@@ -150,6 +151,7 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Shifra e v."; // caption of column
+$col["dbname"] = "a.shifra_veprimtarise";
 $col["name"] = "shv"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "65";
 $col["align"] = "center";
@@ -272,6 +274,27 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
 $col["editrules"] = array("edithidden"=>true);
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Lab.";
+$col["name"] = "laboratori";
+$col["sortable"] = false; // this column is not sortable
+$col["search"] = false; // this column is not searchable
+//$col["default"] = "View More";
+$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../raportet/raporti_nga_rekordet.php?sid='+cellval+'\">'+\"Download\"+'</a>'; }";
+$col["editable"] = false;
+$col["align"] = "center";
+$col["export"] = false;
+$col["width"] = "165";
+$col["edittype"] = "textarea"; // render as textarea on edit
+$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = true;
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 

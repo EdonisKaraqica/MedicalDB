@@ -1,27 +1,8 @@
 <!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
 <?php
 include_once("../phpgrid/config.php");
 session_start();
 $username=$_SESSION['CurrentUser'];
-
-
-
 ?>
 <html lang="en">
   <head>
@@ -29,7 +10,7 @@ $username=$_SESSION['CurrentUser'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
+    <title>Ndrysho Profilin</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -56,7 +37,79 @@ $username=$_SESSION['CurrentUser'];
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
+
+    <style type="text/css">
+
+    .form-style-5
+    {
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    }
+
+    .form-style-5 fieldset{ border: none; }
+
+    .form-style-5 legend
+    {
+    font-size: 1.4em;
+    margin-bottom: 2px;
+    }
+
+    .form-style-5 label
+    {
+    display: block;
+    margin-bottom: 8px;
+    }
+
+    .form-style-5 input[type="password"]
+    {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: rgba(255,255,255,.1);
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      margin: 0;
+      outline: 0;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+      background-color: #e8eeef;
+      color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+      margin-bottom: 30px;
+    }
+
+    .form-style-5 input[type="password"]:focus {   background: #d2d9dd; }
+    .form-style-5 input[type="submit"],
+    .form-style-5 input[type="button"]
+    {
+      position: relative;
+      display: block;
+      padding: 10px 30px 18px 30px;
+      color: #FFF;
+      margin: 0 auto;
+      background: #0a3659;
+      font-size: 18px;
+      text-align: center;
+      font-style: normal;
+      width: 100%;
+      border: 1px solid #0a3659;
+      border-width: 1px 1px 3px;
+      margin-bottom: 5px;
+    }
+.form-style-5 input[type="submit"]:hover,
+.form-style-5 input[type="button"]:hover
+{
+    background: #0a3659;
+}
     #view-source {
       position: fixed;
       display: block;
@@ -75,9 +128,7 @@ $username=$_SESSION['CurrentUser'];
     top: 50%;
     left: 50%;
 }
-
-
-    </style>
+</style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -112,12 +163,8 @@ $username=$_SESSION['CurrentUser'];
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 
           <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-              <a class="mdl-navigation__link" style="color:white;" href="userhome.php#lista" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Regjistri i kontrollave</a>
-            <!--  <a class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">edit</i>Ndryshimi profilit</a>
-      -->        <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>-->
-              <a class="mdl-navigation__link" style="color:white;" href="userhome.php#kerkesa" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">edit</i>Kerkesa per pushim</a>
-              <!--<a class="mdl-navigation__link" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Personeli</a>-->
-            <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">edit</i>Regjistro Pacient</a>-->
+              
+            <a class="mdl-navigation__link" style="color:white;" href="javascript:history.back()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/back.png"/></i>Shko prapa</a>
 
 
         </nav>
@@ -125,16 +172,16 @@ $username=$_SESSION['CurrentUser'];
       <main class="mdl-layout__content mdl-color--grey-100" id="listastaff">
         <div class="mdl-grid demo-content">
           <div id="centeredcnt">
-        		<form method="post" action="../phpgrid/changepassword.php">
-        		<fieldset>
-        		<legend>Ndryshimi i parulles</legend>
-                <table><tr><td>Fjalekalimi aktual:</td><td><input type="password" name="oldpwd" placeholder="Shkruaj fjalekalimin e tanishem"></td></tr>
-                <tr><td>Fjalekalimi i ri:</td><td> <input type="password" name="newpwd" placeholder="Shkruaj fjalekalimin e ri"></td></tr>
-                <tr><td>Konfirmo fjalekalimin e ri:</td><td><input type="password" name="newpwd2" placeholder="Konfirmo fjalekalimin e ri"></td></tr>
-                <tr><td span="2"><button type="submit">Ndrysho fjalekalimin</button></td></tr>
-                </table>
-        		</fieldset>
-        		</form>
+        		 <div class="form-style-5">
+              <form method="post" action="../phpgrid/changepassword.php">
+              <fieldset>
+              <input type="password" name="oldpwd" placeholder="Fjal&euml;kalimi aktual">
+              <input type="password" name="newpwd" placeholder="Fjal&euml;kalimi i ri">
+              <input type="password" name="newpwd2" placeholder="Konfirmo fjal&euml;kalimin e ri">
+              </fieldset>
+              <input type="submit" value="NDRYSHO FJAL&Euml;KALIMIN"  />
+              </form>
+            </div>
         	<?php
 
         	?>
