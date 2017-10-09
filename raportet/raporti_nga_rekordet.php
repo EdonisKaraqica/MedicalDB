@@ -168,7 +168,7 @@ while ($row=mysqli_fetch_assoc($res1))
       $ditelindja=$row['ditelindja']; 
       $email=$row['email']; 
       $vendlindja=$row['vendlindja']; 
-      // $numriDosjes=$row['emri']; 
+      $nrDosjes=$row['rid']; 
       $gjinia=$row['gjinia']; 
       $njesia=$row['njesia']; 
       $alergjite=$row['alergjite'];
@@ -252,6 +252,7 @@ if (!empty($udhezimperkonsultimeid)) {
       $_SESSION['gjinia']=$gjinia;
       $_SESSION['njesia']=$njesia;
       $_SESSION['alergjite']=$alergjite;
+      $_SESSION['nrDosjes']=$nrDosjes;
 
       $_SESSION['ankesa']=$ankesa;
       $_SESSION['anamnezaSemundjes']=$anamnezaSemundjes;

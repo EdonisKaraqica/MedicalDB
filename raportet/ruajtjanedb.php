@@ -160,7 +160,27 @@
     echo "0 results";
 }
    }
-       if (!empty($_POST["origjina"])||!empty($_POST["destinacioni"])||!empty($_POST["shenime"])) 
+//        if (!empty($_POST["origjina"])||!empty($_POST["destinacioni"])||!empty($_POST["shenime"])) 
+//            {
+//         $sql4="INSERT INTO raportudhetimiperpasagjer(Origjina,Destinimi,Shenime,FileID) VALUES ('".$origjina."','".$destinacioni."','".$shenime."','0')";
+//         if ($conn->query($sql4) === TRUE) {
+//        // echo "Sql4 record created successfully <br>";
+//        } else {
+//            echo "Error: " . $sql4 . "<br>" . $conn->error;
+//        }
+//         $mysql4="SELECT id FROM raportudhetimiperpasagjer ORDER BY id DESC LIMIT 1";
+//         $result = $conn->query($mysql4);
+
+//         if ($result->num_rows > 0) {
+//     // output data of each row
+//     while($row = $result->fetch_assoc()) {
+//        $rupid=$row['id'];
+//     }
+// } else {
+//     echo "0 results";
+// }
+//    }
+ if (!empty($_POST["origjina"])||!empty($_POST["destinacioni"])||!empty($_POST["shenime"])) 
            {
         $sql4="INSERT INTO raportudhetimiperpasagjer(Origjina,Destinimi,Shenime,FileID) VALUES ('".$origjina."','".$destinacioni."','".$shenime."','1')";
         if ($conn->query($sql4) === TRUE) {
@@ -176,10 +196,14 @@
     while($row = $result->fetch_assoc()) {
        $rupid=$row['id'];
     }
+    // echo $rupid;
 } else {
     echo "0 results";
 }
    }
+
+
+
        if (!empty($_POST["rp"])) 
         {
         $sql5="INSERT INTO recete(Rp) VALUES ('".$rp."')";
@@ -202,7 +226,10 @@
    }
    if (!empty($_POST["udhPerLab"])||!empty($_POST["gjPrezLab"])||!empty($_POST["terLab"])) 
            {
-        $sql6="INSERT INTO udhezimperekzaminimelaboratorike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar,FileID) VALUES ('".$udhPerLab."','".$gjPrezLab."','".$terLab."','1')";
+            $udhezimperLabID='NULL';
+            if(($_FILES['userfile']['size'] > 0)){
+    $udhezimperLabID=$_SESSION['udhezimperLabID'];}
+        $sql6="INSERT INTO udhezimperekzaminimelaboratorike(Udhezohetper,Gjendjaprezente,Terapiaeaplikuar,FileID) VALUES ('".$udhPerLab."','".$gjPrezLab."','".$terLab."','".$udhezimperLabID."')";
         if ($conn->query($sql6) === TRUE) {
        // echo "Sql6 record created successfully <br>";
        } else {
@@ -279,7 +306,7 @@
 
        $sql9="INSERT INTO `tblrekordetstaff`( `pid`, `did`, `data_regjistrimit`, `shifra_veprimtarise`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportinderprerjesseperkohshmeperpuneID`, `raportudhetimiperpasagjerid`, `largimngapunaid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES($pid,$did,NULL,4,NULL,'$ankesa','$anamneza','$anFamiljes',NULL,NULL,NULL,$rmid,$rnppid,$rupid,$lpid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
         if ($conn->query($sql9) === TRUE) {
-       //  echo $sql9;
+         //echo $sql9;
        // echo "Sql9 record created successfully <br>";
        } else {
            echo "Error: " . $sql9 . "<br>" . $conn->error;

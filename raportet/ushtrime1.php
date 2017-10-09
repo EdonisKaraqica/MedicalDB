@@ -39,13 +39,13 @@ $sqlupid = "SELECT id FROM upload ORDER BY id DESC LIMIT 1";
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-               $uploadid=$row['id'];
+               $udhezimperLabID=$row['id'];
             }
         } else {
             echo "0 results";
         }
         // echo $uploadid+1;
-        $_SESSION['uploadid']=$uploadid+1;
+        $_SESSION['udhezimperLabID']=$udhezimperLabID+1;
 
 mysqli_query($conn,$query) or die('Error, query failed'); 
 }

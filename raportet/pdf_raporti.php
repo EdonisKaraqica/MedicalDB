@@ -264,7 +264,7 @@ class createPDF
 		//Rreshti pese
 		$pdf->WriteHTML($this->nr_dosjes);
 		$pdf->Cell(12);
-		$pdf->Cell(60,5,'$this->nrDosjes',0,0);
+		$pdf->Cell(60,5,$this->nrDosjes,0,0);
 		$pdf->Cell(1,10,"",0,0);
 		$pdf->WriteHTML($this->njesia);
 		$pdf->Cell(10.8);
