@@ -15,11 +15,12 @@
    //    $did=$row['did'];
    //    echo $did;
    //    }}
+    $currentDate=date('Y-m-d H:i:s');
 
    if ($_SERVER["REQUEST_METHOD"] == "POST")
    {   
 
-        $currentDate=date("Y/m/d");
+        
        $emri = $_POST['emri'];
         
        $telefoni = $_POST['telefoni'];
@@ -304,7 +305,7 @@
   }
     // echo $_SESSION['uploadid'];
 
-       $sql9="INSERT INTO `tblrekordetstaff`( `pid`, `did`, `data_regjistrimit`, `shifra_veprimtarise`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportinderprerjesseperkohshmeperpuneID`, `raportudhetimiperpasagjerid`, `largimngapunaid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES($pid,$did,NULL,4,NULL,'$ankesa','$anamneza','$anFamiljes',NULL,NULL,NULL,$rmid,$rnppid,$rupid,$lpid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
+       $sql9="INSERT INTO `tblrekordetstaff`( `pid`, `did`, `data_regjistrimit`, `shifra_veprimtarise`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportinderprerjesseperkohshmeperpuneID`, `raportudhetimiperpasagjerid`, `largimngapunaid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES($pid,$did,'$currentDate',4,NULL,'$ankesa','$anamneza','$anFamiljes',NULL,NULL,NULL,$rmid,$rnppid,$rupid,$lpid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
         if ($conn->query($sql9) === TRUE) {
          //echo $sql9;
        // echo "Sql9 record created successfully <br>";

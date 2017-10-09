@@ -4,12 +4,12 @@
          // session_start();
 $name1=$_SESSION['CurrentUser'];
 
-
+$currentDate=date('Y-m-d H:i:s');
     $rmid=$rupid=$rid=$uelid=$uerid=$ukid=$uplid='NULL';
     if ($_SERVER["REQUEST_METHOD"] == "POST")
    {   
 
-    	$currentDate=date("Y/m/d");
+    	
        $emri = $_POST['emri'];
        $emrimbiemri=explode(" ", $emri);
        $emri1=$emrimbiemri[0];

@@ -1,3 +1,4 @@
+
 <?php include( 'databaze.php');
 
 $conn=mysqli_connect($servername, $username, $password,$dbname);
@@ -193,6 +194,7 @@ $(document).ready(function(){
                            <input id="Emri" name="ankesa" type="text" placeholder="" size="515" class="form-control input-md">
                         </div>
                      </div>
+
                      <div class="form-group">
                         <label class="col-md-1 control-label" for="Emri">Anamneza e semundjes
                         <br> <small>(Disease Anamnesis):</small>
@@ -592,5 +594,6 @@ $(document).ready(function(){
       </div>
       </div>
       <!-- <input type="button" class="btn primary" style="float:right" value="Gjenero Raportin" onclick="submitForms()" /> -->
+
    </body>
 </html>

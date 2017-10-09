@@ -194,6 +194,7 @@ class createPDF
 
         //$this->doctorsignature="<pre>Doktori</pre><i> (Doctor):</i>";
         $this->dsignature=" : __________________________";
+        
     }
 
     function _convert($s) 
@@ -753,7 +754,7 @@ class PDF extends FPDF
 
     function Footer()
     {
-    	// $this->data=date("Y/m/d");
+    	//$currentDate=date('Y-m-d');
     	$this->emriDok=$_SESSION['emriDok'];
     	$this->mbiemriDok=$_SESSION['mbiemriDok'];
     	$this->email=$_SESSION['emailDok'];
@@ -769,7 +770,7 @@ class PDF extends FPDF
         //Print centered page number
         $this->SetTextColor(0,0,0);
         //$this->Cell(0,4,'dfsdf',0,1,'C');
-        $this->Cell(0,4,$this->emriDok.' '.$this->mbiemriDok.', '. '$this->data'.' '.date("h:i"),0,1,'C');
+        $this->Cell(0,4,$this->emriDok.' '.$this->mbiemriDok.', '.date('d-m-Y H:i').' ',0,1,'C');
         //$this->Cell(0,4,$this->data.', '.date("h:i:sa").', '.$this->emriDok.' '.$this->mbiemriDok,0,1,'C');
 
         
