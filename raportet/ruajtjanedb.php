@@ -305,7 +305,7 @@
   }
     // echo $_SESSION['uploadid'];
 
-       $sql9="INSERT INTO `tblrekordetstaff`( `pid`, `did`, `data_regjistrimit`, `shifra_veprimtarise`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportinderprerjesseperkohshmeperpuneID`, `raportudhetimiperpasagjerid`, `largimngapunaid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES($pid,$did,'$currentDate',4,NULL,'$ankesa','$anamneza','$anFamiljes',NULL,NULL,NULL,$rmid,$rnppid,$rupid,$lpid,$rid,$uelid,$uerid,$ukid,null,null,null,null,$uplid)";
+       $sql9="INSERT INTO `tblrekordetstaff`( `pid`, `did`, `data_regjistrimit`, `shifra_veprimtarise`, `diagnoza`, `ankesa`, `anamnezaesemundjes`, `anamnezaefamiljes`, `laboratori`, `trajtimi`, `perfundimi`, `raportimjeksorid`, `raportinderprerjesseperkohshmeperpuneID`, `raportudhetimiperpasagjerid`, `largimngapunaid`, `receteid`, `udhezimperekzaminimelaboratorikeid`, `udhezimperekzaminimerentgenologjikeid`, `udhezimperkonsultimeid`, `ta`, `pulsi`, `komenti`, `spo2`, `uploadID`) VALUES($pid,$did,'$currentDate',4,NULL,'$ankesa','$anamneza','$anFamiljes',NULL,NULL,NULL,$rmid,$rnppid,$rupid,$lpid,$rid,$uelid,$uerid,$ukid,$ta,$pulsi,'$koment',$spo2,$uplid)";
         if ($conn->query($sql9) === TRUE) {
          //echo $sql9;
        // echo "Sql9 record created successfully <br>";
