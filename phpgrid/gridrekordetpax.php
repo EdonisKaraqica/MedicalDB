@@ -47,6 +47,7 @@ $opt["view_options"] = array('width'=>'600');
 // export PDF file params
 $opt["export"] = array("filename"=>"RegjistriPax", "heading"=>"Regjistri i kontrolleve per udhetare", "orientation"=>"landscape", "paper"=>"a4");
 // for excel, sheet header
+$opt["export"]["filename"] = "RegjistriPax-" . date('Y-m-d');
 $opt["export"]["sheetname"] = "RegjistriPax";
 // export filtered data or all data
 $opt["export"]["range"] = "filtered"; // or "all"

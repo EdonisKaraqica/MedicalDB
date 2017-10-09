@@ -167,7 +167,7 @@ if ($loguar) {
 		<script type="text/javascript">
 		    function load()
 		    {
-		    window.location.href = "phpgrid/griduseredit.php";
+		    window.location.href = "mdl-template-dashboard/changeusr.php";
 
 		    }
 		    </script>
@@ -257,7 +257,7 @@ else{
 			<script type="text/javascript">
 					function load()
 			    {
-			    window.location.href = "phpgrid/griduseredit.php";
+			    window.location.href = "mdl-template-dashboard/changeusrstaff.php";
 
 			    }
 			    </script>

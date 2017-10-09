@@ -159,8 +159,8 @@ $username=$_SESSION['CurrentUser'];
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
               <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusrstaff.php">Ndrysho Profilin</a></li>
+              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
 
 
             </ul>

@@ -2,13 +2,9 @@
 session_start();
 $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
 
-if($connect){
-  echo "inter";
-}
-else{echo "milan";}
 
 $sqluserinfo = "select emri,mbiemri from tbldoktoret where username='" . $_SESSION['CurrentUser'] . "'";
-echo $sqluserinfo;
+//echo $sqluserinfo;
 
 $users = mysqli_query($connect, $sqluserinfo);
 $userinfo = mysqli_fetch_array($users);
@@ -19,7 +15,7 @@ $lastname = $userinfo['mbiemri'];
 $_SESSION['emri'] = $firstname;
 $_SESSION['mbiemri'] = $lastname;
 
-echo $firstname; echo $lastname;
+//echo $firstname; echo $lastname;
 
 if(isset($_GET['btnMuaji'])){
   $muaji = $_GET['muajiinput'];

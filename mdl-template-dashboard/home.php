@@ -96,6 +96,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
 
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
+
          var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
         var krk = document.getElementById('HeaderKerkesat');
@@ -131,6 +136,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
 
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
+
          var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
         var krk = document.getElementById('HeaderKerkesat');
@@ -165,6 +175,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divv = document.getElementById('shtokontroll');
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
+
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
 
          var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
@@ -204,6 +219,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divu = document.getElementById('exportxls');
         var divt = document.getElementById('viewkontrollat');
 
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
+
         var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
         var krk = document.getElementById('HeaderKerkesat');
@@ -242,6 +262,12 @@ $nrkerkesave = $notificationres["requestsnr"];
         var lststf = document.getElementById('HeaderStaff');
         var lstprs = document.getElementById('HeaderPersonnel');
         var hexprt = document.getElementById('HeaderExport');
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
+
+
 
         var div = document.getElementById(obj);
         var divv = document.getElementById('gridpersonnel');
@@ -278,6 +304,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divz = document.getElementById('gridpaxrekordet');
         var divu = document.getElementById('shtokontroll');
         var divt = document.getElementById('viewkontrollat');
+
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
 
          var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
@@ -316,6 +347,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         var divu = document.getElementById('shtokontroll');
         var divt = document.getElementById('exportxls');
 
+        var hdstok = document.getElementById('HeaderViewStock');
+        var divs = document.getElementById('viewstock');
+        hdstok.style.display = "none";
+        divs.style.display="none";
+
          var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
         var krk = document.getElementById('HeaderKerkesat');
@@ -346,7 +382,37 @@ $nrkerkesave = $notificationres["requestsnr"];
 
     function showHideListaPax(obj)
       {
-           var regktr = document.getElementById('HeaderRegjistroKontrolle');
+            var regktr = document.getElementById('HeaderRegjistroKontrolle');
+            var hdhome = document.getElementById('HeaderHome');
+            var krk = document.getElementById('HeaderKerkesat');
+            var regstf = document.getElementById('HeaderRegjistriStaff');
+            var regpax = document.getElementById('HeaderRegjistriPax');
+            var lststf = document.getElementById('HeaderStaff');
+            var lstprs = document.getElementById('HeaderPersonnel');
+            var hexprt = document.getElementById('HeaderExport');
+            var div = document.getElementById(obj);
+            var divx = document.getElementById('gridstaff');
+            divx.style.display = "none";
+            div.style.display="";
+            div.style.height="100%";
+      }
+
+      function showHideStockView(obj){
+        var div = document.getElementById(obj);
+        div.style.display="";
+        div.style.height="100%";
+        var hdstk = document.getElementById('HeaderViewStock');
+
+        var divv = document.getElementById('gridpersonnel');
+        var divx = document.getElementById('gridstaffrekordet');
+        var divy = document.getElementById('gridstaff');
+        var divz = document.getElementById('gridpaxrekordet');
+        var divu = document.getElementById('shtokontroll');
+        var divt = document.getElementById('exportxls');
+        var divs = document.getElementById('viewkontrollat');
+
+        divs.style.display = "none";
+        var regktr = document.getElementById('HeaderRegjistroKontrolle');
         var hdhome = document.getElementById('HeaderHome');
         var krk = document.getElementById('HeaderKerkesat');
         var regstf = document.getElementById('HeaderRegjistriStaff');
@@ -354,11 +420,22 @@ $nrkerkesave = $notificationres["requestsnr"];
         var lststf = document.getElementById('HeaderStaff');
         var lstprs = document.getElementById('HeaderPersonnel');
         var hexprt = document.getElementById('HeaderExport');
-          var div = document.getElementById(obj);
-          var divx = document.getElementById('gridstaff');
-          divx.style.display = "none";
-          div.style.display="";
-          div.style.height="100%";
+        divt.style.display = "none";
+        divu.style.display = "none";
+        divx.style.display = "none";
+        divy.style.display = "none";
+        divz.style.display = "none";
+        divv.style.display = "none";
+        div.style.display="";
+         regktr.style.display="none";
+        regstf.style.display = "none";
+        regpax.style.display = "none";
+        lststf.style.display = "none";
+        lstprs.style.display = "none";
+        hexprt.style.display = "none";
+        hdhome.style.display = "none";
+        krk.style.display = "none";
+        hdstk.style.display = "";
 
 
       }
@@ -450,6 +527,16 @@ $nrkerkesave = $notificationres["requestsnr"];
 
       </header>
 
+      <!-- headeri per stok-->
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderViewStock">
+          <div class="mdl-layout__header-row">
+              <span style="color:darkblue;font-size: 18px;">Stoku</span>
+
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
+
+      </header>
+
       <!-- fund i headerit-->
 
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
@@ -486,6 +573,7 @@ $nrkerkesave = $notificationres["requestsnr"];
             <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/pax.png"/></i>Pax</a>
 
             <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/export.png"/></i>Export</a>
+                        <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideStockView('viewstock'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/drugs.png"/></i>Stoku</a>
             <div class="dropdown">
 
                <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/icons/avatar.png"/></i><a class="dropbtn">Perdoruesit</a>
@@ -540,6 +628,11 @@ $nrkerkesave = $notificationres["requestsnr"];
             <!-- gridi per exportimin e te dhenave/xls-->
             <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="exportxls" style="height:100%;width:100%;display:none;">
               <iframe src="../phpgrid/statistikat.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
+            </div>
+
+            <!-- gridi per stokun-->
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="viewstock" style="height:100%;width:100%;display:none;">
+              <iframe src="../phpgrid/gridstoqet.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
             </div>
 
       </main>

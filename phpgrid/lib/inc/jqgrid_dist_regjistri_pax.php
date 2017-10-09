@@ -1307,6 +1307,8 @@ class jqgrid
 						$html .= "</table>";
 					}
 
+					$html .= "<br/><br/><i>Ky dokument eshte shtypur permes Sistemit te Sherbimit Mjekesor ne Aeroportin Nderkombetare te Prishtines,<br> me date " . date('d-m-Y  H:i:s') . " nga " . $_SESSION["emri"] . " " . $_SESSION["mbiemri"];
+
 					$orientation = $this->options["export"]["orientation"];
 					if ($orientation == "landscape")
 						$orientation = "L";
@@ -1327,7 +1329,7 @@ class jqgrid
 					// set document information
 					$pdf->SetCreator("LKIA, ICT, Software Development and Support");
 					$pdf->SetAuthor('Sherbimi Mjekesor');
-					$pdf->SetTitle('Test Titulli');
+					$pdf->SetTitle('Regjistri i kontrolleve per udhetare');
 					$pdf->SetSubject($this->options["caption"]);
 					$pdf->SetKeywords('www.phpgrid.org');
 
@@ -1390,7 +1392,7 @@ class jqgrid
 				}
 				else
 				{
-					$html = "";
+					$html = "<b>Regjistri i kontrolleve per udhetare:</b>";
 					$html .= "<table border='1' cellpadding='2' cellspacing='2'>";
 					$html .= '<tr bgcolor="lightgrey"'; //ktu tr e excelit
 					$html .= '<th><strong>Nr. Dosjes</strong></th>
@@ -1415,11 +1417,15 @@ class jqgrid
 					}
 					$html .= "<table>";
 
+					$html .= "<br/><br/><i>Ky dokument eshte shtypur permes Sistemit te Sherbimit Mjekesor ne Aeroportin Nderkombetare te Prishtines,<br> me date " . date('d-m-Y  H:i:s') . " nga " . $_SESSION["emri"] . " " . $_SESSION["mbiemri"];
+
 					// Convert to UTF-16LE
 					$output = mb_convert_encoding($html, 'UTF-16LE', 'UTF-8');
 
 					// Prepend BOM
 					$output = "\xFF\xFE" . $output;
+
+
 
 					header('Pragma: public');
 					header("Content-type: application/x-msexcel");
