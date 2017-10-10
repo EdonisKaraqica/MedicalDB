@@ -471,7 +471,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
       <!-- headeri fillestar-->
       <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="HeaderHome">
           <div class="mdl-layout__header-row">
-              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>
+<!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
 
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -555,6 +555,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
 
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
+            <span class="mdl-layout-title" style="padding:10px;font-size: 11px;">  Limak Kosovo International Airport J.S.C<br><span style="color:blue;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
