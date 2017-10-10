@@ -631,7 +631,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
             </div>
 
             <!-- gridi per regjistrimin e kontrolles se re-->
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="shtokontroll" style="height:100%;width:100%;display:none;">
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="shtokontroll" style="height:100%;width:100%;">
               <iframe src="../pacienti.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
             </div>
 
