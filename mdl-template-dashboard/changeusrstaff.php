@@ -1,8 +1,12 @@
 <!doctype html>
 <?php
 include_once("../phpgrid/config.php");
+include('../databaze.php');
 session_start();
-$username=$_SESSION['CurrentUser'];
+if(!isset($_SESSION['CurrentUser'])) {
+    header("Location: ../login.php");
+}
+$username1=$_SESSION['CurrentUser'];
 ?>
 <html lang="en">
   <head>
@@ -145,7 +149,7 @@ $username=$_SESSION['CurrentUser'];
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
-            echo $username;
+            echo $username1;
             ?></span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
