@@ -52,6 +52,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
 ?>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
@@ -71,6 +72,10 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 
     <link rel="shortcut icon" href="images/favicon.png">
 
@@ -463,13 +468,23 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
           div.style.display='none';
         }
       }
+
       </script>
+     
 
   </head>
   <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+     <script type="text/javascript">
+
+      $(document).ready(function() {
+        setTimeout(function(){
+        $('#diviKryesor').show();
+        }, 2000);
+});</script>
+    
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="diviKryesor" style="display:none">
       <!-- headeri fillestar-->
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="HeaderHome">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none" id="HeaderHome">
           <div class="mdl-layout__header-row">
 <!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
 
@@ -478,7 +493,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
 
       </header>
       <!-- headeri per regjistrin e kontrolles-->
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistroKontrolle">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="" id="HeaderRegjistroKontrolle">
           <div class="mdl-layout__header-row">
               <span style="color:darkblue;font-size: 18px;">Regjistro Kontrolle Te Re</span>
 
