@@ -16,10 +16,25 @@
 <?php
 include('../databaze.php');
 session_start();
+$conn = new mysqli($servername, $username, $password,$dbname);
+$username1=$_SESSION['CurrentUser'];
+$query = "select * from tbldoktoret where username='$username1'";
+$res = mysqli_query($conn, $query) or die("Error");
+
+while ($row = mysqli_fetch_assoc($res)) {
+    $emri = $row['username'];
+
+}
 if(!isset($_SESSION['CurrentUser'])) {
     header("Location: ../login.php");
 }
-$username1=$_SESSION['CurrentUser'];
+elseif( isset($_SESSION['CurrentUser'])&& $emri!=$username1){
+header("Location: userhome.php");
+}
+else{
+    $username1=$_SESSION['CurrentUser'];
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
