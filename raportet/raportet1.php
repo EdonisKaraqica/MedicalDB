@@ -267,6 +267,7 @@ $(document).ready(function(){
                         <br><small>(Conclusion):</small>
                         </label>
                         <div class="input-field col-md-11">
+
                            <input id="Emri" name="perfundimi" type="text" placeholder="" size="400" class="form-control input-md">
                         </div>
                      </div>
@@ -303,12 +304,24 @@ $(document).ready(function(){
                                              <label class="col-md-1 control-label" for="Emri">Rp<small>:</small>
                                              </label>
                                              <div class="input-field col-md-10">
+                                              
+
                                                 <input id="receta" name="rp" type="text" placeholder="" value="" size="100" class="form-control input-md">
                                              </div>
                                           </div>
+                                          <?php include("zgjedh_barnat.php"); ?>
+
                                        </div>
                                        <div class="step-actions">
                                           <button class="waves-effect waves-dark btn next-step blue">CONTINUE</button>
+                                          
+                                         
+                                            <div style="display:inline">
+                                          <select>
+                                            <option>dsfsd</option>
+                                          </select>
+                                         
+                                          </div>
                                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                                        </div>
                                     </div>
