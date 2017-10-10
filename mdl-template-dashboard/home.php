@@ -38,6 +38,7 @@ $nrkerkesave = $notificationres["requestsnr"];
 ?>
 <html lang="en">
   <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
@@ -57,6 +58,10 @@ $nrkerkesave = $notificationres["requestsnr"];
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 
     <link rel="shortcut icon" href="images/favicon.png">
 
@@ -449,22 +454,32 @@ $nrkerkesave = $notificationres["requestsnr"];
           div.style.display='none';
         }
       }
+
       </script>
+     
 
   </head>
   <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+     <script type="text/javascript">
+
+      $(document).ready(function() {
+        setTimeout(function(){
+        $('#diviKryesor').show();
+        }, 2000);
+});</script>
+    
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="diviKryesor" style="display:none">
       <!-- headeri fillestar-->
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" id="HeaderHome">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none" id="HeaderHome">
           <div class="mdl-layout__header-row">
-              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>
+<!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
 
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
 
       </header>
       <!-- headeri per regjistrin e kontrolles-->
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistroKontrolle">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="" id="HeaderRegjistroKontrolle">
           <div class="mdl-layout__header-row">
               <span style="color:darkblue;font-size: 18px;">Regjistro Kontrolle Te Re</span>
 
@@ -541,6 +556,7 @@ $nrkerkesave = $notificationres["requestsnr"];
 
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
+            <span class="mdl-layout-title" style="padding:10px;font-size: 11px;">  Limak Kosovo International Airport J.S.C<br><span style="color:blue;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
@@ -616,7 +632,7 @@ $nrkerkesave = $notificationres["requestsnr"];
             </div>
 
             <!-- gridi per regjistrimin e kontrolles se re-->
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="shtokontroll" style="height:100%;width:100%;display:none;">
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="shtokontroll" style="height:100%;width:100%;">
               <iframe src="../pacienti.php" frameborder="0" style="height: 100%; width: 100%;"></iframe>
             </div>
 
