@@ -25,6 +25,11 @@ $res = mysqli_query($conn, $query) or die("Error");
 
 while ($row = mysqli_fetch_assoc($res)) {
     $emri = $row['username'];
+    $empriperststk = $row["emri"];
+    $mbiemriperstk = $row["mbiemri"];
+
+    $_SESSION["emri"] = $empriperststk;
+    $_SESSION["mbiemri"] = $mbiemriperstk;
 
 }
 if(!isset($_SESSION['CurrentUser'])) {
