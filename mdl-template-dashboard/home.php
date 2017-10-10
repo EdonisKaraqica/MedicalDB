@@ -35,20 +35,6 @@ $execsql = mysqli_query($conn,$sql);
 $notificationres = mysqli_fetch_array($execsql);
 $nrkerkesave = $notificationres["requestsnr"];
 
-
-$perdoruesihome=$_SESSION['CurrentUser'];
-
-
-$perdoruesisql = "select did,emri,mbiemri from tbldoktoret where username='" . $perdoruesihome ."'";
-$result = mysqli_query($conn, $perdoruesisql);
-$pidplotesuesi = mysqli_fetch_array($result);
-
-$_SESSION["emri"] = $pidplotesuesi["emri"];
-$_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
-
-
-
-
 ?>
 <html lang="en">
   <head>
