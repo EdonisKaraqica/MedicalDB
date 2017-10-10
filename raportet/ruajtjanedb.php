@@ -4,7 +4,7 @@
     // $_SESSION['CurrentUser']=$name;
    require("databaze.php");
    $name1=$_SESSION['CurrentUser'];
-    $rmid=$rnppid=$rupid=$lpid=$rid=$uelid=$uerid=$ukid=$uplid='NULL';
+    $rmid=$rnppid=$rupid=$lpid=$rid=$uelid=$uerid=$ukid=$uplid=$ta=$pulsi=$koment=$spo2='NULL';
    // if(isset($_SESSION['CurrentUser']))
    // {
     
@@ -35,10 +35,22 @@
        $ankesa=$_POST['ankesa'];
        $anamneza=$_POST['anamneza'];
        $anFamiljes=$_POST['anFamiljes'];
-       $ta=$_POST['ta'];
-       $pulsi=$_POST['pulsi'];
-       $spo2=$_POST['spo2'];
-       $koment=$_POST['koment'];
+      if(!empty($_POST['ta']))
+       {
+        $ta=$_POST['ta'];
+      }
+      if(!empty($_POST['pulsi']))
+       {
+        $ta=$_POST['pulsi'];
+      }
+      if(!empty($_POST['spo2']))
+       {
+        $ta=$_POST['spo2'];
+      }
+      if(!empty($_POST['koment']))
+       {
+        $ta=$_POST['koment'];
+      }
        $laboratori=$_POST['laboratori'];
        $diagnoza=$_POST['diagnoza'];
        $trajtimi=$_POST['trajtimi'];

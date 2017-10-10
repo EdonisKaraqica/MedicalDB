@@ -396,9 +396,12 @@ $(document).ready(function(){
                                           <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
                                           <input name="userfile" type="file" id="userfile"> 
                                           </td>
+
                                           <!-- <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
                                            --></tr>
                                           </table>
+
+
                                           
                                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                                        </div>
