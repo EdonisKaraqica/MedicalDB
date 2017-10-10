@@ -16,21 +16,26 @@
   limitations under the License
 -->
 <?php
+include('../databaze.php');
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname="sherbimimjeksor";
 $conn = new mysqli($servername, $username, $password,$dbname);
-$username=$_SESSION['CurrentUser'];
+$username1=$_SESSION['CurrentUser'];
+$query = "select * from tblpacientatstaff where username='$username1'";
+$res = mysqli_query($conn, $query) or die("Error");
 
+while ($row = mysqli_fetch_assoc($res)) {
+    $emri = $row['username'];
 
-$perdoruesisql = "select pid,emri,mbiemri,departamenti,njesia,manager,supervisor from tblpacientatstaff where username='" . $username ."'";
-$result = mysqli_query($conn, $perdoruesisql);
-$pidplotesuesi = mysqli_fetch_array($result);
-
-$_SESSION["emri"] = $pidplotesuesi["emri"];
-$_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
+}
+if(!isset($_SESSION['CurrentUser'])) {
+    header("Location: ../login.php");
+}
+elseif( isset($_SESSION['CurrentUser'])&& $emri!=$username1){
+    header("Location: home.php");
+}
+else{
+    $username1=$_SESSION['CurrentUser'];
+}
 
 
 
@@ -160,10 +165,11 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
+            <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:blue;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
-            echo $username;
+            echo $username1;
             ?></span>
             <div class="mdl-layout-spacer"></div>
             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">

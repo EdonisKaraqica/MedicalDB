@@ -17,9 +17,12 @@
 -->
 <?php
 include_once("../phpgrid/config.php");
+include('../databaze.php');
 session_start();
-$username=$_SESSION['CurrentUser'];
-
+if(!isset($_SESSION['CurrentUser'])) {
+    header("Location: ../login.php");
+}
+$username1=$_SESSION['CurrentUser'];
 
 
 ?>

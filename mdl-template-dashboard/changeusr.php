@@ -6,7 +6,11 @@ $password = "";
 $dbname="sherbimimjeksor";
 $conn = new mysqli($servername, $username, $password,$dbname);
 session_start();
-$username=$_SESSION['CurrentUser'];
+if(!isset($_SESSION['CurrentUser'])) {
+    header("Location: ../login.php");
+}
+$username1=$_SESSION['CurrentUser'];
+
 
 $sql = "select count(*) as requestsnr from tblkerkesat where approved=0";
 $execsql = mysqli_query($conn,$sql);
