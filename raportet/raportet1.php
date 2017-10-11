@@ -195,6 +195,8 @@ $(document).ready(function(){
                         </div>
                      </div>
 
+
+
                      <div class="form-group">
                         <label class="col-md-1 control-label" for="Emri">Anamneza e semundjes
                         <br> <small>(Disease Anamnesis):</small>
@@ -309,19 +311,24 @@ $(document).ready(function(){
                                                 <input id="receta" name="rp" type="text" placeholder="" value="" size="100" class="form-control input-md">
                                              </div>
                                           </div>
-                                          <?php include("zgjedh_barnat.php"); ?>
 
-                                       </div>
+                                          <div class="form-group">
+                                             <label class="col-md-1 control-label" for="Emri"><small>:</small>
+                                             </label>
+                                             <div class="input-field col-md-10">
+                                              
+                                                <?php include("zgjedh_barnat.php"); ?>
+                                             </div>
+                                          </div>
+
+                                         
+
+
                                        <div class="step-actions">
                                           <button class="waves-effect waves-dark btn next-step blue">CONTINUE</button>
                                           
                                          
-                                            <div style="display:inline">
-                                          <select>
-                                            <option>dsfsd</option>
-                                          </select>
-                                         
-                                          </div>
+                                           
                                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                                        </div>
                                     </div>
@@ -591,7 +598,7 @@ $(document).ready(function(){
 
 
                           <style type="text/css">#divId{
-                          display:none;
+                          
                           }</style>
                           <?php
                           }?>

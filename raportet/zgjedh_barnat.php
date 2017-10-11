@@ -1,179 +1,93 @@
-<style type="text/css">
-.reset-this {
-    animation : none;
-    animation-delay : 0;
-    animation-direction : normal;
-    animation-duration : 0;
-    animation-fill-mode : none;
-    animation-iteration-count : 1;
-    animation-name : none;
-    animation-play-state : running;
-    animation-timing-function : ease;
-    backface-visibility : visible;
-    background : 0;
-    background-attachment : scroll;
-    background-clip : border-box;
-    background-color : transparent;
-    background-image : none;
-    background-origin : padding-box;
-    background-position : 0 0;
-    background-position-x : 0;
-    background-position-y : 0;
-    background-repeat : repeat;
-    background-size : auto auto;
-    border : 0;
-    border-style : none;
-    border-width : medium;
-    border-color : inherit;
-    border-bottom : 0;
-    border-bottom-color : inherit;
-    border-bottom-left-radius : 0;
-    border-bottom-right-radius : 0;
-    border-bottom-style : none;
-    border-bottom-width : medium;
-    border-collapse : separate;
-    border-image : none;
-    border-left : 0;
-    border-left-color : inherit;
-    border-left-style : none;
-    border-left-width : medium;
-    border-radius : 0;
-    border-right : 0;
-    border-right-color : inherit;
-    border-right-style : none;
-    border-right-width : medium;
-    border-spacing : 0;
-    border-top : 0;
-    border-top-color : inherit;
-    border-top-left-radius : 0;
-    border-top-right-radius : 0;
-    border-top-style : none;
-    border-top-width : medium;
-    bottom : auto;
-    box-shadow : none;
-    box-sizing : content-box;
-    caption-side : top;
-    clear : none;
-    clip : auto;
-    color : inherit;
-    columns : auto;
-    column-count : auto;
-    column-fill : balance;
-    column-gap : normal;
-    column-rule : medium none currentColor;
-    column-rule-color : currentColor;
-    column-rule-style : none;
-    column-rule-width : none;
-    column-span : 1;
-    column-width : auto;
-    content : normal;
-    counter-increment : none;
-    counter-reset : none;
-    cursor : auto;
-    direction : ltr;
-    display : inline;
-    empty-cells : show;
-    float : none;
-    font : normal;
-    font-family : inherit;
-    font-size : medium;
-    font-style : normal;
-    font-variant : normal;
-    font-weight : normal;
-    height : auto;
-    hyphens : none;
-    left : auto;
-    letter-spacing : normal;
-    line-height : normal;
-    list-style : none;
-    list-style-image : none;
-    list-style-position : outside;
-    list-style-type : disc;
-    margin : 0;
-    margin-bottom : 0;
-    margin-left : 0;
-    margin-right : 0;
-    margin-top : 0;
-    max-height : none;
-    max-width : none;
-    min-height : 0;
-    min-width : 0;
-    opacity : 1;
-    orphans : 0;
-    outline : 0;
-    outline-color : invert;
-    outline-style : none;
-    outline-width : medium;
-    overflow : visible;
-    overflow-x : visible;
-    overflow-y : visible;
-    padding : 0;
-    padding-bottom : 0;
-    padding-left : 0;
-    padding-right : 0;
-    padding-top : 0;
-    page-break-after : auto;
-    page-break-before : auto;
-    page-break-inside : auto;
-    perspective : none;
-    perspective-origin : 50% 50%;
-    position : static;
-    /* May need to alter quotes for different locales (e.g fr) */
-    quotes : '\201C' '\201D' '\2018' '\2019';
-    right : auto;
-    tab-size : 8;
-    table-layout : auto;
-    text-align : inherit;
-    text-align-last : auto;
-    text-decoration : none;
-    text-decoration-color : inherit;
-    text-decoration-line : none;
-    text-decoration-style : solid;
-    text-indent : 0;
-    text-shadow : none;
-    text-transform : none;
-    top : auto;
-    transform : none;
-    transform-style : flat;
-    transition : none;
-    transition-delay : 0s;
-    transition-duration : 0s;
-    transition-property : none;
-    transition-timing-function : ease;
-    unicode-bidi : normal;
-    vertical-align : baseline;
-    visibility : visible;
-    white-space : normal;
-    widows : 0;
-    width : auto;
-    word-spacing : normal;
-    z-index : auto;
-    /* basic modern patch */
-    all: initial;
-    all: unset;
-}
-
-/* basic modern patch */
-
-#reset-this-root {
-    all: initial;
-    * {
-        all: unset;
-    }
-}
-</style>
-
-<?php
-
-
+<?php  
+include("databaze.php");
+$sql12="select * from tblstocks";
+ $res1=mysqli_query($conn,$sql12) or die( "Error");
+         while ($row1=mysqli_fetch_assoc($res1)) 
+   { 
+    $json[] = $row1['emri'];
+      $barcode=$row1[ 'barcode']; 
+      $emriBarnes=$row1['emri'];
+      $sasia=$row1[ 'sasia']; 
+      $data_prodhimit=$row1['data_prodhimit'];
+      $data_skadimit=$row1['data_skadimit'];
+      }
 ?>
+<!DOCTYPE html>
+  <html>
+    <head>
+   
+      
+      <script type="text/javascript">
+       $(document).ready(function() {
+    $('select').material_select();
+  });
 
-<div id="reset-this-root">
-test
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-</div>
+       $.ajax({
+    url:'suggest.html',
+    type:'POST',
+    data: 'q=' + str,
+    dataType: 'json',
+    success: function( json ) {
+        $.each(json, function(i, value) {
+            $('#selectid').append($('<option>').text(value).attr('value', value));
+        });
+    }
+});
+
+
+       </script>
+    <script>
+// function myFunction() {
+
+
+//     var x = document.createElement("INPUT");
+//     x.setAttribute("type", "text");
+//     x.setAttribute("value", "Hello World!");
+//     document.body.appendChild(x);
+  
+// }
+function myFunction() {
+    if(document.getElementById('selectid').value == "tjeter") {
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "text");
+    x.setAttribute("value", "");
+    x.setAttribute("placeholder", "Shenoni ilaç tjeter");
+    x.setAttribute("class", "input-field col s12");
+    document.getElementById("myDIV").appendChild(x);
+  }
+}
+</script>
+
+</head>
+<body>
+  <div id="myDIV" class="input-field col s4">
+    <select id="selectid" name="emriIlacit"  onchange="myFunction()">
+      <option value="" disabled selected>Zgjedhni njerin prej ilaçeve</option>
+      <option value="<?php echo $emriBarnes; ?>"><?php echo $emriBarnes; ?></option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      <option value="tjeter">tjeter</option>
+    </select>
+  </div>
+  
+
+ 
+
+          <div class="input-field col s4">
+            <input name="nrBarnave" type="number" placeholder="Sasia">
+            
+          </div>
+        <div class="input-field col s4">
+    <select>
+      <option value="" disabled selected>Njësia</option>
+      <option value="2">cop</option>
+      <option value="3">pako</option>
+    </select>
+  </div>
+    </body>
+  </html>
+
+  <?php 
+
+
+   ?>
