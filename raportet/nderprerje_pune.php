@@ -65,16 +65,20 @@
                                        </div>
                                        
                                        <div class="step-actions">
-                                           <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-                                          <tr> 
-                                          <td width="246">
+                                           <button class="waves-effect waves-dark btn-flat previous-step" style="margin-top: 10px;">BACK</button>
                                           <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                                          <input name="userfile3" type="file" id="userfile3"> 
-                                          </td>
-                                          <!-- <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-                                           --></tr>
-                                          </table>
-                                          <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+<!--                                          <input name="userfile3" type="file" id="userfile3"> -->
+                                           <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                                           <div class="file-field input-field" style="margin:10px;">
+                                               <div class="btn">
+                                                   <span>File</span>
+                                                   <input type="file"  name="userfile3" id="userfile3">
+                                               </div>
+                                               <div class="file-path-wrapper">
+                                                   <input class="file-path validate" type="text" placeholder="Upload files">
+                                               </div>
+                                           </div>
+
                                        </div>
                                     </div>
                                  </li>

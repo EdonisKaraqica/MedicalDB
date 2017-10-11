@@ -278,7 +278,7 @@ $(document).ready(function(){
                            <div class="col s12">
                               <ul class="stepper">
                                  <li class="step">
-                                    <div class="step-title waves-effect waves-dark">Raporti Mjeksor</div>
+                                    <div class="step-title waves-effect waves-dark">Raporti Mjekesor</div>
                                     <div class="step-content" style="height:auto">
                                        <div class="row">
                                           <div class="form-group">
@@ -399,24 +399,20 @@ $(document).ready(function(){
                                           </div>
                                        </div>
                                        <div class="step-actions">
-                                       <div class="input-field col-md-2">
+                                       <div class="input-field">
                                           <button class="waves-effect waves-dark btn next-step blue">CONTINUE</button>
-                                          </div>
-                                           
-                                           <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-                                          <tr> 
-                                          <td width="246">
+                                       </div>
                                           <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                                          <input name="userfile" type="file" id="userfile"> 
-                                          </td>
-
-                                          <!-- <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-                                           --></tr>
-                                          </table>
-
-
-                                          
-                                          <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
+                                              <div class="file-field input-field" style="margin:10px;">
+                                                  <div class="btn">
+                                                      <span>File</span>
+                                                      <input type="file"  name="userfile" id="userfile">
+                                                  </div>
+                                                  <div class="file-path-wrapper">
+                                                      <input class="file-path validate" type="text" placeholder="Upload files">
+                                                  </div>
+                                              </div>
+                                          <button class="waves-effect waves-dark btn-flat previous-step" style="margin-top: 10px;">BACK</button>
                                        </div>
                                     </div>
                                  </li>
@@ -494,26 +490,21 @@ $(document).ready(function(){
                                        </div>
                                        <div class="step-actions">
                                         <button class="waves-effect waves-dark btn next-step blue">CONTINUE</button>
-
-
-                                        <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-                                          <tr> 
-                                          <td width="246">
                                           <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                                          <input name="userfile1" type="file" id="userfile1"> 
-                                          </td>
-                                          <!-- <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-                                           --></tr>
-                                          </table>
-
-
+                                           <div class="file-field input-field" style="margin-top: -5px;">
+                                               <div class="btn">
+                                                   <span>File</span>
+                                                   <input type="file"  name="userfile1" id="userfile1"">
+                                               </div>
+                                               <div class="file-path-wrapper">
+                                                   <input class="file-path validate" type="text" placeholder="Upload files">
+                                               </div>
+                                           </div>
                                           <button class="waves-effect waves-dark btn-flat previous-step">BACK</button>
                                        </div>
                                     </div>
                                  </li>
                                 <?php if((isset($_GET['id']))||(isset($_GET['kidselect']))){echo '
-                                 
-
                                   <li class="step" id="divId">
                                     <div class="step-title waves-effect waves-dark">Leje per largim nga vendi i punes</div>
                                     <div class="step-content" style="height:auto">
@@ -554,6 +545,7 @@ $(document).ready(function(){
                                        </div>
                                     </div>
                                  </li>
+                                 
 <!-- Nese nevoitet qe doktori me plotesu vet pushimin ateher ai e merr direkt prej fajllit nderprerje_pune.php -->
                                    
                                    
