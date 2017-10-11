@@ -4,9 +4,12 @@
 //require 'C:/xampp/htdocs/FPDF/fpdf.php';
 require('dianapdf.php');
 require_once("databaze.php");
+include("zbrit_nga_stoku.php");
 // session_start();
 // include("ruajtjanedb.php");
 $_SESSION['uploadid']='null';
+
+
 
 if((isset($_POST['action'])||isset($_GET['kidselect'])) && ($_FILES['userfile']['size'] > 0))
 {
