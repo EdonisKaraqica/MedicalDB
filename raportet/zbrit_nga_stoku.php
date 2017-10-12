@@ -9,8 +9,14 @@ if(isset($_POST['emriIlacit']))
 {
 $emri=$_POST['emriIlacit'];
 }
-if(!empty($_POST['nrBarnave'])){
-$sql120="UPDATE tblstocks SET sasia = sasia - ".$numri." WHERE `emri` = '$emri'";
+if(isset($_POST['njesia'])){
+	if($_POST['njesia']=='pako'){
+	$sql120="UPDATE tblstocks SET sasia_pakove = sasia_pakove - ".$numri." WHERE `emri` = '$emri'";
+}
+else{
+		$sql120="UPDATE tblstocks SET sasia_copeve = sasia_copeve - ".$numri." WHERE `emri` = '$emri'";
+
+}
  $res13=mysqli_query($conn,$sql120) or die( "Error");
 }
    //       while ($row1=mysqli_fetch_assoc($res13)) 

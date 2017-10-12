@@ -76,10 +76,10 @@ echo $select; ?>
             
           </div>
         <div class="input-field col s4">
-    <select>
+    <select name="njesia">
       <option value="" disabled selected>Njësia</option>
-      <option value="2">cop</option>
-      <option value="3">pako</option>
+      <option name="cop" value="cop">cop</option>
+      <option name="pako" value="pako">pako</option>
     </select>
   </div>
     </body>
