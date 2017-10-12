@@ -117,6 +117,23 @@ $col["export"] = true;
 $cols[] = $col;
 
 $col = array();
+$col["title"] = "Data";
+$col["name"] = "data_regjistrimit";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["width"] = "80";
+$col["align"] = "center";
+
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+$col["editrules"] = array("edithidden"=>false);
+
+$cols[] = $col;
+
+$col = array();
 $col["title"] = "Emri i pacientit";
 $col["dbname"] = "a.emri";
 $col["name"] = "emri";
@@ -126,13 +143,12 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
@@ -146,13 +162,12 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
@@ -165,13 +180,7 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "105";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
 
 
 
@@ -197,6 +206,7 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Gjinia";
+$col["dbname"] = "a.gjinia";
 $col["name"] = "gjinia";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -204,49 +214,33 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "50";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
 $col = array();
 $col["title"] = "Ditelindja";
+$col["dbname"] = "a.ditelindja";
 $col["name"] = "ditelindja";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "80";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
 $col = array();
 $col["title"] = "Adresa";
+$col["dbname"] = "a.vendlindja";
 $col["name"] = "adresa";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "120";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
@@ -260,13 +254,7 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "80";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
 
@@ -285,12 +273,13 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
 $col = array();
 $col["title"] = "Amneza e semundjes";
+$col["dbname"] = "a.anamnezaesemundjes";
 $col["name"] = "anamneza_konstatimi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -303,7 +292,7 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
@@ -321,12 +310,13 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
 $col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
 $col = array();
 $col["title"] = "Trajtimi";
+$col["dbname"] = "a.trajtimi";
 $col["name"] = "terapia";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -381,23 +371,7 @@ $col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;*/
 
-$col = array();
-$col["title"] = "Data";
-$col["name"] = "data_regjistrimit";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
-$col["width"] = "80";
-$col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
-// don't show this column in list, but in edit/add mode
-//edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
-
-$cols[] = $col;
 
 $col = array();
 $col["title"] = "Cmimi";
@@ -420,6 +394,7 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Kontrolloi";
+$col["dbname"] = "CONCAT(b.emri, ' ', b.mbiemri)";
 $col["name"] = "demri";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable

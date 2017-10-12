@@ -555,7 +555,7 @@ $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
             -->
             <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register.png"/></i>Regjistro kontrolle</a>
 
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kerkesat<?php if($nrkerkesave > 0){
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kerkesat&nbsp;<?php if($nrkerkesave > 0){
                     echo "(" . $nrkerkesave . ")";
                 } ?>
             </a>

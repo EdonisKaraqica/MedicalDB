@@ -113,7 +113,45 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Sasia";
-$col["name"] = "sasia";
+$col["name"] = "sasia_pakove";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["export"] = false;
+//$col["width"] = "100";
+$col["align"] = "center";
+
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+//$col["editrules"] = array("edithidden"=>true);
+
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Cp/Pako";
+$col["name"] = "sasia_copeve";
+$col["sortable"] = true; // this column is not sortable
+$col["search"] = true; // this column is not searchable
+$col["editable"] = true;
+$col["export"] = false;
+//$col["width"] = "100";
+$col["align"] = "center";
+
+
+// don't show this column in list, but in edit/add mode
+//edited from true(bes)$col["hidden"] = true;
+$col["hidden"] = false;
+//$col["editrules"] = array("edithidden"=>true);
+
+
+$cols[] = $col;
+
+$col = array();
+$col["title"] = "Totali i copeve";
+$col["name"] = "totali";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
 $col["editable"] = true;

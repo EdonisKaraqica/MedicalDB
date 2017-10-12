@@ -126,6 +126,17 @@ $col["hidden"] = false;
 //$col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
+$col = array();
+$col["title"] = "Data"; // caption of column
+$col["dbname"] = "a.data_regjistrimit";
+$col["name"] = "data";
+$col["width"] = "60";
+$col["align"] = "center";
+//$col["editable"] = true;
+$col["hidden"] = false;
+//$col["editrules"] = array("edithidden"=>true);
+$cols[] = $col;
+
 
 $col = array();
 $col["title"] = "Emri i pacientit"; // caption of column
@@ -172,6 +183,7 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Anamneza e semundjes"; // caption of column
+$col["dbname"] = "a.anamnezaesemundjes";
 $col["name"] = "anamneza";
 $col["width"] = "165";
 $col["export"] = false;
@@ -183,6 +195,7 @@ $cols[] = $col;
 
 $col = array();
 $col["title"] = "Anamneza e familjes"; // caption of column
+$col["dbname"] = "a.anamnezaefamiljes";
 $col["name"] = "anamneza2";
 $col["width"] = "165";
 $col["align"] = "center";
@@ -236,16 +249,6 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Data"; // caption of column
-$col["name"] = "data";
-$col["width"] = "60";
-$col["align"] = "center";
-//$col["editable"] = true;
-$col["hidden"] = false;
-//$col["editrules"] = array("edithidden"=>true);
-$cols[] = $col;
-
-$col = array();
 $col["title"] = "Kontrolloi"; // caption of column
 $col["name"] = "kontrolloi";
 $col["dbname"] = "CONCAT(c.emri, ' ', c.mbiemri)"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
@@ -260,7 +263,7 @@ $col = array();
 $col["title"] = "Download";
 $col["name"] = "download";
 $col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
+$col["search"] = false; // this column is not searchable
 //$col["default"] = "View More";
 $col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../raportet/raporti_nga_rekordet.php?sid='+cellval+'\">'+\"Download\"+'</a>'; }";
 $col["editable"] = false;
