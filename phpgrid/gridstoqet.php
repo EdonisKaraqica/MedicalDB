@@ -154,7 +154,8 @@ $col["title"] = "Totali i copeve";
 $col["name"] = "totali";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
-$col["editable"] = true;
+$col["editoptions"] = array("defaultValue"=>"Test Value","readonly"=>"readonly", "style"=>"border:0");
+$col["editable"] = false;
 $col["export"] = false;
 //$col["width"] = "100";
 $col["align"] = "center";
