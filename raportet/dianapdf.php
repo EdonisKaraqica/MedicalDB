@@ -1,4 +1,8 @@
+
 <?php
+
+header('Content-Type: text/html; charset=ISO-8859-1');
+
 
 require('fpdf181/fpdf.php');
 require_once( 'databaze.php');
@@ -61,6 +65,10 @@ class createPDF
         $this->komentInput=$_POST['koment'];
         $this->perfundim=$_POST['perfundimi'];
         $this->trajtim=$_POST['trajtimi'];
+        $this->barnatInput=$_POST['emriIlacit'];
+        $this->nrBarnave=$_POST['nrBarnave'];
+        $this->copPako=$_POST['njesiaIlacit'];
+        
         $this->laborator=$_POST['laboratori'];
 
         $this->raportMjeksor=$_POST['rap'];
@@ -106,6 +114,10 @@ class createPDF
         define('EeMadhe',chr(203));
 		define('EeVogel',chr(235));
 
+		if($_POST['njesiaIlacit']=="copë"){
+        	 $this->copPako="cop".EeVogel;
+        }
+
         //variablat statike 
         $this->titulli = "LIMAK KOSOVO INTERNATIONAL AIRPORT J.S.C.";
         $this->titulli1 = "SH". EeMadhe."RBIMI MJEK".EeMadhe."SOR/ MEDICAL SERVICE";
@@ -137,8 +149,11 @@ class createPDF
         $this->anamneza_familjes="<pre>ANAMNEZA E FAMILJES</pre><i> (Family Anamnesis):</i>";
         $this->perfundimi="<pre>P".EeMadhe."RFUNDIMI</pre><i> (Conclusion):</i>";
         $this->trajtimi="<pre>TRAJTIMI</pre><i> (Medical Treatment):</i>";
+        $this->barnat="<pre>                          Barnat</pre><i> (Drugs):</i>";
+
         $this->laboratori="<pre>LABORATORI</pre><i> (Laboratory):</i>";
         $this->Diagnoza = "<pre>DIAGNOZA</pre><i> (Diagnosis):</i>";
+
         
         //PJESA 2
         $this->raport_mjekesor="<B>RAPORT MJEK".EeMadhe."SOR</B><i> (MEDICAL REPORT)</i>";
@@ -325,6 +340,11 @@ class createPDF
 		$pdf->WriteHTML($this->trajtimi);
 		$pdf->Cell(30.6);
 		$pdf->MultiCell(116,5,$this->trajtim,0,"L",false);
+
+		$pdf->Cell(500,1.5,"",0,1);
+		$pdf->WriteHTML($this->barnat);
+		$pdf->Cell(17.2);
+		$pdf->MultiCell(108,5,$this->barnatInput.', '.$this->nrBarnave.' '.$this->copPako,0,'L',false);
 
 		$pdf->Cell(500,3,"",0,1);
         $pdf->WriteHTML($this->perfundimi);
