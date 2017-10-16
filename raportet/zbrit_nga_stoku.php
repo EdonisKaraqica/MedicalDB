@@ -9,17 +9,13 @@ if(isset($_POST['emriIlacit']))
 {
 $emri=$_POST['emriIlacit'];
 }
-if(isset($_POST['njesia'])){
-	if($_POST['njesia']=='pako'){
+if(isset($_POST['njesiaIlacit'])){
+	if($_POST['njesiaIlacit']=='pako'){
 	$sqlnjesiapako="UPDATE tblstocks as a SET sasia_pakove = (sasia_pakove - ".$numri."), totali = (totali - (" . $numri . "*sasia_copeve)) WHERE a.emri='" . $emri . "'";
   mysqli_query($conn,$sqlnjesiapako);
 
 }
-<<<<<<< HEAD
-// elseif(isset($_POST['njesia']=='cop')){
-// 		$sql120="UPDATE tblstocks SET sasia_copeve = sasia_copeve - ".$numri." WHERE `emri` = '$emri'";
-=======
-elseif($_POST['njesia']=='cop'){
+elseif($_POST['njesiaIlacit']=='copë'){
 
   $sqlbarna = "SELECT * from tblstocks as a where a.emri='" . $emri . "'";
   //echo $sqlbarna;
@@ -64,17 +60,15 @@ elseif($_POST['njesia']=='cop'){
 
   //$sqlnjesiapako="UPDATE tblstocks as a SET totali = (totali - ".$numri."), totali = (totali - (" . $numri . "*sasia_copeve)) WHERE a.emri='" . $emri . "'";
 
->>>>>>> 77066f8513545538109cc8640a1ab2f105d8f907
 
-// }
 
-<<<<<<< HEAD
- $res13=mysqli_query($conn,$sql120) or die( "Error");
-=======
+}
+
+
  //$res13=mysqli_query($conn,$sql120) or die( "Error");
  //$sql444="UPDATE tblstocks SET totali = sasia_copeve*sasia_pakove WHERE `emri` = '$emri'";
  //$res132=mysqli_query($conn,$sql444) or die( "Error");
->>>>>>> 77066f8513545538109cc8640a1ab2f105d8f907
+
 }
    //       while ($row1=mysqli_fetch_assoc($res13))
    // {

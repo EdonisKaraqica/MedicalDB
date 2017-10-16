@@ -67,6 +67,7 @@ while ($row1=mysqli_fetch_assoc($res2))
 
 <html>
    <head>
+    <meta charset="utf-8">
     <style>
     div.step-content
     {
@@ -262,7 +263,10 @@ $(document).ready(function(){
                         </label>
                         <div class="input-field col-md-11">
                            <input id="Emri" name="trajtimi" type="text" placeholder="" size="10" class="form-control input-md">
+                           <br>
+                        <?php include("zgjedh_barnat.php"); ?>
                         </div>
+
                      </div>
                      <div class="form-group">
                         <label class="col-md-1 control-label" for="Emri">Përfundimi
@@ -312,14 +316,7 @@ $(document).ready(function(){
                                              </div>
                                           </div>
 
-                                          <div class="form-group">
-                                             <label class="col-md-1 control-label" for="Emri"><small>:</small>
-                                             </label>
-                                             <div class="input-field col-md-10">
-                                              
-                                                <?php include("zgjedh_barnat.php"); ?>
-                                             </div>
-                                          </div>
+                                         
 
                                          
 
