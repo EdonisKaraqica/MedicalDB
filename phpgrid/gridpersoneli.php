@@ -338,9 +338,9 @@ $cols[] = $col;
 $col = array();
 $col["title"] = "tkn";
 $col["name"] = "token";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
+$col["sortable"] = false; // this column is not sortable
+$col["search"] = false; // this column is not searchable
+$col["editable"] = false;
 $col["export"] = false;
 $col["width"] = "150";
 $col["align"] = "center";
@@ -349,17 +349,17 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["hidden"] = true;
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
 $col = array();
 $col["title"] = "lgd";
 $col["name"] = "logged";
-$col["sortable"] = true; // this column is not sortable
-$col["search"] = true; // this column is not searchable
-$col["editable"] = true;
+$col["sortable"] = false; // this column is not sortable
+$col["search"] = false; // this column is not searchable
+$col["editable"] = false;
 $col["export"] = false;
 $col["width"] = "150";
 $col["align"] = "center";
@@ -368,8 +368,8 @@ $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
-$col["hidden"] = false;
-$col["editrules"] = array("edithidden"=>true);
+$col["hidden"] = true;
+$col["editrules"] = array("edithidden"=>false);
 
 $cols[] = $col;
 
@@ -390,6 +390,8 @@ $col["hidden"] = false;
 $col["editrules"] = array("edithidden"=>true);
 
 $cols[] = $col;
+
+
 
 // pass the cooked columns to grid
 $g->set_columns($cols);
