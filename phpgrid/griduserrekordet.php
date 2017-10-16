@@ -130,6 +130,16 @@ $db_conf = array(
 				//$col["editrules"] = array("edithidden"=>true);
 				$cols[] = $col;
 
+				$col = array();
+				$col["title"] = "Data"; // caption of column
+				$col["name"] = "data";
+				$col["width"] = "60";
+				$col["align"] = "center";
+				//$col["editable"] = true;
+				$col["hidden"] = false;
+				//$col["editrules"] = array("edithidden"=>true);
+				$cols[] = $col;
+
 
 				$col = array();
 				$col["title"] = "Emri i pacientit"; // caption of column
@@ -155,6 +165,7 @@ $db_conf = array(
 
 				$col = array();
 				$col["title"] = "Shifra e v."; // caption of column
+				$col["dbname"] = "a.shifra_veprimtarise";
 				$col["name"] = "shv"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 				$col["width"] = "65";
 				$col["align"] = "center";
@@ -175,6 +186,7 @@ $db_conf = array(
 
 				$col = array();
 				$col["title"] = "Anamneza e semundjes"; // caption of column
+				$col["dbname"] = "a.anamnezaefamiljes";
 				$col["name"] = "anamneza";
 				$col["width"] = "165";
 				$col["export"] = false;
@@ -186,6 +198,7 @@ $db_conf = array(
 
 				$col = array();
 				$col["title"] = "Anamneza e familjes"; // caption of column
+				$col["dbname"] = "a.anamnezaefamiljes";
 				$col["name"] = "anamneza2";
 				$col["width"] = "165";
 				$col["align"] = "center";
@@ -238,15 +251,7 @@ $db_conf = array(
 				//$col["editrules"] = array("edithidden"=>true);
 				$cols[] = $col;
 
-				$col = array();
-				$col["title"] = "Data"; // caption of column
-				$col["name"] = "data";
-				$col["width"] = "60";
-				$col["align"] = "center";
-				//$col["editable"] = true;
-				$col["hidden"] = false;
-				//$col["editrules"] = array("edithidden"=>true);
-				$cols[] = $col;
+
 
 				$col = array();
 				$col["title"] = "Kontrolloi"; // caption of column
