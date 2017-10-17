@@ -32,13 +32,13 @@ function txtentities($html)
 /************************************/
 /* main class createPDF             */
 /************************************/
-class createPDF 
+class createPDF
 {
 
-    function __construct($post) 
+    function __construct($post)
     {
-    	
-        //input nga forma 
+
+        //input nga forma
         $this->emriDok=$_POST['emriDok'];
     	$this->mbiemriDok=$_POST['mbiemriDok'];
 
@@ -47,14 +47,14 @@ class createPDF
 		$this->numriID=$_POST['numriID'];
 		$this->adresaInput=$_POST['adresa'];
 		$this->ditelindjaInput=$_POST['ditelindja'];
-		
+
 
         $this->emailInput=$_POST['email'];
         $this->vendlindja=$_POST['vendlindja'];
         $this->gjiniaInput=$_POST['gjinia'];
         $this->nrDosjes=$_POST['nrDosjes'];
         $this->njesiaInput=$_POST['njesia'];
-		
+
 		$this->alergjiteInput=$_POST['alergjite'];
         $this->ankesaInput=$_POST['ankesa'];
         $this->anamnezaInput=$_POST['anamneza'];
@@ -65,10 +65,29 @@ class createPDF
         $this->komentInput=$_POST['koment'];
         $this->perfundim=$_POST['perfundimi'];
         $this->trajtim=$_POST['trajtimi'];
-        $this->barnatInput=$_POST['emriIlacit'];
-        $this->nrBarnave=$_POST['nrBarnave'];
-        $this->copPako=$_POST['njesiaIlacit'];
-        
+
+        //to be edited
+        if(isset($_POST['emriIlacit'])){
+        $this->barnatInput=$_POST['emriIlacit'];}
+        else{
+          $this->barnatInput = '';
+          $_POST['emriIlacit'] = '';
+        }
+        if(isset($_POST['nrBarnave'])){
+        $this->nrBarnave=$_POST['nrBarnave'];}
+        else{
+          $this->barnatInput = '';
+          $_POST['nrBarnave'] = '';
+        }
+        if(isset($_POST['njesiaIlacit'])){
+        $this->copPako=$_POST['njesiaIlacit'];}
+        else{
+          $this->copPako = '';
+          $_POST['njesiaIlacit'] = '';
+        }
+
+        //deri ktu
+
         $this->laborator=$_POST['laboratori'];
 
         $this->raportMjeksor=$_POST['rap'];
@@ -104,13 +123,13 @@ class createPDF
         $this->ditaFunditInput=$_POST['fundi'];
         $this->numriDiteveInput=$_POST['numri'];
         $this->komentInputRaport=$_POST['komentRaport'];
-				
+
         // other options
         $this->from='iso-8859-2';         // input encoding
         $this->to='cp1250';               // output encoding
         $this->useiconv=false;            // use iconv
         $this->bi=true;                   // support bold and italic tags
-        
+
         define('EeMadhe',chr(203));
 		define('EeVogel',chr(235));
 
@@ -118,12 +137,12 @@ class createPDF
         	 $this->copPako="cop".EeVogel;
         }
 
-        //variablat statike 
+        //variablat statike
         $this->titulli = "LIMAK KOSOVO INTERNATIONAL AIRPORT J.S.C.";
         $this->titulli1 = "SH". EeMadhe."RBIMI MJEK".EeMadhe."SOR/ MEDICAL SERVICE";
 		$this->raportTitulli = "RAPORT MJEK".EeMadhe."SOR/ MEDICAL REPORT";
 
-        
+
         //PJESA 1
         $this->te_dhenat="<B>T".EeMadhe." DH".EeMadhe."NAT E P".EeMadhe."RGJITHSHME</B><EM> (GENERAL DATA):</EM>";
         $this->emri_mbiemri="<pre>EMRI MBIEMRI</pre><i> (Full Name):</i>";
@@ -154,36 +173,36 @@ class createPDF
         $this->laboratori="<pre>LABORATORI</pre><i> (Laboratory):</i>";
         $this->Diagnoza = "<pre>DIAGNOZA</pre><i> (Diagnosis):</i>";
 
-        
+
         //PJESA 2
         $this->raport_mjekesor="<B>RAPORT MJEK".EeMadhe."SOR</B><i> (MEDICAL REPORT)</i>";
         $this->raporti="<pre>Raporti</pre><i> (Report):</i>";
-        
+
         //PJESA 3
         $this->Recete = "<B>RECET".EeMadhe."</B><i> (RECIPE)</i>";
         $this->Rp = "<pre>Rp</pre><i> (Rp):</i>";
-        
+
         //PJESA 4
         $this->udhezim_konsultime="<B>UDH".EeMadhe."ZIM P".EeMadhe."R KONSULTIME</B><i> (MEDICAL GUIDANCE FOR CONSULTATION)</i>";
         $this->udhezohet_per="<pre>Udh".EeVogel."zohet p".EeVogel."r</pre><i> (Guided for):</i>";
         $this->diagnoza="<pre>Diagnoza</pre><i> (Diagnosis):</i>";
         $this->gjendja_pre="<pre>Gjendja prezente</pre><i> (Present condition):</i>";
         $this->terapia_apl="<pre>Terapia e aplikuar</pre><i> (Applied therapy):</i>";
-        
+
         //PJESA 5
         $this->udhezim_laborator="<B>UDH".EeMadhe."ZIM P".EeMadhe."R EKZAMINIME LABORATORIKE</B><i> (MEDICAL GUIDANCE FOR LABORATORY EXAMINATIONS)</i>";
         $this->udhezohet="<pre>Udh".EeVogel."zohet p".EeVogel."r</pre><i> (Guided for):</i>";
         $this->diagnozau="<pre>Diagnoza</pre><i> (Diagnosis):</i>";
         $this->gjendja_p="<pre>Gjendja prezente</pre><i> (Present Condition):</i>";
         $this->terapia_ap="<pre>Terapia e aplikuar</pre><i> (Applied therapy):</i>";
-        
+
         //PJESA 6
         $this->udhezim_rentgen="<B>UDH".EeMadhe."ZIM P".EeMadhe."R EKZAMINIME RENTGENOLOGJIKE</B><i> (MEDICAL GUIDANCE FOR ROENTGENOLOGICAL EXAMINATIONS)</i>";
          $this->udhezoheet="<pre>Udh".EeVogel."zohet p".EeVogel."r</pre><i> (Guided for):</i>";
         $this->diagnozaau="<pre>Diagnoza</pre><i> (Diagnosis):</i>";
         $this->gjeendja_p="<pre>Gjendja prezente</pre><i> (Present Condition):</i>";
         $this->terapia_aplikuar="<pre>Terapia e aplikuar</pre><i> (Applied Therapy):</i>";
-        
+
         //PJESA 7
         $this->raport_pasagjer="<B>RAPORT UDH".EeMadhe."TIMI P".EeMadhe."R UDH".EeMadhe."TAR</B><i> (TRAVEL REPORT FOR PASSENGER)</i>";
      	$this->origjinap="<pre>Origjina</pre><i> (Origin):</i>";
@@ -192,7 +211,7 @@ class createPDF
         $this->notep="The passenger signed below here by confirms that concerning his health condition at the present time takes all responsibility towards the Airlines, its employees and its representative in connection with this flight. She or he is responsible for any damages, injuries or other complications, as well as additional expense, which may arise for the Airlines.    ";
         $this->passengersignature="<PRE>Udh".EeVogel."tari</PRE><i> (Passenger):</i>";
         $this->psignature="<i>  __________________________</i>";
-        
+
         //PJESA 8
         $this->leje_largimi="<B>LEJE P".EeMadhe."R LARGIM NGA VENDI I PUN".EeMadhe."S </B><i> (PERMIT TO LEAVE WORK)</i>";
         $this->qellimi_largimit="<pre>Q".EeVogel."llimi i largimit</pre><i> (Reason for leaving): </i>";
@@ -210,24 +229,24 @@ class createPDF
         $this->dsignature=" : __________________________";
     }
 
-    function _convert($s) 
+    function _convert($s)
     {
-        if ($this->useiconv) 
-            return iconv($this->from,$this->to,$s); 
-        else 
+        if ($this->useiconv)
+            return iconv($this->from,$this->to,$s);
+        else
             return $s;
     }
 
-    function run() 
+    function run()
     {
 
     	$pdf=new PDF('P','mm','A4',$this->titulli,$this->titulli1,$this->raportTitulli,false);
         $pdf->AddPage();
-		
+
 		$pdf->SetTitle('RaportiMjekesor');
-		$pdf->SetAutoPageBreak(true,30); 
+		$pdf->SetAutoPageBreak(true,30);
         $pdf->Ln(2);
-                
+
 		//1.TE DHENAT E PERGJITHSHME
 		$pdf->WriteHTML($this->te_dhenat);
 		$pdf->Ln(10);
@@ -235,13 +254,13 @@ class createPDF
      	//Rreshti nje
 		$pdf->WriteHTML($this->emri_mbiemri);
 		$pdf->Cell(4.8);
-		$pdf->Cell(60,5,$this->emri,0,0);   		
+		$pdf->Cell(60,5,$this->emri,0,0);
 		$pdf->Cell(1.3,5,"",0,0);
 		$pdf->WriteHTML($this->nr_id);
 		$pdf->Cell(9);
 		$pdf->Cell(52,5,$this->numriID,0,1);
      	$pdf->Cell(500,1,"",0,1);
-     		
+
 		//Rreshti dy
 		$pdf->WriteHTML($this->adresa);
 		$pdf->Cell(17,10,"",0,0);
@@ -250,7 +269,7 @@ class createPDF
 		$pdf->WriteHTML($this->telefoni);
 		$pdf->Cell(7);
 		$pdf->Cell(52,5,$this->telefoniInput,0,1);
-     
+
 		$pdf->Cell(500,1,"",0,1);
 
 		//Rreshti tre
@@ -261,7 +280,7 @@ class createPDF
 		$pdf->WriteHTML($this->ditelindja);
 		$pdf->Cell(2.5);
 		$pdf->Cell(52,5,$this->ditelindjaInput,0,1);
-     
+
 		$pdf->Cell(500,1,"",0,1);
 
 		//Rreshti kater
@@ -272,7 +291,7 @@ class createPDF
 		$pdf->WriteHTML($this->email);
 		$pdf->Cell(21.2);
 		$pdf->Cell(52,5,$this->emailInput,0,1);
-     
+
 		$pdf->Cell(500,1,"",0,1);
 
 		//Rreshti pese
@@ -288,12 +307,12 @@ class createPDF
 		$pdf->WriteHTML($this->alergjite);
 		$pdf->Cell(44);
 		$pdf->MultiCell(116,5,$this->alergjiteInput,0,"L",false);
-     
+
 		$pdf->Cell(500,5,"",0,1);
 		$pdf->WriteHTML($this->ankesa);
 		$pdf->Cell(44);
 		$pdf->MultiCell(116,5,$this->ankesaInput,0,"L",false);
-     
+
 		$pdf->Cell(500,3,"",0,1);
 		$pdf->WriteHTML($this->anamneza_semundjes);
 		$pdf->Cell(2);
@@ -303,7 +322,7 @@ class createPDF
 		$pdf->WriteHTML($this->anamneza_familjes);
 		$pdf->Cell(8.5);
 		$pdf->MultiCell(116,5,$this->anamnezaFamiljes,0,"L",false);
-    
+
 		$pdf->Cell(500,3,"",0,1);
 		$pdf->WriteHTML($this->ekzaminimi_fizikal);
 		$pdf->Cell(10.1);
@@ -335,7 +354,7 @@ class createPDF
 		$pdf->WriteHTML($this->Diagnoza);
 		$pdf->Cell(40.5);
 		$pdf->MultiCell(116,5,$this->diagnozaInput,0,"L",false);
-      
+
 		$pdf->Cell(500,3,"",0,1);
 		$pdf->WriteHTML($this->trajtimi);
 		$pdf->Cell(30.6);
@@ -349,9 +368,9 @@ class createPDF
 		$pdf->Cell(500,3,"",0,1);
         $pdf->WriteHTML($this->perfundimi);
 		$pdf->Cell(35.7);
-		$pdf->MultiCell(116,5,$this->perfundim,0,"L",false);   
-		
-        if (!empty($_POST["rap"])) 
+		$pdf->MultiCell(116,5,$this->perfundim,0,"L",false);
+
+        if (!empty($_POST["rap"]))
 		{
 			$pdf->Ln(5);
 			$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -361,15 +380,15 @@ class createPDF
 			$pdf->WriteHTML($this->raport_mjekesor);
 			$pdf->Cell(100);
 			$pdf->Cell(100);
-     
+
 			$pdf->WriteHTML($this->raporti);
 			$pdf->Cell(2);
 			$pdf->MultiCell(165,5,$this->raportMjeksor,0,'L',false);
 			//$pdf->PutLine(5,20,420,20);
-			
+
 		}
 
-		if (!empty($_POST["rp"])) 
+		if (!empty($_POST["rp"]))
 		{
 			$pdf->Ln(5);
 			$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -379,15 +398,15 @@ class createPDF
 			$pdf->WriteHTML($this->Recete);
 			$pdf->Cell(100);
 			$pdf->Cell(100);
-     
+
 			$pdf->WriteHTML($this->Rp);
 			$pdf->Cell(2);
 			$pdf->MultiCell(157.5,5,$this->rp,0,'L',false);
-			
-  			
+
+
 		}
 
-  		if (!empty($_POST["udhPer"])||!empty($_POST["gjPrez"])||!empty($_POST["terapiaAp"])) 
+  		if (!empty($_POST["udhPer"])||!empty($_POST["gjPrez"])||!empty($_POST["terapiaAp"]))
   		{
   			$pdf->Ln(5);
 			$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -397,25 +416,25 @@ class createPDF
 			$pdf->WriteHTML($this->udhezim_konsultime);
 			$pdf->Cell(100);
 			$pdf->Cell(100);
-     
+
 			$pdf->WriteHTML($this->udhezohet_per);
 			$pdf->Cell(16);
 			$pdf->MultiCell(135,5,$this->udhPer,0,'L',false);
 			$pdf->Cell(3,5,"",0,1);
-		
+
 			$pdf->WriteHTML($this->gjendja_p);
 			$pdf->Cell(2.5);
 			$pdf->MultiCell(135,5,$this->gjPrez,0,'L',false);
 			$pdf->Cell(3,5,"",0,1);
-     
+
 			$pdf->WriteHTML($this->terapia_apl);
 			$pdf->Cell(4.3);
 			$pdf->MultiCell(135,5,$this->terapiaAp,0,'L',false);
-			
-			
+
+
 		}
 
-		if (!empty($_POST["udhPerLab"])||!empty($_POST["gjPrezLab"])||!empty($_POST["terLab"])) 
+		if (!empty($_POST["udhPerLab"])||!empty($_POST["gjPrezLab"])||!empty($_POST["terLab"]))
 		{
 			$pdf->Ln(5);
 			//$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -425,25 +444,25 @@ class createPDF
 			$pdf->WriteHTML($this->udhezim_laborator);
 			$pdf->Cell(100);
 			$pdf->Cell(100);
-     	
+
 			$pdf->WriteHTML($this->udhezohet);
 			$pdf->Cell(15);
 			$pdf->MultiCell(136,5,$this->udhPerLab,0,'L',false);
 			$pdf->Cell(3,5,"",0,1);
-          
+
 			$pdf->WriteHTML($this->gjendja_pre);
 			$pdf->Cell(2);
 			$pdf->MultiCell(136,5,$this->gjPrezLab,0,'L',false);
 			$pdf->Cell(3,5,"",0,1);
-     
+
 			$pdf->WriteHTML($this->terapia_ap);
 			$pdf->Cell(3);
 			$pdf->MultiCell(136,5,$this->terLab,0,'L',false);
-			
-  			
+
+
 		}
 
-		if (!empty($_POST["qellimiLar"])||!empty($_POST["prej"])||!empty($_POST["deri"])) 
+		if (!empty($_POST["qellimiLar"])||!empty($_POST["prej"])||!empty($_POST["deri"]))
 		{
 			$pdf->Ln(5);
 			$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -453,12 +472,12 @@ class createPDF
 		$pdf->WriteHTML($this->leje_largimi);
 		$pdf->Cell(100);
 		$pdf->Cell(100);
-     
+
 		$pdf->WriteHTML($this->qellimi_largimit);
 		$pdf->Cell(2);
 		$pdf->MultiCell(134.2,5,$this->qellimiLar,0,'L',false);
 		$pdf->Cell(3,5,"",0,1);
-     
+
 		$pdf->WriteHTML($this->koha_largimit);
 		$pdf->Cell(2);
 		$pdf->Cell(25,5,$this->prej,0,0);
@@ -467,11 +486,11 @@ class createPDF
 		$pdf->Cell(2);
 		$pdf->Cell(52,5,$this->deriInput,0,0);
 		//$pdf->PutLine(5,20,420,20);
-  		//$pdf->SetAutoPageBreak(true,90); 
-		
+  		//$pdf->SetAutoPageBreak(true,90);
+
 		}
-		
-		if (!empty($_POST["udhezohetPerRent"])||!empty($_POST["gjPrezenteRent"])||!empty($_POST["terapiaApRent"])) 
+
+		if (!empty($_POST["udhezohetPerRent"])||!empty($_POST["gjPrezenteRent"])||!empty($_POST["terapiaApRent"]))
 		{
 			$pdf->Ln(10);
 		$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -481,25 +500,25 @@ class createPDF
 		$pdf->WriteHTML($this->udhezim_rentgen);
 		$pdf->Cell(100);
 		$pdf->Cell(100);
-     	
+
      	$pdf->WriteHTML($this->udhezohet);
 		$pdf->Cell(16);
 		$pdf->MultiCell(135,5,$this->udhezohetPerRent,0,'L',false);
 		$pdf->Cell(3,5,"",0,1);
-          
+
 		$pdf->WriteHTML($this->gjendja_pre);
 		$pdf->Cell(2.5);
 		$pdf->MultiCell(135,5,$this->gjPrezenteRent,0,'L',false);
 		$pdf->Cell(3,5,"",0,1);
-     
+
 		$pdf->WriteHTML($this->terapia_ap);
 		$pdf->Cell(3.8);
 		$pdf->MultiCell(135,5,$this->terapiaApRent,0,'L',false);
-		 
-		
+
+
 		}
-	
-		if (!empty($_POST["origjina"])||!empty($_POST["destinacioni"])||!empty($_POST["shenime"])) 
+
+		if (!empty($_POST["origjina"])||!empty($_POST["destinacioni"])||!empty($_POST["shenime"]))
 		{
 			$pdf->Ln(5);
 		$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -509,32 +528,32 @@ class createPDF
 		$pdf->WriteHTML($this->raport_pasagjer);
 		$pdf->Cell(100);
 		$pdf->Cell(100);
-          
+
 		$pdf->WriteHTML($this->origjinap);
 		$pdf->Cell(2);
 		$pdf->Cell(35,5,$this->origjina,0,0);
 		//$pdf->Cell(2,3,"",0,0);
-     
+
 		$pdf->WriteHTML($this->destinimip);
 		$pdf->Cell(2);
 		$pdf->Cell(62,5,$this->destinacioni,0,1);
 		$pdf->Ln(3);
-     
+
 		$pdf->WriteHTML($this->shenimep);
 		$pdf->Cell(2);
 		$pdf->MultiCell(163.5,5,$this->shenime,0,'L',false);
-		$pdf->Ln(3);     
+		$pdf->Ln(3);
 		$pdf->MultiCell(200,5,$this->notep,0,'L');
-		$pdf->Ln(3); 
+		$pdf->Ln(3);
 
 		$pdf->WriteHTML($this->passengersignature);
 		$pdf->WriteHTML($this->psignature);
 
-		
+
 
 		}
 
-		if (!empty($_POST["enti"])||!empty($_POST["fillimi"])||!empty($_POST["fundi"]) || !empty($_POST['numri'])) 
+		if (!empty($_POST["enti"])||!empty($_POST["fillimi"])||!empty($_POST["fundi"]) || !empty($_POST['numri']))
 		{
 			$pdf->Ln(5);
 			$pdf->Cell(100,2,'......................................................................................................................................................................................................................',0,0);
@@ -549,7 +568,7 @@ class createPDF
 			$pdf->Cell(2);
 			$pdf->MultiCell(142,5,$this->entiInput,0,'L',false);
 			$pdf->Ln(3);
-     
+
 			$pdf->WriteHTML($this->ditaPare);
 			$pdf->Cell(2);
 			$pdf->Cell(22,5,$this->ditaPareInput,0,0);
@@ -566,11 +585,11 @@ class createPDF
 			$pdf->WriteHTML($this->koment1);
 			$pdf->Cell(19);
 			$pdf->MultiCell(142,5,$this->komentInputRaport,0,'L',false);
-		
+
 		}
-		
+
 		//Paraqitet te raporti gjeneral, nuk varet nga sections
-		$pdf->Ln(30);  
+		$pdf->Ln(30);
 		$pdf->WriteHTML($this->emriDok);
 		$pdf->Cell(5,5," ",0,0);
 		$pdf->WriteHTML($this->mbiemriDok);
@@ -579,13 +598,13 @@ class createPDF
 		$pdf->Cell(60,20,"(V.V)",0,0);
 
 
-		
+
 		// output
 		//$pdf->Output('C:/Users/gresa/Documents/'.date('Y-m-d')."_".$this->emri.".pdf",'F');
         $pdf->Output(date('Y-m-d')."_".$this->emri.".pdf",'I');
 
         // stop processing
-        exit();  
+        exit();
     }
 }
 
@@ -614,14 +633,14 @@ class PDF extends FPDF
         $this->HREF='';
         $this->PRE='';
         $this->SetFont('Arial','',10);
-        
+
         $this->fontlist=array('Times','Arial');
         $this->issetfont=false;
         $this->issetcolor=false;
         $this->articletitle=$_title;
         $this->articleurl=$_url;
         $this->url1=$_url1;
-        
+
         $this->debug=$_debug;
         $this->AliasNbPages();
     }
@@ -631,7 +650,7 @@ class PDF extends FPDF
         //remove all unsupported tags
         $html=str_replace("\n",' ',$html); //replace carriage returns with spaces
 		$a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE);
-        
+
         foreach($a as $i=>$e)
         {
             if($i%2==0)
@@ -641,15 +660,15 @@ class PDF extends FPDF
                     	$this->Cell(100,1,$e,0,1,'L');
                     else
                       	$this->Write(4.5,$e);
-                      
-                } 
-                else 
+
+                }
+                else
                 {
                     //Tag
                    	if($e[0]=='/')
                         $this->CloseTag(strtoupper(substr($e,1)));
-                    
-                    else 
+
+                    else
                     {
                         //Extract attributes
                         $a2=explode(' ',$e);
@@ -674,8 +693,8 @@ class PDF extends FPDF
             	//$this->ALIGN=$attr['ALIGN'];
             	$this->SetStyle('B',true);
             }
-           
-        if($tag == 'B')  
+
+        if($tag == 'B')
         	{
             	$this->SetFontSize(10);
             	$this->SetStyle($tag,true);
@@ -686,15 +705,15 @@ class PDF extends FPDF
         		$this->SetFontSize(10);
         		$this->SetStyle('I',true);
         	}
-            
+
         if($tag== 'PRE')
             $this->SetFontSize(9);
-                
+
         if($tag == 'I')
 			{
 				$this->SetStyle($tag,true);
 				$this->SetFontSize(9);
-			} 
+			}
 
 		if($tag == 'U')
 		{
@@ -705,9 +724,9 @@ class PDF extends FPDF
 		if($tag == 'SUB')
 		{
 			$this->SetFontSize(6);
-		}    
+		}
 	}
-    	
+
     function CloseTag($tag)
     {
         //Closing tag
@@ -716,26 +735,26 @@ class PDF extends FPDF
             	$this->ALIGN='';
         		$this->SetStyle('B',false);
     		}
-        
+
         if($tag == 'EM')
         {
         	$this->SetStyle('I',false);
         }
 
         if ($tag=='B' || $tag=='I' || $tag == 'U')
-			$this->SetStyle($tag,false);         
-    } 
-	
+			$this->SetStyle($tag,false);
+    }
+
 	function SetStyle($tag,$enable)
     {
 		$this->$tag+=($enable ? 1 : -1);
         $style='';
-        foreach(array('B','I','U') as $s) 
+        foreach(array('B','I','U') as $s)
         {
             if($this->$s>0)
                 $style.=$s;
         }
-		
+
         $this->SetFont('',$style);
     }
 
@@ -760,7 +779,7 @@ class PDF extends FPDF
     {
         static $_r=0, $_g=0, $_b=0;
 
-        if ($r==-1) 
+        if ($r==-1)
             $this->SetTextColor($_r,$_g,$_b);
         else {
             $this->SetTextColor($r,$g,$b);
@@ -782,7 +801,7 @@ class PDF extends FPDF
         $this->SetY(-26);
         //Select Arial italic 8
         $this->SetFont('Times','',8);
-        
+
         $this->PutLine(5,10,420,20);
 
         //Print centered page number
@@ -791,7 +810,7 @@ class PDF extends FPDF
         $this->Cell(0,4,$this->emriDok.' '.$this->mbiemriDok.', '. date("d-m-Y H:i").' ',0,1,'C');
         //$this->Cell(0,4,$this->data.', '.date("h:i:sa").', '.$this->emriDok.' '.$this->mbiemriDok,0,1,'C');
 
-        
+
         //$this->SetTextColor(0,0,180);
         $this->Cell(0,4,'Prishtina International Airport, Vrelle, Lipjan, 10070, '.$this->email.', '.$this->nrtel,0,0,'C',0);
         $this->mySetTextColor(-1);
@@ -808,7 +827,7 @@ class PDF extends FPDF
         $this->SetFont('Arial','',10);
         $this->Cell(150,10,$this->articletitle,0,0,'R');
 		$this->Ln(4.5);
-				
+
 		$this->SetFont('Arial','',10);
         $this->Cell(138,10,$this->articleurl,0,0,'R');
 
@@ -816,7 +835,7 @@ class PDF extends FPDF
         $this->Cell(135,10,$this->url1,0,0,'R');
         $this->Ln(5);
         $this->Line($this->GetX(),$this->GetY()+3,$this->GetX()+190,$this->GetY()+3);
-        
+
         //Line break
         $this->Ln(5);
         //$this->SetFont('Times','',20);
