@@ -249,7 +249,7 @@ _:-ms-input-placeholder, :root .demo-graph {
    display: block;
 }
 
-.dropdown-content a:hover {background-color: #00aac3 }
+.dropdown-content a:hover {background-color: #bbaac3 }
 
 .dropdown:hover .dropdown-content {
    display: block;

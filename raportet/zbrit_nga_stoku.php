@@ -32,29 +32,130 @@ elseif($_POST['njesiaIlacit']=='copë'){
 
   //echo $numripakove;
 
+	//kur numri i copave tpakos se hapur eshte i barbarte me nr e cp/pako, dmth kur pako osht e re
   if($numricopeveperpako == $numripakostfundit){
 
       $sqlnjesiacope="UPDATE tblstocks as a SET a.sasia_pakove = (a.sasia_pakove - 1), a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.pako_hapur -" . $numri . " WHERE a.emri='" . $emri . "'";
-      //echo $sqlnjesiacope;
+      echo $sqlnjesiacope;
       mysqli_query($conn,$sqlnjesiacope);
 
-
-
-      if($numripakostfundit == 0){//ne qoftese pako e fundit u hargju
-        $sqlnjesiacope="UPDATE tblstocks as a SET a.sasia_pakove = (a.sasia_pakove - 1), a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.pako_hapur -" . $numri . " WHERE a.emri='" . $emri . "'";
-        //echo $sqlnjesiacope;
-        mysqli_query($conn,$sqlnjesiacope);
+      //rimarrja e te dhenave per barnat
+      $tedhenatebarnave = mysqli_query($conn, $sqlbarna);
+      if (!$tedhenatebarnave) {
+        printf("Error: %s\n", mysqli_error($conn));
+        exit();
       }
+      $barnaezgjedhur = mysqli_fetch_array($tedhenatebarnave);
+      $numripakove = $barnaezgjedhur["sasia_pakove"];
+      $numricopeveperpako = $barnaezgjedhur["sasia_copeve"];
+      $numritotalicopeve = $barnaezgjedhur["totali"];
+      $numripakostfundit = $barnaezgjedhur["pako_hapur"];
+      //fundi rimarrjes
+
+			echo "Te dhenat e reja<br>";
+
+			echo $numripakove;
+			echo $numricopeveperpako;
+			echo $numritotalicopeve;
+			echo $numripakostfundit;
+
+      if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+					echo "u hap pako e re";
+      }
+			if($numripakostfundit < 0){//ne qoftese pako e fundit u harxhu, plus ka hy n'minus
+					//echo abs($numripakostfundit);
+
+					$numriimarrngapakoere = abs($numripakostfundit) % $numricopeveperpako;
+					$numriimarrngapakoerepjestimi = (int)((abs($numripakostfundit))/($numricopeveperpako));
+					//echo "<br/>";
+					//echo $numriimarrngapakoere . " tjetra: " . $numriimarrngapakoerepjestimi;
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.sasia_pakove=a.sasia_pakove - " . $numriimarrngapakoerepjestimi . ",a.pako_hapur=a.sasia_copeve - " .$numriimarrngapakoere . " WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+			}
 
   }elseif ($numripakostfundit == 0) {
       $sqlnjesiacope="UPDATE tblstocks as a SET a.sasia_pakove = (a.sasia_pakove - 1), a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.sasia_copeve -" . $numri . " WHERE a.emri='" . $emri . "'";
-      //echo $sqlnjesiacope;
+      echo $sqlnjesiacope;
       mysqli_query($conn,$sqlnjesiacope);
+
+			//rimarrja e te dhenave per barnat
+			$tedhenatebarnave = mysqli_query($conn, $sqlbarna);
+			if (!$tedhenatebarnave) {
+				printf("Error: %s\n", mysqli_error($conn));
+				exit();
+			}
+			$barnaezgjedhur = mysqli_fetch_array($tedhenatebarnave);
+			$numripakove = $barnaezgjedhur["sasia_pakove"];
+			$numricopeveperpako = $barnaezgjedhur["sasia_copeve"];
+			$numritotalicopeve = $barnaezgjedhur["totali"];
+			$numripakostfundit = $barnaezgjedhur["pako_hapur"];
+			//fundi rimarrjes
+
+			echo "Te dhenat e reja<br>";
+
+			echo $numripakove;
+			echo $numricopeveperpako;
+			echo $numritotalicopeve;
+			echo $numripakostfundit;
+
+			if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+					echo "u hap pako e re";
+			}
+			if($numripakostfundit < 0){//ne qoftese pako e fundit u harxhu, plus ka hy n'minus
+					//echo abs($numripakostfundit);
+
+					$numriimarrngapakoere = abs($numripakostfundit) % $numricopeveperpako;
+					$numriimarrngapakoerepjestimi = (int)((abs($numripakostfundit))/($numricopeveperpako));
+					//echo "<br/>";
+					//echo $numriimarrngapakoere . " tjetra: " . $numriimarrngapakoerepjestimi;
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.sasia_pakove=a.sasia_pakove - " . $numriimarrngapakoerepjestimi . ",a.pako_hapur=a.sasia_copeve - " .$numriimarrngapakoere . " WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+			}
   }
   else{
       $sqlnjesiacope="UPDATE tblstocks as a SET a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.pako_hapur -" . $numri . " WHERE a.emri='" . $emri . "'";
-      //echo $sqlnjesiacope;
+      echo $sqlnjesiacope;
       mysqli_query($conn,$sqlnjesiacope);
+
+			//rimarrja e te dhenave per barnat
+			$tedhenatebarnave = mysqli_query($conn, $sqlbarna);
+			if (!$tedhenatebarnave) {
+				printf("Error: %s\n", mysqli_error($conn));
+				exit();
+			}
+			$barnaezgjedhur = mysqli_fetch_array($tedhenatebarnave);
+			$numripakove = $barnaezgjedhur["sasia_pakove"];
+			$numricopeveperpako = $barnaezgjedhur["sasia_copeve"];
+			$numritotalicopeve = $barnaezgjedhur["totali"];
+			$numripakostfundit = $barnaezgjedhur["pako_hapur"];
+			//fundi rimarrjes
+
+			echo "Te dhenat e reja<br>";
+
+			echo $numripakove;
+			echo $numricopeveperpako;
+			echo $numritotalicopeve;
+			echo $numripakostfundit;
+
+			if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+					echo "u hap pako e re";
+			}
+			if($numripakostfundit < 0){//ne qoftese pako e fundit u harxhu, plus ka hy n'minus
+					//echo abs($numripakostfundit);
+
+					$numriimarrngapakoere = abs($numripakostfundit) % $numricopeveperpako;
+					$numriimarrngapakoerepjestimi = (int)((abs($numripakostfundit))/($numricopeveperpako));
+					//echo "<br/>";
+					//echo $numriimarrngapakoere . " tjetra: " . $numriimarrngapakoerepjestimi;
+					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.sasia_pakove=a.sasia_pakove - " . $numriimarrngapakoerepjestimi . ",a.pako_hapur=a.sasia_copeve - " .$numriimarrngapakoere . " WHERE a.emri='" . $emri . "'";
+					mysqli_query($conn,$queryperhapjenepakostre);
+			}
   }
 
 
