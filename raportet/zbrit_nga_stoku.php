@@ -36,7 +36,7 @@ elseif($_POST['njesiaIlacit']=='copë'){
   if($numricopeveperpako == $numripakostfundit){
 
       $sqlnjesiacope="UPDATE tblstocks as a SET a.sasia_pakove = (a.sasia_pakove - 1), a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.pako_hapur -" . $numri . " WHERE a.emri='" . $emri . "'";
-      echo $sqlnjesiacope;
+      
       mysqli_query($conn,$sqlnjesiacope);
 
       //rimarrja e te dhenave per barnat
@@ -52,17 +52,11 @@ elseif($_POST['njesiaIlacit']=='copë'){
       $numripakostfundit = $barnaezgjedhur["pako_hapur"];
       //fundi rimarrjes
 
-			echo "Te dhenat e reja<br>";
-
-			echo $numripakove;
-			echo $numricopeveperpako;
-			echo $numritotalicopeve;
-			echo $numripakostfundit;
 
       if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
 					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
 					mysqli_query($conn,$queryperhapjenepakostre);
-					echo "u hap pako e re";
+				
       }
 			if($numripakostfundit < 0){//ne qoftese pako e fundit u harxhu, plus ka hy n'minus
 					//echo abs($numripakostfundit);
@@ -77,7 +71,7 @@ elseif($_POST['njesiaIlacit']=='copë'){
 
   }elseif ($numripakostfundit == 0) {
       $sqlnjesiacope="UPDATE tblstocks as a SET a.sasia_pakove = (a.sasia_pakove - 1), a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.sasia_copeve -" . $numri . " WHERE a.emri='" . $emri . "'";
-      echo $sqlnjesiacope;
+     
       mysqli_query($conn,$sqlnjesiacope);
 
 			//rimarrja e te dhenave per barnat
@@ -93,17 +87,11 @@ elseif($_POST['njesiaIlacit']=='copë'){
 			$numripakostfundit = $barnaezgjedhur["pako_hapur"];
 			//fundi rimarrjes
 
-			echo "Te dhenat e reja<br>";
-
-			echo $numripakove;
-			echo $numricopeveperpako;
-			echo $numritotalicopeve;
-			echo $numripakostfundit;
+		
 
 			if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
 					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
 					mysqli_query($conn,$queryperhapjenepakostre);
-					echo "u hap pako e re";
 			}
 			if($numripakostfundit < 0){//ne qoftese pako e fundit u harxhu, plus ka hy n'minus
 					//echo abs($numripakostfundit);
@@ -118,7 +106,6 @@ elseif($_POST['njesiaIlacit']=='copë'){
   }
   else{
       $sqlnjesiacope="UPDATE tblstocks as a SET a.totali = (a.totali - " . $numri . "), a.pako_hapur=a.pako_hapur -" . $numri . " WHERE a.emri='" . $emri . "'";
-      echo $sqlnjesiacope;
       mysqli_query($conn,$sqlnjesiacope);
 
 			//rimarrja e te dhenave per barnat
@@ -134,13 +121,7 @@ elseif($_POST['njesiaIlacit']=='copë'){
 			$numripakostfundit = $barnaezgjedhur["pako_hapur"];
 			//fundi rimarrjes
 
-			echo "Te dhenat e reja<br>";
-
-			echo $numripakove;
-			echo $numricopeveperpako;
-			echo $numritotalicopeve;
-			echo $numripakostfundit;
-
+	
 			if($numripakostfundit == 0){//ne qoftese pako e fundit u harxhu
 					$queryperhapjenepakostre = "UPDATE tblstocks as a SET a.pako_hapur=a.sasia_copeve WHERE a.emri='" . $emri . "'";
 					mysqli_query($conn,$queryperhapjenepakostre);
