@@ -57,7 +57,7 @@ function myFunction() {
       <option value="3">Option 3</option>
       <option value="tjeter">tjeter</option>
     </select> -->
-   <?php $sql12="select * from tblstocks";
+   <?php $sql12="select * from tblstocks where totali>0";
  $res1=mysqli_query($conn,$sql12) or die( "Error");
 $select= '<select id="selectid" name="emriIlacit"  onchange="myFunction()"><option value="" disabled selected>Zgjedhni njerin prej ilaçeve</option>';
 while ($row1=mysqli_fetch_assoc($res1)){
