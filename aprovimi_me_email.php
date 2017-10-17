@@ -78,6 +78,6 @@ function smtpmailer($to, $from, $from_name = 'MedicalDB', $subject, $body, $is_g
     }
 }
 
-echo smtpmailer($to, $from, $name, $subj, $msg);
+smtpmailer($to, $from, $name, $subj, $msg);
 
 ?>
