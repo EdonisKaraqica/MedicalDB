@@ -50,6 +50,100 @@ $result = mysqli_query($conn, $perdoruesisql);
 $pidplotesuesi = mysqli_fetch_array($result);
 $_SESSION["emri"] = $pidplotesuesi["emri"];
 $_SESSION["mbiemri"] = $pidplotesuesi["mbiemri"];
+
+//kerkimi i stoqeve me afat te skaduar
+
+$stocksql = "select * from tblstockscheck";
+$stockcheckquery = mysqli_query($conn,$stocksql);
+$stockcheckresult = mysqli_fetch_array($stockcheckquery);
+//echo "inter";
+//echo $stockcheckresult["date"];
+//echo $stockcheckresult["checked"];
+
+if($stockcheckresult["date"] != date('Y-m-d')){
+  $stockcheckresult["checked"] = 0;
+  $queryupdatetblstockscheck = "UPDATE tblstockscheck as a set a.date='" . date('Y-m-d') . "', a.checked=1 where a.scid=" . $stockcheckresult["scid"];
+  //echo $queryupdatetblstockscheck;
+  mysqli_query($conn,$queryupdatetblstockscheck);
+}
+if($stockcheckresult["checked"] == 0){
+  //echo date_diff('2017-10-10','2017-10-20');
+  //SELECT a.stockid, a.barcode, a.emri, DATEDIFF(a.data_skadimit, '2017-08-08') AS DateDiff from tblstocks as a
+  $expiredproducts = "SELECT a.stockid, a.barcode, a.emri, a.data_skadimit, DATEDIFF(a.data_skadimit, CURRENT_DATE) AS DateDiff from tblstocks as a where DATEDIFF(a.data_skadimit, CURRENT_DATE) < 180";
+  $expiredproductsquery = mysqli_query($conn,$expiredproducts);
+  $mesazhimeproduktet = "";
+  while($expiredproductslist = mysqli_fetch_array($expiredproductsquery)){
+    $mesazhimeproduktet .= "Emri i produktit: " . $expiredproductslist["emri"] . ", Data e skadimit: " . $expiredproductslist["data_skadimit"] . "<br/>";
+
+  }
+  if(!$expiredproductslist){
+    //echo $mesazhimeproduktet;
+    require_once('../mailing/PHPMailer-5.2.10/class.phpmailer.php');
+    require_once('../mailing/PHPMailer-5.2.10/class.smtp.php');
+
+    //dergimi i emailit te doktori
+    $msg = "Pershendetje i/e nderuar,<br/> Ju njoftojme se produktet e listuara me poshte, kane afat te skadimit me heret se 6 muaj:<br/>";
+    $msg .= $mesazhimeproduktet;
+    $msg .= "<br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!";
+    $subj = 'Produktet me afat nen 6 muaj!';
+    $to = 'bessiaebb@gmail.com'; //emaili i doktorit le te shkon ketu
+    $from = 'medical.db2@gmail.com';
+    $name = 'MedicalDB';
+    //$body = $msg;
+
+
+    function smtpmailer($to, $from, $from_name = 'MedicalDB', $subject, $body, $is_gmail = true)
+    {
+        global $error;
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        if ($is_gmail) {
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = 'medical.db2@gmail.com';
+            $mail->Password = 'limakasi202A';
+        } else {
+            $mail->Host = 'smtp.mail.google.com';
+            $mail->Username = 'medical.db2@gmail.com';
+            $mail->Password = 'limakasi202A';
+        }
+        $mail->IsHTML(true);
+        $mail->From = "noreply@medical.db";
+        $mail->FromName = "noreply@medical.db";
+        $mail->Sender = $from; // indicates ReturnPath header
+        $mail->AddReplyTo($from, $from_name); // indicates ReplyTo headers
+    //        $mail->AddCC('cc@site.com.com', 'CC: to site.com');
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if (!$mail->Send()) {
+            $error = 'Mail error: ' . $mail->ErrorInfo;
+            return true;
+        } else {
+            $error = 'Message sent!';
+            return false;
+        }
+    }
+
+    smtpmailer($to, $from, $name, $subj, $msg);
+
+    //fund i dergimit te emailit
+  }
+}
+
+//kerkimi i stoqeve me afat te skaduar - fundi
+
+
+
 ?>
 <html lang="en">
 <head>
