@@ -875,9 +875,9 @@ class jqgrid
 					$insert_id = $this->execute_query($sql,"insert_id");
 
 					$update_logs = "id=$insert_id, $update_logs";
-					$sql_logs = "INSERT INTO logs_table VALUES (NULL, CURRENT_TIMESTAMP, '$ip', '$user', 'add','$update_logs','----')";
+					//$sql_logs = "INSERT INTO logs_table VALUES (NULL, CURRENT_TIMESTAMP, '$ip', '$user', 'add','$update_logs','----')";
 
-					$this->execute_query($sql_logs);
+					//$this->execute_query($sql_logs);
 
 					// custom onupdate event execution
 					if (!empty($this->events["on_after_insert"]))
@@ -983,10 +983,10 @@ class jqgrid
 					$user = $_SESSION['username'];
 
 					$sql = "UPDATE {$this->table} $update_str WHERE $pk_field = $id";
-					$sql_logs = "INSERT INTO logs_table VALUES (NULL, CURRENT_TIMESTAMP, '$ip', '$user', 'edit','$update_logs', '$edited')";
+					//$sql_logs = "INSERT INTO logs_table VALUES (NULL, CURRENT_TIMESTAMP, '$ip', '$user', 'edit','$update_logs', '$edited')";
 
 					$this->execute_query($sql);
-					$this->execute_query($sql_logs);
+					//$this->execute_query($sql_logs);
 				break;
 
 				case "del":
