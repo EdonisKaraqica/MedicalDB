@@ -138,8 +138,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+//$col["edittype"] = "textarea"; // render as textarea on edit
+//$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -157,8 +157,8 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -175,8 +175,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -194,8 +194,8 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -212,8 +212,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -230,8 +230,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -249,8 +249,8 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -269,8 +269,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["align"] = "center";
 $col["width"] = "100";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -288,8 +288,8 @@ $col["editable"] = false;
 $col["align"] = "center";
 $col["export"] = false;
 $col["width"] = "100";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -306,8 +306,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -325,8 +325,8 @@ $col["editable"] = true;
 $col["export"] = false;
 $col["width"] = "150";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -344,8 +344,8 @@ $col["editable"] = false;
 $col["export"] = false;
 $col["width"] = "150";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -363,8 +363,8 @@ $col["editable"] = false;
 $col["export"] = false;
 $col["width"] = "150";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
@@ -381,8 +381,8 @@ $col["search"] = true; // this column is not searchable
 $col["editable"] = true;
 $col["width"] = "100";
 $col["align"] = "center";
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
+// $col["edittype"] = "textarea"; // render as textarea on edit
+// $col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
 
 // don't show this column in list, but in edit/add mode
 //edited from true(bes)$col["hidden"] = true;
