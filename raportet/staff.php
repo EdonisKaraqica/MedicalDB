@@ -69,7 +69,7 @@
                                  <br>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="email" type="text" placeholder="" value="<?php echo $email; ?>" class="form-control input-md">
+                                    <input id="Emri" name="email" type="text" placeholder="" value="<?php echo $emailEE; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -98,14 +98,14 @@
                               <br> <small>(Gender):</small>
                               </label>
                               <div class="input-field col  s5">
-                                 <input id="Emri" name="gjinia" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="gjinia" type="text" placeholder="" value="<?php  echo $gjinia; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Njësia
                                  <br><small>(Unit):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="njesia" type="text" placeholder="" class="form-control input-md">
+                                    <input id="Emri" name="njesia" type="text" placeholder="" value="<?php echo $njesia; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>

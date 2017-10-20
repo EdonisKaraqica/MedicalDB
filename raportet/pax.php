@@ -1,3 +1,5 @@
+
+
 <div class="card-content">
     <input type="hidden" name="udhetar" value="">
                         <div class="form-group">
@@ -6,7 +8,7 @@
                               <br> <small>(name):</small>
                               </label>
                               <div class="col s5">
-                                 <input id='Emri' name='emri' type='text' placeholder='' value='' size='100' class='form-control input-md'>
+                                 <input id='Emri' name='emri' type='text' placeholder='Emri dhe Mbiemri' value='' size='100' class='form-control input-md'>
                                  
                               </div>
                               <div class="form-group center-align">

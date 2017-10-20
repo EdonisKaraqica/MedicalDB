@@ -22,7 +22,12 @@ $query = "select * from tbldoktoret where username='$username1'";
 $res = mysqli_query($conn, $query) or die("Error");
 
 while ($row = mysqli_fetch_assoc($res)) {
+    if(isset($row['username'])){
     $emri = $row['username'];
+  }else{
+    $emri = '';
+    header("Location: ../login.php");
+  }
 
 }
 if(!isset($_SESSION['CurrentUser'])) {
@@ -86,7 +91,7 @@ if($stockcheckresult["checked"] == 0){
     $msg .= $mesazhimeproduktet;
     $msg .= "<br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!";
     $subj = 'Produktet me afat nen 6 muaj!';
-    $to = 'bessiaebb@gmail.com'; //emaili i doktorit le te shkon ketu
+    $to = 'bgllareva@limakkosovo.aero'; //emaili i doktorit le te shkon ketu
     $from = 'medical.db2@gmail.com';
     $name = 'MedicalDB';
     //$body = $msg;

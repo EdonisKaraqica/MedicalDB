@@ -13,13 +13,15 @@ while ($row=mysqli_fetch_assoc($res))
       $emri=$row['emri']; 
       $mbiemri=$row['mbiemri'];
       
-      $pid=$row[ 'pid'];
-      $limakid=$row[ 'limakid'];
-      $ditelindja=$row[ 'ditelindja']; 
-      $telefoni=$row[ 'nrtel']; 
+      $pid=$row['pid'];
+      $limakid=$row['limakid'];
+      $ditelindja=$row['ditelindja']; 
+      $telefoni=$row['nrtel']; 
       $adresa=$row[ 'adresa']; 
-      $email=$row[ 'email']; 
-      $vendlindja=$row[ 'vendlindja']; 
+      $emailEE=$row['email']; 
+      $vendlindja=$row['vendlindja']; 
+      $njesia=$row['njesia'];
+      $gjinia=$row['gjinia'];
       $alergjite=$row['alergjite'];
       }
      
@@ -130,6 +132,7 @@ while ($row1=mysqli_fetch_assoc($res2))
 $(document).ready(function(){
     $('input.timepicker').timepicker({});
 });
+
 
 
   // $('#timepicker').pickatime({
@@ -258,17 +261,17 @@ $(document).ready(function(){
                                              <label class="col-md-1 control-label" for="Emri">TA:
                                              </label>
                                              <div class="input-field col-md-2">
-                                                <input type="text"" name="ta"  pattern="[0-9]"  id="ta title="TA duhet te permbaj vetem numra"  placeholder="" value="" size="100" class="form-control input-md">
+                                                <input type="number"" name="ta"  pattern="[0-9]"  id="ta title="TA duhet te permbaj vetem numra"  placeholder="" value="" size="100" class="form-control input-md">
                                              </div>
                                               <label class="col-md-1 control-label" for="Emri">Pulsi: 
                                              </label>
                                              <div class="input-field col-md-2">
-                                                <input type="text"  name="pulsi" pattern="[0-9]" id="pulsi" placeholder="" value="" size="100"   title="Pulsi duhet te permbaj vetem numra" class="form-control input-md">
+                                                <input type="number"  name="pulsi" pattern="[0-9]" id="pulsi" placeholder="" value="" size="100"   title="Pulsi duhet te permbaj vetem numra" class="form-control input-md">
                                              </div>
                                              <label class="col-md-1 control-label" for="Emri">SPO<sub>2</sub>: 
                                              </label>
                                              <div class="input-field col-md-2">
-                                                <input type="text" name="spo2" pattern="[0-9]" id="spo2" placeholder="" value="" size=" 100"  title="SPO2 duhet te permbaj vetem numra"  class="form-control input-md">
+                                                <input type="number" name="spo2" pattern="[0-9]" id="spo2" placeholder="" value="" size=" 100"  title="SPO2 duhet te permbaj vetem numra"  class="form-control input-md">
                                              </div>
                                               <label class="col-md-2 control-label" for="Emri">Koment
                         <br><small>(Comment):</small>
@@ -641,7 +644,7 @@ $(document).ready(function(){
       </div>
       </div>
       </div>
-      <!-- <input type="button" class="btn primary" style="float:right" value="Gjenero Raportin" onclick="submitForms()" /> -->
+      <!-- <input type="button" class="btn primary" style="float:right" value="Gjenero Raportin" onclick="submitForms();" /> -->
 
    </body>
 </html>

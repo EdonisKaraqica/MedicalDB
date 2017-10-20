@@ -22,6 +22,9 @@
 						      $telefoni=$row[ 'nrtel']; 
 						      $adresa=$row[ 'adresa']; 
 						      $email=$row[ 'email']; 
+							  $vendlindja=$row['vendlindja'];
+							  $njesia=$row['njesia'];
+							  $gjinia=$row['gjinia'];
                         $alergjite=$row['alergjite'];
 						      }
 
@@ -46,11 +49,11 @@
                      <div class="card-content">
                         <div class="form-group">
                            <div class="row center-align">
-                              <label class="col s1" for="Emri"> Emri dhe Mbiemri
+                              <label class="col s1" for="Emri"> Emri
                               <br> <small>(name):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $em; ?>' size='100' class='form-control input-md'>
+                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
                                  
                               </div>
                               <div class="form-group center-align">
@@ -105,7 +108,7 @@
                               <br><small>(Place of birth):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="vendlindja" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="vendlindja" type="text" placeholder="" value="<?php echo $vendlindja; ?>"  class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="height">Numri Dosjes
@@ -123,14 +126,14 @@
                               <br> <small>(Gender):</small>
                               </label>
                               <div class="input-field col  s5">
-                                 <input id="Emri" name="gjinia" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="gjinia" type="text" placeholder="" value="<?php echo $gjinia; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Njësia
                                  <br><small>(Unit):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="njesia" type="text" placeholder="" class="form-control input-md">
+                                    <input id="Emri" name="njesia" type="text" placeholder="" value="<?php echo $njesia; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>

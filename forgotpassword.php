@@ -51,7 +51,7 @@ function test_input($data)
             $email = $conn->real_escape_string($_POST['email']);
 
             $data = $conn->query("SELECT did FROM tbldoktoret WHERE email='$email'");
-            
+
             $data2= $conn->query("SELECT pid FROM tblpacientatstaff WHERE email='$email'");
 
 
@@ -62,7 +62,7 @@ function test_input($data)
                 $str = str_shuffle($str);
                 $str = substr($str, 0, 20);
                 $url = "Please click the link to reset your password:
-                        http://localhost/MedicalDB/resetpassword.php?token=$str&email=$email";
+                        http://pmu1/MedicalDB/resetpassword.php?token=$str&email=$email";
 
 
                 $msg = "To reset your password please visit this: $url";
@@ -117,6 +117,7 @@ function test_input($data)
 
                 echo smtpmailer($to, $from, $name, $subj, $msg);
                 $conn->query("UPDATE tbldoktoret SET token='$str' WHERE email='$email'");
+                $conn->query("UPDATE tblpacientatstaff SET token='$str' WHERE email='$email'");
                 echo "Please check your email!";
             } else {
                 echo "Please check your inputs!";

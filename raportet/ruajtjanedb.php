@@ -41,15 +41,15 @@
       }
       if(!empty($_POST['pulsi']))
        {
-        $ta=$_POST['pulsi'];
+        $pulsi=$_POST['pulsi'];
       }
       if(!empty($_POST['spo2']))
        {
-        $ta=$_POST['spo2'];
+        $spo2=$_POST['spo2'];
       }
       if(!empty($_POST['koment']))
        {
-        $ta=$_POST['koment'];
+        $koment=$_POST['koment'];
       }
        $laboratori=$_POST['laboratori'];
        $diagnoza=$_POST['diagnoza'];
