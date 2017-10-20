@@ -46,11 +46,11 @@
                      <div class="card-content">
                         <div class="form-group">
                            <div class="row center-align">
-                              <label class="col s1" for="Emri"> Emri
+                              <label class="col s1" for="Emri"> Emri dhe Mbiemri
                               <br> <small>(name):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
+                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $em; ?>' size='100' class='form-control input-md'>
                                  
                               </div>
                               <div class="form-group center-align">

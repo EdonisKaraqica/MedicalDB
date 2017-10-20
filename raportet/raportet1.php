@@ -209,6 +209,7 @@ $(document).ready(function(){
                   }
                   $_SESSION['emriE']=$emriE;
                   $_SESSION['mbiemriE']=$mbiemriE;
+                  $em=$emriE." ".$mbiemriE;
 
 
                      
