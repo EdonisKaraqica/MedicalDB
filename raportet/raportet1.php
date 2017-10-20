@@ -178,7 +178,42 @@ $(document).ready(function(){
                      }elseif (isset($_GET['kidselect'])) {
                       $sql2 = "UPDATE tblkerkesat set approved=1,shqyrtuar=1 where kid='" . $_GET['kidselect'] . "'";
                       $query2 = mysqli_query($conn,$sql2);
+                      
+                     $kid=$_GET['kidselect'];
+                     $connect = mysqli_connect("localhost", "root", "", "sherbimimjeksor");
+                     $sql88 = "select a.data1, a.data2, a.pid from tblkerkesat as a where a.kid=".$kid;
+                     $result88 = mysqli_query($connect, $sql88);
+                     while ($row88=mysqli_fetch_assoc($result88)) 
+                        { 
+                           $fillimi8=$row88[ 'data1']; 
+                           $mbarimi8=$row88[ 'data2'];
+                           $pid=$row88['pid'];
+                           
+                        }
+                        $_SESSION['fillimi8']=$fillimi8;
+                        $_SESSION['mbarimi8']=$mbarimi8;
+
+                     $sql="SELECT * FROM tblpacientatstaff where pid='".$pid."'"; 
+            $res=mysqli_query($conn,$sql) or die( "Error"); 
+
+            while ($row=mysqli_fetch_assoc($res)) 
+               { 
+                  $emriE=$row[ 'emri']; 
+                  $mbiemriE=$row[ 'mbiemri']; 
+                  $limakid=$row[ 'limakid'];
+                  $ditelindja=$row[ 'ditelindja']; 
+                  $telefoni=$row[ 'nrtel']; 
+                  $adresa=$row[ 'adresa']; 
+                  $email=$row[ 'email']; 
+                        $alergjite=$row['alergjite'];
+                  }
+                  $_SESSION['emriE']=$emriE;
+                  $_SESSION['mbiemriE']=$mbiemriE;
+
+
+                     
                       include("../aprovimi_me_email.php");
+
                        include("staff_nga_kerkesat.php");
 
                      }

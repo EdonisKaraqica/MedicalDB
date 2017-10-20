@@ -27,8 +27,13 @@ while ($row = mysqli_fetch_assoc($res1)) {
     $email = $row['email'];
 
 }
+$fillimi8=$_SESSION['fillimi8'];
+$mbarimi8=$_SESSION['mbarimi8'];
+$emriE=$_SESSION['emriE'];
+$mbiemriE=$_SESSION['mbiemriE'];
 
-$msg = "Kerkesa juaj per pushim mjekesor eshte aprovuar!";
+
+$msg = "Kerkesa juaj per pushim mjekesor eshte aprovuar! <br>Emri dhe mbiemri:".$emriE." ".$mbiemriE."<br>Data e fillimit: ".$fillimi8."<br>Data e mbarimit: ".$mbarimi8;
 $subj = 'Aprovimi i Kerkeses';
 $to = $email;
 $from = 'medical.db2@gmail.com';
