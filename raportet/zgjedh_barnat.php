@@ -72,7 +72,7 @@ echo $select; ?>
  
 
           <div class="input-field col s4">
-            <input name="nrBarnave" type="number" placeholder="Sasia">
+            <input name="nrBarnave" type="number" min="1" placeholder="Sasia">
             
           </div>
         <div class="input-field col s4">
