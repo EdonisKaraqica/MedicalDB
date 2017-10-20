@@ -8,7 +8,7 @@
  */
 
 // include db config
-include_once("config_rina.php");
+include_once("config.php");
 session_start();
 $username=$_SESSION['CurrentUser'];
 

@@ -8,7 +8,7 @@
  */
 
 // include db config
-include_once("config_rina.php");
+include_once("config.php");
 
 // include and create object
 include(PHPGRID_LIBPATH."inc/jqgrid_dist_regjistri_staff.php");
