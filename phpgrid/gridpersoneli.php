@@ -52,7 +52,7 @@ $_SESSION["exprange"] = "filtered";
 $g->set_options($opt);
 
 $g->set_actions(array(
-	"add"=>false, // allow/disallow add
+	"add"=>true, // allow/disallow add
 	"edit"=>false, // allow/disallow edit
 	"delete"=>false, // allow/disallow delete
 	"rowactions"=>true, // show/hide row wise edit/del/save option
