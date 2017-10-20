@@ -34,6 +34,7 @@ $mbiemriE=$_SESSION['mbiemriE'];
 
 
 $msg = "Kerkesa juaj per pushim mjekesor eshte aprovuar! <br>Emri dhe mbiemri:".$emriE." ".$mbiemriE."<br>Data e fillimit: ".$fillimi8."<br>Data e mbarimit: ".$mbarimi8;
+$msg .= "<br/><br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!";
 $subj = 'Aprovimi i Kerkeses';
 $to = $email;
 $from = 'medical.db2@gmail.com';
