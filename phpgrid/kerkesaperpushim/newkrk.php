@@ -91,7 +91,7 @@ $conn->close();
 
          <div class="cardcontentposition">
 
-            <p class="fontdesign"><b>Zgjedh punetorin:</b></p>
+            <p class="fontdesign"><b>Kërko punëtorin (Search for staff):</b></p>
 
          <div class="card-content">
 
@@ -105,7 +105,7 @@ $conn->close();
   <!--             <div class="form-group">
   -->            <label class="col-md-3 control-label" for="singlebutton"></label>
 <!--<div class="col-md-4">-->
-                     <button name="kerko" class="waves-effect waves-light btn white buttoncolor" id="krijoraportin">Kerko
+                     <button name="kerko" class="waves-effect waves-light btn white buttoncolor" id="krijoraportin">Kerko <small>(Search)</small>
                      <i class="material-icons right">search</i></button>
 <!--</div>-->
                <!--</div>-->
@@ -116,9 +116,9 @@ $conn->close();
            <!--<div>
            --><table class="centered responsive-table highlight">
               <thead style="color:grey;font-size:15px;">
-                 <th>Emri</th>
-                 <th>Mbiemri</th>
-                 <th>Departamenti</th>
+                 <th>Emri <small>(Name)</small></th>
+                 <th>Mbiemri <small>(Last Name)</small></th>
+                 <th>Departamenti <small>(Departament)</small></th>
                  <th></th>
                 </thead>
                 <tbody>
@@ -129,7 +129,7 @@ $conn->close();
                         <td><?= $rez['emri'] ?></td>
                         <td><?= $rez['mbiemri'] ?></td>
                         <td><?= $rez['departamenti'] ?></td>
-                        <td><a href="kerkesaperpushim.php?id=<?= $rez['pid'] ?>">Krijo kerkesen</a></td>
+                        <td><a href="kerkesaperpushim.php?id=<?= $rez['pid'] ?>">Krijo kerkesen <small>(Submit)</small></a></td>
                       </tr>
                       <?php
                     }

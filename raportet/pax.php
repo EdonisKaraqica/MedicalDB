@@ -70,7 +70,7 @@
                                  <br><small>(File No):</small>
                                  </label>
                                  <div class="col s5">
-                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" value="<?php echo $rid+1; ?>" class="form-control input-md">
+                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" value="<?php echo $rid+1; ?>" readonly class="form-control input-md">
                                  </div>
                               </div>
                            </div>

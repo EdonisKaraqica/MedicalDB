@@ -30,7 +30,7 @@ $result = mysqli_query($connect, $sql);
  <body>
    <script>
 function confirmation() {
-    return confirm("A jeni te sigurte qe te refuzoni kerkesen?");
+    return confirm("A jeni të sigurt që të refuzoni kërkesën?");
 }
 </script>
   <div class="container">
@@ -38,7 +38,7 @@ function confirmation() {
    <br />
    <br />
    <div class="table-responsive">
-    <h2 align="center">Kerkesat e pa-shqyrtuara per pushim mjekesor</h2><br />
+    <h2 align="center" style="font-size:20px; text-align:center;"><b>Kërkesat e pa-shqyrtuara për pushim mjekësor</b></h2><br />
     <form method="get" action="raportet/raportet1.php">
     <table class="table table-bordered">
      <tr>  <th>Numri</th>

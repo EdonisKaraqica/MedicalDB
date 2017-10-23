@@ -111,6 +111,10 @@ else{
         var divx = document.getElementById('gridpaxrekordet');
         var divy = document.getElementById('gridstaff');
         var divz = document.getElementById('gridpersonnel');
+        var divt = document.getElementById('HeaderRegjistri');
+        var divu = document.getElementById('HeaderKerkesat');
+        divt.style.display = "";
+        divu.style.display = "none";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
@@ -122,6 +126,10 @@ else{
         var divx = document.getElementById('gridstaffrekordet');
         var divy = document.getElementById('gridstaff');
         var divz = document.getElementById('gridpersonnel');
+        var divt = document.getElementById('HeaderRegjistri');
+        var divu = document.getElementById('HeaderKerkesat');
+        divt.style.display = "none";
+        divu.style.display = "";
         divx.style.display = "none";
         divy.style.display = "none";
         divz.style.display = "none";
@@ -160,17 +168,25 @@ else{
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="" id="HeaderRegjistri">
           <div class="mdl-layout__header-row">
 <!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
+              <span style="color:darkblue;font-size: 18px;">Regjistri&nbsp;<small>(Records)</small></span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
 
+      </header>
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderKerkesat">
+          <div class="mdl-layout__header-row">
+<!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
+              <span style="color:darkblue;font-size: 18px;">Krijo një kërkesë të re për pushim<small>(Open a new request of leave)</small></span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
 
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-            <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:blue;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
+            <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:white;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
@@ -182,18 +198,18 @@ else{
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusrstaff.php">Ndrysho Profilin</a></li>
-              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
+              <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusrstaff.php">Profili<small>(Profile)</small></a></li>
+              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Shkyqu <small>(Log Out)</small></a></li>
 
 
             </ul>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-            <a class="mdl-navigation__link" id="lista" style="color:white;" href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Regjistri i kontrollave</a>
+            <a class="mdl-navigation__link" id="lista" style="color:white;" href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Regjistri&nbsp; <small>(Records)</small></a>
           <!--  <a class="mdl-navigation__link" style="color:white;" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">edit</i>Ndryshimi profilit</a>
     -->        <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>-->
-            <a class="mdl-navigation__link" id="kerkesa" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">edit</i>Kerkesa per pushim</a>
+            <a class="mdl-navigation__link" id="kerkesa" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">edit</i>Kërkesë&nbsp;<small>(Request)</small></a>
             <!--<a class="mdl-navigation__link" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Personeli</a>-->
           <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">edit</i>Regjistro Pacient</a>-->
 
@@ -208,7 +224,7 @@ else{
           </div>
 
           <!-- gridi per listen e regjistrit te userit-->
-          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaffrekordet" style="display:none;">
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="gridstaffrekordet" style="">
             <iframe src="../phpgrid/griduserrekordet.php" frameborder="0" style="float:center; height: 500px; width: 1200px;"></iframe>
           </div>
 

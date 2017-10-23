@@ -105,7 +105,7 @@ $g->table = "tblrekordetpax";
 
 // you can customize your own columns ...
 $col = array();
-$col["title"] = "Nr Dosjes"; // caption of column
+$col["title"] = "Nr Dosjes (File Nr.)"; // caption of column
 $col["name"] = "rid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["autowidth"] = true;
 $col["align"] = "center";
@@ -117,7 +117,7 @@ $col["export"] = true;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Data";
+$col["title"] = "Data (Date)";
 $col["name"] = "data_regjistrimit";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -134,7 +134,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Emri i pacientit";
+$col["title"] = "Emri (Name)";
 $col["dbname"] = "a.emri";
 $col["name"] = "emri";
 $col["autowidth"] = true;
@@ -153,7 +153,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Prindi";
+$col["title"] = "Prindi (Parent)";
 $col["dbname"] = "a.prindi";
 $col["name"] = "prindi";
 $col["sortable"] = true; // this column is not sortable
@@ -172,7 +172,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Mbiemri i pacientit";
+$col["title"] = "Mbiemri (Last Name)";
 $col["dbname"] = "a.mbiemri";
 $col["name"] = "mbiemri";
 $col["sortable"] = true; // this column is not sortable
@@ -205,7 +205,7 @@ $col["align"] = "center";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Gjinia";
+$col["title"] = "Gjinia (Gender)";
 $col["dbname"] = "a.gjinia";
 $col["name"] = "gjinia";
 $col["sortable"] = true; // this column is not sortable
@@ -219,7 +219,7 @@ $col["align"] = "center";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Ditelindja";
+$col["title"] = "Ditelindja (DOB)";
 $col["dbname"] = "a.ditelindja";
 $col["name"] = "ditelindja";
 $col["sortable"] = true; // this column is not sortable
@@ -232,7 +232,7 @@ $col["align"] = "center";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Adresa";
+$col["title"] = "Adresa (Address)";
 $col["dbname"] = "a.vendlindja";
 $col["name"] = "adresa";
 $col["sortable"] = true; // this column is not sortable
@@ -247,7 +247,7 @@ $cols[] = $col;
 
 
 $col = array();
-$col["title"] = "Shifra e v.";
+$col["title"] = "Shifra e vep. (ICD code)";
 $col["name"] = "shifra_veprimtarise";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -259,7 +259,7 @@ $col["align"] = "center";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Ankesa";
+$col["title"] = "Ankesa (Complaint)";
 $col["name"] = "ankesa";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -278,7 +278,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Amneza e semundjes";
+$col["title"] = "Anamneza e semundjes (Disease Anamnesis)";
 $col["dbname"] = "a.anamnezaesemundjes";
 $col["name"] = "anamneza_konstatimi";
 $col["sortable"] = true; // this column is not sortable
@@ -297,7 +297,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Diagnoza";
+$col["title"] = "Diagnoza (Diagnosis)";
 $col["name"] = "diagnoza";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -315,7 +315,7 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Trajtimi";
+$col["title"] = "Trajtimi (Medical Treatment)";
 $col["dbname"] = "a.trajtimi";
 $col["name"] = "terapia";
 $col["sortable"] = true; // this column is not sortable
@@ -374,7 +374,7 @@ $cols[] = $col;*/
 
 
 $col = array();
-$col["title"] = "Cmimi";
+$col["title"] = "Cmimi (Price)";
 $col["name"] = "cmimi";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -393,7 +393,7 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Kontrolloi";
+$col["title"] = "Kontrolloi (Doctor)";
 $col["dbname"] = "CONCAT(b.emri, ' ', b.mbiemri)";
 $col["name"] = "demri";
 $col["sortable"] = true; // this column is not sortable

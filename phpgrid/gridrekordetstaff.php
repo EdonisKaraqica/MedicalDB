@@ -105,7 +105,7 @@ $g->table = "tblrekordetstaff";
 
 // you can customize your own columns ...
 $col = array();
-$col["title"] = "Nr. Dosjes"; // caption of column
+$col["title"] = "Nr. Dosjes (File Nr.)"; // caption of column
 $col["name"] = "rid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "60";
 $col["export"] = true;
@@ -116,7 +116,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Nr. ID"; // caption of column
+$col["title"] = "ID"; // caption of column
 $col["dbname"] = "b.limakid";
 $col["name"] = "limakid"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "65";
@@ -127,7 +127,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Data"; // caption of column
+$col["title"] = "Data (Date)"; // caption of column
 $col["dbname"] = "a.data_regjistrimit";
 $col["name"] = "data";
 $col["width"] = "60";
@@ -139,7 +139,7 @@ $cols[] = $col;
 
 
 $col = array();
-$col["title"] = "Emri i pacientit"; // caption of column
+$col["title"] = "Emri (Name)"; // caption of column
 $col["dbname"] = "b.emri";
 $col["name"] = "pemri"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "100";
@@ -150,7 +150,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Mbiemri i pacientit"; // caption of column
+$col["title"] = "Mbiemri (Last Name)"; // caption of column
 $col["dbname"] = "b.mbiemri"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["name"] = "pmbiemri";
 $col["width"] = "110";
@@ -161,7 +161,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Shifra e v."; // caption of column
+$col["title"] = "Shifra e vep. (ICD Code)"; // caption of column
 $col["dbname"] = "a.shifra_veprimtarise";
 $col["name"] = "shv"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "65";
@@ -172,7 +172,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Ankesa"; // caption of column
+$col["title"] = "Ankesa (Complaint)"; // caption of column
 $col["name"] = "ankesa";
 $col["width"] = "110";
 $col["align"] = "center";
@@ -182,7 +182,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Anamneza e semundjes"; // caption of column
+$col["title"] = "Anamneza e semundjes (Disease Anamnesis)"; // caption of column
 $col["dbname"] = "a.anamnezaesemundjes";
 $col["name"] = "anamneza";
 $col["width"] = "165";
@@ -194,7 +194,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Anamneza e familjes"; // caption of column
+$col["title"] = "Anamneza e familjes (Family Anamnesis)"; // caption of column
 $col["dbname"] = "a.anamnezaefamiljes";
 $col["name"] = "anamneza2";
 $col["width"] = "165";
@@ -206,7 +206,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Diagnoza"; // caption of column
+$col["title"] = "Diagnoza (Diagnosis)"; // caption of column
 $col["name"] = "diagnoza";
 $col["width"] = "105";
 $col["align"] = "center";
@@ -216,7 +216,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Trajtimi"; // caption of column
+$col["title"] = "Trajtimi (Treatment)"; // caption of column
 $col["name"] = "trajtimi";
 $col["width"] = "105";
 $col["align"] = "center";
@@ -226,7 +226,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Perfundimi"; // caption of column
+$col["title"] = "Perfundimi (Conclusion)"; // caption of column
 $col["name"] = "perfundimi";
 $col["width"] = "100";
 $col["align"] = "center";
@@ -237,7 +237,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Alergjite"; // caption of column
+$col["title"] = "Alergjite (Allergies)"; // caption of column
 $col["name"] = "alergjite";
 $col["width"] = "100";
 $col["align"] = "center";
@@ -249,7 +249,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Kontrolloi"; // caption of column
+$col["title"] = "Kontrolloi (Doctor)"; // caption of column
 $col["name"] = "kontrolloi";
 $col["dbname"] = "CONCAT(c.emri, ' ', c.mbiemri)"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["width"] = "100";
@@ -281,7 +281,7 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Lab.";
+$col["title"] = "Laboratori (Laboratory)";
 $col["name"] = "laboratori";
 $col["sortable"] = false; // this column is not sortable
 $col["search"] = false; // this column is not searchable

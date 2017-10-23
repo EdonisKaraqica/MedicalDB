@@ -550,7 +550,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri fillestar-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none" id="HeaderHome">
         <div class="mdl-layout__header-row">
-            <!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:darkblue;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
+            <!--              <span class="mdl-layout-title" style="padding:45px">  Limak Kosovo International Airport J.S.C<br><span style="color:white;font-size: 18px;">Shërbimi Mjekësor/Medical Service</span></span>-->
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -559,7 +559,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per regjistrin e kontrolles-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="" id="HeaderRegjistroKontrolle">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Regjistro Kontrolle Te Re</span>
+            <span style="color:darkblue;font-size: 18px;">Regjistro (Register) </span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -568,7 +568,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per shqyrtimin e kerkesave-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderKerkesat">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Kerkesat</span>
+            <span style="color:darkblue;font-size: 18px;">Kërkesat (Requests)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -577,7 +577,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per regjistrin e stafit-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistriStaff">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Regjistri (Staff)</span>
+            <span style="color:darkblue;font-size: 18px;">Regjistri për Staf (Staf Register)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -586,7 +586,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per regjistrin e pax-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderRegjistriPax">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Regjistri i Udhetareve</span>
+            <span style="color:darkblue;font-size: 18px;">Regjistri për udhëtarë (Pax Register)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -595,7 +595,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per listen e stafit-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderStaff">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Lista e Pacienteve (Staff)</span>
+            <span style="color:darkblue;font-size: 18px;">Stafi (Staff)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -604,7 +604,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per personelin mjeksor-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderPersonnel">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Personeli Mjekesor</span>
+            <span style="color:darkblue;font-size: 18px;">Personeli (Personnel)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -613,7 +613,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per export-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderExport">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Export</span>
+            <span style="color:darkblue;font-size: 18px;">Raportet (Reports)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -623,7 +623,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
     <!-- headeri per stok-->
     <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600" style="display:none;" id="HeaderViewStock">
         <div class="mdl-layout__header-row">
-            <span style="color:darkblue;font-size: 18px;">Stoku</span>
+            <span style="color:darkblue;font-size: 18px;">Barnat (Medicaments)</span>
 
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable"></div>
@@ -634,7 +634,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
 
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
-            <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:blue;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
+            <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:white;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
             <img src="images/logouser.png" class="demo-avatar">
             <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
@@ -646,34 +646,34 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
                     <span class="visuallyhidden">Accounts</span>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                    <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusr.php">Ndrysho Profilin</a></li>
-                    <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
+                    <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusr.php">Profili <small>(Profile)</small></a></li>
+                    <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Shkyçu <small>(Log Out)</small></a></li>
 
 
                 </ul>
             </div>
         </header>
-        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800" style="margin-left:-30px;">
 
             <!--<a class="mdl-navigation__link" href="" onclick="showHideListaPax('gridpax'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation">list</i>Lista e Pacienteve(Pax)</a>
             -->
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register==.png"/></i>Regjistro kontrolle</a>
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register==.png"/></i>Regjistro&nbsp;<small>(Register)</small></a>
 
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kerkesat&nbsp;<?php if($nrkerkesave > 0){
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kërkesat <small> (Requests)</small>&nbsp;<?php if($nrkerkesave > 0){
                     echo "(" . $nrkerkesave . ")";
                 } ?>
             </a>
-            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/staf.png"/></i>Staf</a>
-            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/pax.png"/></i>Pax</a>
+            <a id="arstaff" class="mdl-navigation__link" style="color:white;"  href="" onclick="showHideRegjistriStaff('gridstaffrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/staf.png"/></i>Stafi&nbsp;<small>(Staff)</small></a>
+            <a id="arpax" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideRegjistriPax('gridpaxrekordet'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/pax.png"/></i>Udhëtarët&nbsp;<small>(Pax)</small></a>
 
-            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/export.png"/></i>Export</a>
-            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideStockView('viewstock'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/drugs.png"/></i>Stoku</a>
+            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideExportxls('exportxls'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/export.png"/></i>Raportet&nbsp;<small>(Reports)</small></a>
+            <a id="aexp" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideStockView('viewstock'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/drugs.png"/></i>Barnat&nbsp;<small>(Medicaments)</small></a>
             <div class="dropdown">
 
-                <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/icons/avatar.png"/></i><a class="dropbtn">Perdoruesit</a>
+                <i class="mdl-color-text--blue-grey-400 material-icons"  style="margin-left: 40px" role="presentation"><img src="images/icons/avatar.png"/></i><a class="dropbtn">Perdoruesit <small>(Users)</small></a>
                 <div class="dropdown-content">
-                    <a id="agdr" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>&nbsp;&nbsp;&nbsp;Personeli</a>
-                    <a id="agstaff" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/team.png"/></i>&nbsp;&nbsp;&nbsp;Stafi</a>
+                    <a id="agdr" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHidePersoneli('gridpersonnel'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/doctor.png"/></i>&nbsp;&nbsp;&nbsp;Personeli&nbsp;<small>(Personnel)</small></a>
+                    <a id="agstaff" class="mdl-navigation__link" style="color:white;font-size:14px" href="" onclick="showHideListaStaff('gridstaff'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons"  role="presentation"><img src="images/icons/team.png"/></i>&nbsp;&nbsp;&nbsp;Stafi&nbsp;<small>(Staff)</small></a>
 
 
                 </div>
