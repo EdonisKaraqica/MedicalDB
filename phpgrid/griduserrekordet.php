@@ -101,7 +101,7 @@ $db_conf = array(
 
 
 				FROM ((tblrekordetstaff as a
-				INNER JOIN tblpacientatstaff as b on a.pid = b.pid)
+				INNER JOIN tblpacientatstaff as b on a.pid = b.limakid)
 				INNER JOIN tbldoktoret as c on a.did = c.did) where b.username='" . $username . "'";
 
 				// this db table will be used for add,edit,delete
@@ -270,7 +270,7 @@ $db_conf = array(
 				$col["sortable"] = true; // this column is not sortable
 				$col["search"] = true; // this column is not searchable
 				//$col["default"] = "View More";
-				$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../download.php?id=s'+cellval+'\">'+\"Download\"+'</a>'; }";
+				$col["formatter"] = "function(cellval,options,rowdata){ return '<a target=\"_blank\" href=\"../raportet/raporti_nga_rekordet.php?sid='+cellval+'\">'+\"Download\"+'</a>'; }";
 				$col["editable"] = false;
 				$col["align"] = "center";
 				$col["export"] = false;

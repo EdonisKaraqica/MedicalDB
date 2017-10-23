@@ -110,7 +110,7 @@ $conn->close();
          
             <form name="form" class="form-horizontal" method="post" >
                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button name="udhetar" formaction="raportet/raportet1.php" class="waves-effect waves-light btn buttonsize blue" type="submit">Udhtarë<small>(Pax)</small>
+               <button name="udhetar" formaction="raportet/raportet1.php" class="waves-effect waves-light btn buttonsize blue" type="submit">Udhëtar <small>(Pax)</small>
                <i class="material-icons right">group</i>     </button><br><br>
                <button class="waves-effect waves-light btn buttonsize blue" type="submit" onclick="showHide('text1');return false;" id="button1">Stafi <small>(Staff)</small>
                <i class="material-icons right">airplanemode_active</i>  </button><br><br>

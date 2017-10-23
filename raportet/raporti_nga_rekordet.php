@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("databaze.php");
 session_start();
 
@@ -42,12 +42,12 @@ $sql="SELECT * FROM tblrekordetstaff where rid=".$id;
   $sql="SELECT * FROM tblrekordetpax where rid=".$pxid;
 }
 
-$res=mysqli_query($conn,$sql) or die( "Error"); 
-while ($row=mysqli_fetch_assoc($res)) 
-   { 
-      
+$res=mysqli_query($conn,$sql) or die( "Error");
+while ($row=mysqli_fetch_assoc($res))
+   {
 
-      $ankesa=$row['ankesa']; 
+
+      $ankesa=$row['ankesa'];
       $anamnezaSemundjes=$row['anamnezaesemundjes'];
       $anFamiljes=$row['anamnezaefamiljes'];
       $ta=$row['ta'];
@@ -70,13 +70,13 @@ while ($row=mysqli_fetch_assoc($res))
       $udhezimperkonsultimeid=$row['udhezimperkonsultimeid'];
     }
 
-      
+
       }
       if(isset($_GET['sid']))
     {
 
       $sql1="SELECT * FROM ((tblrekordetstaff as t1 inner join tbldoktoret as t2 on t1.did=t2.did) INNER JOIN tblpacientatstaff as c on t1.pid = c.limakid";
-        
+
 
         if (!empty($raportimjeksorid)) {
             $sql1=$sql1." INNER JOIN raportimjeksor as t4 on t1.raportimjeksorid = t4.ID";
@@ -102,14 +102,14 @@ while ($row=mysqli_fetch_assoc($res))
         if (!empty($raportudhetimiperpasagjerid)) {
             $sql1=$sql1." INNER JOIN raportudhetimiperpasagjer as t10 on t1.raportudhetimiperpasagjerid = t10.ID";
         }
-        
+
 
         $sql1=$sql1.")";
 }
-// 
+//
 else if(isset($_GET['pxid'])) {
   $sql1="SELECT * FROM ((tbldoktoret as t2 inner join tblrekordetpax as t1 on t1.did=t2.did )";
-        
+
 
         if (!empty($raportimjeksorid)) {
             $sql1=$sql1." INNER JOIN raportimjeksor as t4 on t1.raportimjeksorid = t4.ID";
@@ -133,7 +133,7 @@ else if(isset($_GET['pxid'])) {
 }
 
 // echo $sql1;
-      $res1=mysqli_query($conn,$sql1) or die("Error"); 
+      $res1=mysqli_query($conn,$sql1) or die("Error");
 
 
 
@@ -159,21 +159,21 @@ else if(isset($_GET['pxid'])) {
 
 
 
-while ($row=mysqli_fetch_assoc($res1)) 
-   { 
-      $emri=$row['emri']; 
-      $telefoni=$row['nrtel']; 
-      $numriid=$row['limakid']; 
-      $adresa=$row['adresa']; 
-      $ditelindja=$row['ditelindja']; 
-      $email=$row['email']; 
-      $vendlindja=$row['vendlindja']; 
-      $nrDosjes=$row['rid']; 
-      $gjinia=$row['gjinia']; 
-      $njesia=$row['njesia']; 
+while ($row=mysqli_fetch_assoc($res1))
+   {
+      $emri=$row['emri'];
+      $telefoni=$row['nrtel'];
+      $numriid=$row['limakid'];
+      $adresa=$row['adresa'];
+      $ditelindja=$row['ditelindja'];
+      $email=$row['email'];
+      $vendlindja=$row['vendlindja'];
+      $nrDosjes=$row['rid'];
+      $gjinia=$row['gjinia'];
+      $njesia=$row['njesia'];
       $alergjite=$row['alergjite'];
 
-      $ankesa=$row['ankesa']; 
+      $ankesa=$row['ankesa'];
       $anamnezaSemundjes=$row['anamnezaesemundjes'];
       $anFamiljes=$row['anamnezaefamiljes'];
       $ta=$row['ta'];
@@ -233,16 +233,16 @@ if (!empty($udhezimperkonsultimeid)) {
 //        $fundi=$row['Ditaefundit'];
 //        $numri=$row['Numriiditvepushim'];
 //        $komentRaport=$row['komenti'];
-      
-      
 
-      
-      
+
+
+
+
       }
       // echo $Rp;
 
       $_SESSION['emri']=$emri;
-      
+
       $_SESSION['telefoni']=$telefoni;
       $_SESSION['numriid']=$numriid;
       $_SESSION['adresa']=$adresa;
@@ -295,27 +295,48 @@ if (!empty($udhezimperkonsultimeid)) {
 <?php
        // session_start();
        $username=$_SESSION['CurrentUser'];
-       $sql1="SELECT emri,mbiemri,email,nrtel FROM tbldoktoret where username='".$username."'"; 
+       $sql1="SELECT emri,mbiemri,email,nrtel FROM tbldoktoret where username='".$username."'";
          $res1=mysqli_query($conn,$sql1) or die( "Error");
-         while ($row1=mysqli_fetch_assoc($res1)) 
-      { 
-          $emriDok=$row1['emri']; 
+         $row1=mysqli_fetch_assoc($res1);
+         if(count($row1) > 0){
+
+         while ($row1=mysqli_fetch_assoc($res1))
+      {
+          $emriDok=$row1['emri'];
           $mbiemriDok=$row1['mbiemri'];
-          $email=$row1[ 'email']; 
+          $email=$row1[ 'email'];
           $nrtel=$row1['nrtel'];
 
-      } 
+      }
       $_SESSION['emriDok']=$emriDok;
       $_SESSION['mbiemriDok']=$mbiemriDok;
       $_SESSION['emailDok']=$email;
       $_SESSION['nrtel']=$nrtel;
       $_SESSION['emriDok']=$emriDok;
-            
 
+    }
+    else{
+
+      $sqlquery = "select emri,mbiemri,email,nrtel from tblrekordetstaff as a inner join tbldoktoret as b on a.did=b.did where a.rid=" . $id;
+      //echo $sqlquery;
+      $res2 = mysqli_query($conn,$sqlquery);
+      while($rowdoc = mysqli_fetch_assoc($res2)){
+        $emriDok=$rowdoc['emri'];
+        $mbiemriDok=$rowdoc['mbiemri'];
+        $email=$rowdoc[ 'email'];
+        $nrtel=$rowdoc['nrtel'];
+
+      }
+      $_SESSION['emriDok']=$emriDok;
+      $_SESSION['mbiemriDok']=$mbiemriDok;
+      $_SESSION['emailDok']=$email;
+      $_SESSION['nrtel']=$nrtel;
+      $_SESSION['emriDok']=$emriDok;
+      //echo $sqlquery;
+    }
 
 
       ?>
 
 
 <?php require("ushtrime2.php"); ?>
-
