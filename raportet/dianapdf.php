@@ -812,7 +812,7 @@ class PDF extends FPDF
 
 
         //$this->SetTextColor(0,0,180);
-        $this->Cell(0,4,'Prishtina International Airport, Vrelle, Lipjan, 10070, '.$this->email.', '.$this->nrtel,0,0,'C',0);
+        $this->Cell(0,4,'Prishtina International Airport, Vrelle, Lipjan, 10070, bgllareva@limakkosova.aero, 045 811 192',0,0,'C',0);
         $this->mySetTextColor(-1);
 
         $this->Ln(4);

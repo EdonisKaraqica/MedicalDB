@@ -146,6 +146,8 @@ $username1=$_SESSION['CurrentUser'];
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
+                      <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:white;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
+
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
@@ -157,8 +159,9 @@ $username1=$_SESSION['CurrentUser'];
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Log Out</a></li>
-              <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusr.php">Ndrysho Profilin</a></li>
+             <li class="mdl-menu__item">  <a style="color:darkblue;" href="changeusr.php">Profili <small>(Profile)</small></a></li>
+
+              <li class="mdl-menu__item">  <a style="color:darkblue;" href="../logout.php">Shkyçu <small>(Log Out)</small></a></li>
 
 
             </ul>
@@ -168,7 +171,7 @@ $username1=$_SESSION['CurrentUser'];
 
           <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
               
-            <a class="mdl-navigation__link" style="color:white;" href="javascript:history.back()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/back.png"/></i>Shko prapa</a>
+            <a class="mdl-navigation__link" style="color:white;" href="javascript:history.back()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/back.png"/></i>Shko prapa <small>(Back)</small></a>
 
 
         </nav>
@@ -179,11 +182,11 @@ $username1=$_SESSION['CurrentUser'];
         		 <div class="form-style-5">
               <form method="post" action="../phpgrid/changepassword.php">
               <fieldset>
-              <input type="password" name="oldpwd" placeholder="Fjal&euml;kalimi aktual">
-              <input type="password" name="newpwd" placeholder="Fjal&euml;kalimi i ri">
-              <input type="password" name="newpwd2" placeholder="Konfirmo fjal&euml;kalimin e ri">
+              <input type="password" name="oldpwd" placeholder="Fjal&euml;kalimi aktual (Current Password)">
+              <input type="password" name="newpwd" placeholder="Fjal&euml;kalimi i ri (New Password)">
+              <input type="password" name="newpwd2" placeholder="Konfirmo fjal&euml;kalimin (Confirm Password)">
               </fieldset>
-              <input type="submit" value="NDRYSHO FJAL&Euml;KALIMIN"  />
+              <input type="submit" value="NDRYSHO FJAL&Euml;KALIMIN (Submit)"  />
               </form>
             </div>
         	<?php

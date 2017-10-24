@@ -65,7 +65,7 @@ $(function() {
 <fieldset>
 
 <!-- Form Name -->
-<legend >Statistikat e raporteve të kontrolleve në periudha kohore</legend>
+<legend>Statistikat e raporteve te kontrolleve ne periudha kohore</legend>
 
 <!-- Select Basic -->
 <div class="form-group">

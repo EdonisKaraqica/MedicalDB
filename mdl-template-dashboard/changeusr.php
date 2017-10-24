@@ -154,6 +154,8 @@ $nrkerkesave = $notificationres["requestsnr"];
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
+                      <span class="mdl-layout-title" style="padding:10px;font-size: 13px;">  LKIA J.S.C<br><span style="color:white;font-size: 11px;">Shërbimi Mjekësor/Medical Service</span></span>
+
             <img src="images/logouser.png" class="demo-avatar">
           <div class="demo-avatar-dropdown">
               <span style="color:white"><?php
@@ -165,8 +167,8 @@ $nrkerkesave = $notificationres["requestsnr"];
               <span class="visuallyhidden">Accounts</span>
             </button>
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                <li class="mdl-menu__item">  <a href="changeusr.php">Ndrysho Profilin</a></li>
-                <li class="mdl-menu__item">  <a href="../logout.php">Log Out</a></li>
+                <li class="mdl-menu__item">  <a href="changeusr.php">Profili <small>(Profile)</small></a></li>
+                <li class="mdl-menu__item">  <a href="../logout.php">Shkyçu <small>(Log Out)</small></a></li>
 
 
             </ul>
@@ -196,11 +198,11 @@ $nrkerkesave = $notificationres["requestsnr"];
         		<div class="form-style-5">
               <form method="post" action="../phpgrid/changepassword.php">
               <fieldset>
-              <input type="password" name="oldpwd" placeholder="Fjal&euml;kalimi aktual">
-              <input type="password" name="newpwd" placeholder="Fjal&euml;kalimi i ri">
-              <input type="password" name="newpwd2" placeholder="Konfirmo fjal&euml;kalimin e ri">
+              <input type="password" name="oldpwd" placeholder="Fjal&euml;kalimi aktual (Current Password)">
+              <input type="password" name="newpwd" placeholder="Fjal&euml;kalimi i ri (New Password)">
+              <input type="password" name="newpwd2" placeholder="Konfirmo fjal&euml;kalimin (Confirm Password)">
               </fieldset>
-              <input type="submit" value="NDRYSHO FJAL&Euml;KALIMIN"  />
+              <input type="submit" style="padding:10px;" value="NDRYSHO FJAL&Euml;KALIMIN (Change Password)"  />
               </form>
             </div>
         	<?php

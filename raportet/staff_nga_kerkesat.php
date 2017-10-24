@@ -22,6 +22,9 @@
 						      $telefoni=$row[ 'nrtel']; 
 						      $adresa=$row[ 'adresa']; 
 						      $email=$row[ 'email']; 
+							  $vendlindja=$row['vendlindja'];
+							  $njesia=$row['njesia'];
+							  $gjinia=$row['gjinia'];
                         $alergjite=$row['alergjite'];
 						      }
 
@@ -50,7 +53,7 @@
                               <br> <small>(name):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id='Emri' name='emri' type='text' placeholder='' value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
+                                 <input id='Emri' name='emri' type='text' placeholder='' readonly value='<?php echo $emri; ?>' size='100' class='form-control input-md'>
                                  
                               </div>
                               <div class="form-group center-align">
@@ -58,7 +61,7 @@
                                  <br><small>(Phone):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="telefoni" type="text" placeholder="" value="<?php echo $telefoni; ?>" size="120" class="form-control input-md">
+                                    <input id="Emri" name="telefoni" type="text" placeholder="" readonly value="<?php echo $telefoni; ?>" size="120" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -69,14 +72,14 @@
                               <br><small>(ID no):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="numriID" type="text" placeholder="" value="<?php echo $limakid; ?>" class="form-control input-md">
+                                 <input id="Emri" name="numriID" type="text" placeholder="" readonly value="<?php echo $limakid; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Adresa
                                  <br><small>(Address):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="adresa" type="text" placeholder="" value="<?php echo $adresa; ?>" class="form-control input-md">
+                                    <input id="Emri" name="adresa" type="text" placeholder="" readonly value="<?php echo $adresa; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -87,14 +90,14 @@
                               <br><small>(DOB)</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="ditelindja" type="text" placeholder="" value="<?php echo $ditelindja; ?>" class="form-control input-md">
+                                 <input id="Emri" name="ditelindja" type="text" placeholder="" readonly value="<?php echo $ditelindja; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Email<small>:</small>
                                  <br>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="email" type="text" placeholder="" value="<?php echo $email; ?>" class="form-control input-md">
+                                    <input id="Emri" name="email" type="text" placeholder="" readonly value="<?php echo $email; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -105,14 +108,14 @@
                               <br><small>(Place of birth):</small>
                               </label>
                               <div class="input-field col s5">
-                                 <input id="Emri" name="vendlindja" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="vendlindja" type="text" placeholder="" readonly value="<?php echo $vendlindja; ?>"  class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="height">Numri Dosjes
                                  <br><small>(File No):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" value="<?php echo $rid+1; ?>" class="form-control input-md">
+                                    <input id="Emri" name="nrDosjes" type="text" placeholder="" readonly value="<?php echo $rid+1; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>
@@ -123,14 +126,14 @@
                               <br> <small>(Gender):</small>
                               </label>
                               <div class="input-field col  s5">
-                                 <input id="Emri" name="gjinia" type="text" placeholder="" class="form-control input-md">
+                                 <input id="Emri" name="gjinia" type="text" placeholder="" readonly value="<?php echo $gjinia; ?>" class="form-control input-md">
                               </div>
                               <div class="form-group center-align">
                                  <label class="col s1" for="Emri">Njësia
                                  <br><small>(Unit):</small>
                                  </label>
                                  <div class="input-field col s5">
-                                    <input id="Emri" name="njesia" type="text" placeholder="" class="form-control input-md">
+                                    <input id="Emri" name="njesia" type="text" placeholder="" readonly value="<?php echo $njesia; ?>" class="form-control input-md">
                                  </div>
                               </div>
                            </div>

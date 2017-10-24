@@ -86,7 +86,7 @@ $col["hidden"] = true;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Barkodi"; // caption of column
+$col["title"] = "Barkodi (Barcode)"; // caption of column
 $col["name"] = "barcode"; // grid column name, must be exactly same as returned column-name from sql (tablefield or field-alias)
 $col["autowidth"] = false;
 //$col["width"] = "100";
@@ -95,7 +95,7 @@ $col["align"] = "center";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Emri i ilacit";
+$col["title"] = "Emri i ilacit (Drug Name)";
 $col["name"] = "emri";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -112,7 +112,7 @@ $col["editrules"] = array("edithidden"=>true);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Sasia";
+$col["title"] = "Sasia (Quantity)";
 $col["name"] = "sasia_pakove";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -131,7 +131,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Cp/Pako";
+$col["title"] = "Cp/Pako (Piece/Pack)";
 $col["name"] = "sasia_copeve";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -150,7 +150,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Totali i copeve";
+$col["title"] = "Totali i copeve (Total Piece)";
 $col["name"] = "totali";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable
@@ -170,7 +170,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Data e prodhimit";
+$col["title"] = "Data e prodhimit (Produce Date)";
 $col["name"] = "data_prodhimit";
 $col["datefmt"] = "Y-m-d";
 $col["editrules"] = array("date"=>true);
@@ -190,7 +190,7 @@ $col["hidden"] = false;
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Data e skadimit";
+$col["title"] = "Data e skadimit (Best Before)";
 $col["name"] = "data_skadimit";
 $col["sortable"] = true; // this column is not sortable
 $col["search"] = true; // this column is not searchable

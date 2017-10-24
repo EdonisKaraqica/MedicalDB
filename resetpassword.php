@@ -23,7 +23,8 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['token'])) {
 
     $data = $conn->query("SELECT did FROM tbldoktoret WHERE email='$email' AND token='$token'");
     $data2 = $conn->query("SELECT pid FROM tblpacientatstaff WHERE email='$email' AND token='$token'");
-    if (($data->num_rows > 0) || ($data2->num_rows >0)) {
+
+    if ($data->num_rows > 0) {
         include('reset-form.php');
         if (isset($_POST['resetPass'])) {
             $password = $_POST["password"];
@@ -42,7 +43,29 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['token'])) {
 
 
         }
-    } else {
+    }
+    elseif($data2->num_rows > 0){
+      include('reset-form.php');
+      if (isset($_POST['resetPass'])) {
+          $password = $_POST["password"];
+          $password_conf = $_POST['password-conf'];
+          if (empty($password) || empty($password_conf)) {
+             die("<p class='error-pos alert alert-error'>Please fill out the form!</p>");
+          } elseif ($password !== $password_conf) {
+              die("<p class='error-pos alert alert-error'>Password doesn't match Password Confirmation!");
+          } else {
+              $password = md5($password);
+
+              $conn->query("UPDATE tblpacientatstaff SET hashedpwd='$password', token='' WHERE email='$email'");
+              echo "<p>Successfully updated your password!</p>";
+          }
+
+
+      }
+
+    }
+
+    else {
 
         echo "<p class='error-pos alert alert-error'>Please check your link and update your password!</p>";
 

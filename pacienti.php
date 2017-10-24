@@ -104,15 +104,15 @@ $conn->close();
 
          <div class="cardcontentposition">
          <div>
-            <p class="fontdesign"><b>Zgjedh llojin e pacientit:</b></p>
+            <p class="fontdesign"><b>Ju lutem të zgjedhni formën e regjistrimit për:<br>(Please choose the registration form as follows):</b></p>
          </div>
          <div class="card-content">
          
             <form name="form" class="form-horizontal" method="post" >
                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button name="udhetar" formaction="raportet/raportet1.php" class="waves-effect waves-light btn buttonsize blue" type="submit">Udhetare
+               <button name="udhetar" formaction="raportet/raportet1.php" class="waves-effect waves-light btn buttonsize blue" type="submit">Udhëtar <small>(Pax)</small>
                <i class="material-icons right">group</i>     </button><br><br>
-               <button class="waves-effect waves-light btn buttonsize blue" type="submit" onclick="showHide('text1');return false;" id="button1">Staf
+               <button class="waves-effect waves-light btn buttonsize blue" type="submit" onclick="showHide('text1');return false;" id="button1">Stafi <small>(Staff)</small>
                <i class="material-icons right">airplanemode_active</i>  </button><br><br>
                 <div class="input-field">
               <input type="text" id="text1" placeholder="Kerko sipas emrit, mbiemrit dhe departamentit"  name="text" style="display: none;"  size="100" class="form-control input-md">
@@ -120,7 +120,7 @@ $conn->close();
                <div class="form-group">
                   <label class="col-md-3 control-label" for="singlebutton"></label>
                   <div class="col-md-4">
-                     <button name="kerko" class="waves-effect waves-light btn white buttoncolor" id="krijoraportin">Kerko
+                     <button name="kerko" class="waves-effect waves-light btn white buttoncolor" id="krijoraportin">Kërko <small>(Search)</small>
                      <i class="material-icons right">search</i></button>
                   </div>
                </div>
@@ -131,24 +131,24 @@ $conn->close();
            <div>
              <table class="centered responsive-table highlight">
               <thead style="color:grey;font-size:15px;">
-                 <th>Emri</th>
-                 <th>Mbiemri</th>
-                 <th>Departamenti</th>
+                 <th>Emri <small>(Name)</small></th>
+                 <th>Mbiemri <small>(Last Name)</small></th>
+                 <th>Departamenti <small>(Department)</small></th>
                  <th></th>
                 </thead>
-                <tbody>
+                <tbody><tr>
                   <?php 
                     foreach ($rezultatet as $rez) {
                       ?>
                         <td><?= $rez['emri'] ?></td>
                         <td><?= $rez['mbiemri'] ?></td>
                         <td><?= $rez['departamenti'] ?></td>
-                        <td><a href="raportet/raportet1.php?id=<?= $rez['pid'] ?>">KRIJO RAPORTIN</a></td>
+                        <td><a href="raportet/raportet1.php?id=<?= $rez['pid'] ?>">KRIJO RAPORTIN<br><small>(Create Report)</small></a></td></tr>
                       <?php
                     }
                   ?>
-                  <tr>
-                  </tr>
+                  
+                  
                 </tbody>
              </table>
            </div>

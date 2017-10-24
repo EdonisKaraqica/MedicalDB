@@ -110,14 +110,14 @@ if(isset($_GET['btnMuaji'])){
 
   $_SESSION['sqlsearch'] = $sql;
   $_SESSION['sqlsearch2'] = $sql2;
-  $_SESSION['chosenstats'] = "<p style=\"font-size:16px; text-align:center;\"><b>Regjistri për muajin</b><b> <u>" . $muajitext . "-" . $muajiviti . ":</u></b></p>";
+  $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per muajin <u>" . $muajitext . "-" . $muajiviti . ":</u></p>";
   echo $_SESSION['chosenstats'];
   $_SESSION['filename']="Regjistri-" . $muajiviti . "-" . $muajimuaji;
 
 }
 else if(isset($_GET['btnJava'])){
   $java = $_GET['javainput'];
-  //echo $java;
+  echo $java;
   $javaviti = substr($java,0,4);
   //echo $javaviti; //viti
   $javajava = substr($java,6,2);
@@ -165,7 +165,7 @@ else if(isset($_GET['btnJava'])){
 
     $_SESSION['sqlsearch'] = $sql;
     $_SESSION['sqlsearch2'] = $sql2;
-    $_SESSION['chosenstats'] = "<p style=\"font-size:16px; text-align:center;\"><b>Regjistri për javën <u>" . $javajava . " të vitit " . $javaviti . ":</u></b></p>";
+    $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per javen <u>" . $javajava . " te vitit " . $javaviti . ":</u></p>";
     echo $_SESSION['chosenstats'];
     $_SESSION['filename']="Regjistri-" . $javaviti . "-Java-" . $javajava;
 }
@@ -215,7 +215,7 @@ else{
 
     $_SESSION['sqlsearch'] = $sql;
     $_SESSION['sqlsearch2'] = $sql2;
-  $_SESSION['chosenstats'] = "<p style=\"font-size:16px; text-align:center;\"><b>Regjistri për vitin <u>" . $viti . ":</u></b></p>";
+  $_SESSION['chosenstats'] = "<p style=\"font-size:30px; text-align:center;\">Regjistri per vitin <u>" . $viti . ":</u></p>";
   echo $_SESSION['chosenstats'];
   $_SESSION['filename']="Regjistri-" . "Viti-" . $viti;
 }
@@ -252,7 +252,7 @@ $result2 = mysqli_query($connect, $sql2);
    <br />
    <div class="table-responsive">
     <!--<h2 align="center">Export MySQL data to Excel in PHP</h2><br />-->
-    <p>Regjistri për Staff:</p>
+    <p>Regjistri per Staff:</p>
     <table class="table table-bordered">
      <tr><th>Nr. i Dosjes</th>
          <th>Emri</th>
@@ -294,7 +294,7 @@ $result2 = mysqli_query($connect, $sql2);
      }
      ?>
     </table>
-    <br /><p>Regjistri për Pax:</p>
+    <br /><p>Regjistri per Pax:</p>
 
     <table class="table table-bordered">
      <tr>

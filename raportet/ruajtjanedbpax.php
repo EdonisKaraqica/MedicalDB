@@ -13,7 +13,11 @@ $currentDate=date('Y-m-d H:i:s');
        $emri = $_POST['emri'];
        $emrimbiemri=explode(" ", $emri);
        $emri1=$emrimbiemri[0];
-       $mbiemri=$emrimbiemri[1];
+       if(isset($emrimbiemri[1])){
+       $mbiemri=$emrimbiemri[1];}
+       else{
+         $mbiemri='NULL';
+       }
        $telefoni = $_POST['telefoni'];
        $numriID = $_POST['numriID'];
        $adresa = $_POST['adresa'];
@@ -32,15 +36,15 @@ $currentDate=date('Y-m-d H:i:s');
       }
       if(!empty($_POST['pulsi']))
        {
-        $ta=$_POST['pulsi'];
+        $pulsi=$_POST['pulsi'];
       }
       if(!empty($_POST['spo2']))
        {
-        $ta=$_POST['spo2'];
+        $spo2=$_POST['spo2'];
       }
       if(!empty($_POST['koment']))
        {
-        $ta=$_POST['koment'];
+        $koment=$_POST['koment'];
       }
        //
        //$pulsi=$_POST['pulsi'];
