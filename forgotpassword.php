@@ -61,8 +61,7 @@ function test_input($data)
                 $str = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
                 $str = str_shuffle($str);
                 $str = substr($str, 0, 20);
-                $url = "Please click the link to reset your password:
-                        http://localhost/MedicalDB/resetpassword.php?token=$str&email=$email";
+                $url = "http://localhost/MedicalDB/resetpassword.php?token=$str&email=$email";
 
 
                 $msg = "To reset your password please visit this: $url";
@@ -116,7 +115,19 @@ function test_input($data)
                 }
 
                 echo smtpmailer($to, $from, $name, $subj, $msg);
-                $conn->query("UPDATE tbldoktoret SET token='$str' WHERE email='$email'");
+                if ($data==true){
+
+                    $conn->query("UPDATE tbldoktoret SET token='$str' WHERE email='$email'");
+                }
+
+                elseif($data2==true){
+
+                    $conn->query("UPDATE tblpacientatstaff SET token='$str' WHERE email='$email'");
+                }
+                else{
+                    echo "ok";
+                }
+
                 echo "Please check your email!";
             } else {
                 echo "Please check your inputs!";
