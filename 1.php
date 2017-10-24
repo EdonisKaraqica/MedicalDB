@@ -41,12 +41,17 @@ function confirmation() {
     <h2 align="center" style="font-size:20px; text-align:center;"><b>Kërkesat e pa-shqyrtuara për pushim mjekësor</b></br>(Un-reviewed requests for medical leave)</h2><br />
     <form method="get" action="raportet/raportet1.php">
     <table class="table table-bordered">
-     <tr>  <th>Numri (Nr.)</th>
-       <th>Emri (Name)</th><th>Mbiemri (Last Name)</th><th>Departamenti (Department)</th><th>Njesia (Unit)</th>
-       <th>Fillimi (Start)</th><th>Fundi (End)</th><th>Arsyetimi (Reason)</th>
-       <th>Aprovo (Approve)</th>
-       <th>Refuzo (Reject)</th>
-                    </tr>
+     <tr>   <th>Numri<br/><small>Nr.</small></th>
+           <th>Emri<br/><small>Name</small></th>
+           <th>Mbiemri<br/><small>Surname</small></th>
+           <th>Departamenti<br/><small>Department</small></th>
+           <th>Njesia<br/><small>Unit</small></th>
+           <th>Fillimi<br/><small>Start</small></th>
+           <th>Fundi<br/><small>End</small></th>
+           <th>Arsyetimi<br/><small>Reason</small></th>
+           <th>Aprovo<br/><small>Approve</small></th>
+           <th>Refuzo<br/><small>Refuse</small></th>
+     </tr>
      <?php
      while($row = mysqli_fetch_array($result))
      {

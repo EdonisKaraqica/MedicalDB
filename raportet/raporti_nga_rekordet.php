@@ -297,17 +297,18 @@ if (!empty($udhezimperkonsultimeid)) {
        $username=$_SESSION['CurrentUser'];
        $sql1="SELECT emri,mbiemri,email,nrtel FROM tbldoktoret where username='".$username."'";
          $res1=mysqli_query($conn,$sql1) or die( "Error");
-         $row1=mysqli_fetch_assoc($res1);
-         if(count($row1) > 0){
+         //$row2=mysqli_fetch_assoc($res1);
+         if(mysqli_num_rows($res1) > 0){
 
-         while ($row1=mysqli_fetch_assoc($res1))
-      {
-          $emriDok=$row1['emri'];
-          $mbiemriDok=$row1['mbiemri'];
-          $email=$row1[ 'email'];
-          $nrtel=$row1['nrtel'];
+
+        while($row1=mysqli_fetch_assoc($res1)){
+        $emriDok=$row1['emri'];
+        $mbiemriDok=$row1['mbiemri'];
+        $email=$row1['email'];
+        $nrtel=$row1['nrtel'];
 
       }
+      
       $_SESSION['emriDok']=$emriDok;
       $_SESSION['mbiemriDok']=$mbiemriDok;
       $_SESSION['emailDok']=$email;
