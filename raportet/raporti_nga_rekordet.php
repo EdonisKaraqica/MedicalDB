@@ -162,6 +162,8 @@ else if(isset($_GET['pxid'])) {
 while ($row=mysqli_fetch_assoc($res1))
    {
       $emri=$row['emri'];
+      $mbiemri=$row['mbiemri'];
+      $emri.=" ".$mbiemri;
       $telefoni=$row['nrtel'];
       $numriid=$row['limakid'];
       $adresa=$row['adresa'];
