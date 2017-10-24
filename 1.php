@@ -30,7 +30,7 @@ $result = mysqli_query($connect, $sql);
  <body>
    <script>
 function confirmation() {
-    return confirm("A jeni të sigurt që të refuzoni kërkesën?");
+    return confirm("A jeni të sigurt që të refuzoni kërkesën? (Are you sure to reject the application?)");
 }
 </script>
   <div class="container">
@@ -38,14 +38,14 @@ function confirmation() {
    <br />
    <br />
    <div class="table-responsive">
-    <h2 align="center" style="font-size:20px; text-align:center;"><b>Kërkesat e pa-shqyrtuara për pushim mjekësor</b></h2><br />
+    <h2 align="center" style="font-size:20px; text-align:center;"><b>Kërkesat e pa-shqyrtuara për pushim mjekësor</b></br>(Un-reviewed requests for medical leave)</h2><br />
     <form method="get" action="raportet/raportet1.php">
     <table class="table table-bordered">
-     <tr>  <th>Numri</th>
-       <th>Emri</th><th>Mbiemri</th><th>Departamenti</th><th>Njesia</th>
-       <th>Fillimi</th><th>Fundi</th><th>Arsyetimi</th>
-       <th>Aprovo</th>
-       <th>Refuzo</th>
+     <tr>  <th>Numri (Nr.)</th>
+       <th>Emri (Name)</th><th>Mbiemri (Last Name)</th><th>Departamenti (Department)</th><th>Njesia (Unit)</th>
+       <th>Fillimi (Start)</th><th>Fundi (End)</th><th>Arsyetimi (Reason)</th>
+       <th>Aprovo (Approve)</th>
+       <th>Refuzo (Reject)</th>
                     </tr>
      <?php
      while($row = mysqli_fetch_array($result))
@@ -59,8 +59,8 @@ function confirmation() {
                  <td>'.$row["departamenti"].'</td>
                      <td>'.$row["njesia"].'</td><td>'.$row["data1"].'</td>
                          <td>'.$row["data2"].'</td><td>'.$row["arsyetimi"].'</td>
-         <td><button submit="submit" name="kidselect" value="' . $row["kid"] . '"' . '>Aprovo</button></td>
-         <td><a style="color:red" href="phpgrid/requestrefusal.php?id=' . $row["kid"] . '" onclick="return confirmation()")>Refuzo</a></td></tr>';
+         <td><button submit="submit" name="kidselect" value="' . $row["kid"] . '"' . '>Aprovo (Approve)</button></td>
+         <td><a style="color:red" href="phpgrid/requestrefusal.php?id=' . $row["kid"] . '" onclick="return confirmation()")>Refuzo (Reject)</a></td></tr>';
      }
      ?>
     </table>

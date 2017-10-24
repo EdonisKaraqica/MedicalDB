@@ -33,8 +33,12 @@ $emriE=$_SESSION['emriE'];
 $mbiemriE=$_SESSION['mbiemriE'];
 
 
+$msg = "Përshëndetje i/e nderuar,<br/><br/>";
 $msg = "Kerkesa juaj per pushim mjekesor eshte aprovuar! <br>Emri dhe mbiemri:".$emriE." ".$mbiemriE."<br>Data e fillimit: ".$fillimi8."<br>Data e mbarimit: ".$mbarimi8;
-$msg .= "<br/><br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!";
+$msg .= "<br/><br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!<br/><br/>";
+$msg .= "<br>Dear Medical System user,<br/><br/>";
+$msg .= "Your request for medical leave has been approved by the Medical Staff!<br/> First name & Last name: " . $emriE . " " . $mbiemriE . "<br>Start Date: " . $fillimi8 . "<br>End Date: " . $mbarimi8;
+$msg .= "<br/><br/>This message is an automated message, so please do not reply to this e-mail!<br/><br/>";
 $subj = 'Aprovimi i Kerkeses';
 $to = $email;
 $from = 'medical.db2@gmail.com';
