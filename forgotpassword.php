@@ -71,7 +71,7 @@ function test_input($data)
                 $to = $email;
                 $from = 'medical.db2@gmail.com';
                 $name = 'MedicalDB';
-                $body = $url;=======
+                $body = $url;
 
 
                 function smtpmailer($to, $from, $from_name = 'MedicalDB', $subject, $body, $is_gmail = true)

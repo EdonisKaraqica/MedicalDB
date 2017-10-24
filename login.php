@@ -62,14 +62,14 @@ function test_input($data)
   <div class="wrapper">
 <form method="post" action="" class="form-signin">
 
-<h4 class="form-signin-heading alignment">Please login</h4>
-Username  <input type="text" class="form-control" name="name" value="<?php echo $name;?>">
+<h4 class="form-signin-heading alignment">Kyçu <small>(Login)</small></h4>
+Emri i përdoruesit <small>(Username)</small>  <input type="text" class="form-control" name="name" value="<?php echo $name;?>">
    <br>
 
-Password <input type="password" class="form-control" name="passwordi" value="<?php echo $passwordi;?>">
+    Fjalëkalimi <small>(Password)</small> <input type="password" class="form-control" name="passwordi" value="<?php echo $passwordi;?>">
    <br>
-   <input type="submit"  class="btn btn-primary btn-block"  name="Submit" value="Login" />
-   <input type="Submit"  class="btn btn-primary btn-block"  name="ForgotPassword" value="Forgot Password?"/>
+    <button type="submit"  class="btn btn-primary btn-block"  name="Submit"> Kyçu <small>(Login)</small></button>
+   <button type="Submit"  class="btn btn-primary btn-block"  name="ForgotPassword" >Keni harruar fjalëkalmin? <small>(Forgot password?) </small></button>
     <?php
    if($_SERVER['REQUEST_METHOD']=='POST')
 {
