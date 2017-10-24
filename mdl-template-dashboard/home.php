@@ -90,8 +90,23 @@ if($stockcheckresult["checked"] == 0){
     $msg = "Pershendetje i/e nderuar,<br/> Ju njoftojme se produktet e listuara me poshte, kane afat te skadimit me heret se 6 muaj:<br/>";
     $msg .= $mesazhimeproduktet;
     $msg .= "<br/>Ky mesazh eshte mesazh i automatizuar, andaj ju lusemi te mos ktheni pergjigje ne kete e-mail!";
+
+    $engmsg = "<br/><br/>Dear Medical System user,<br/> We notify you that the products listed below, have a shorter deadline than 6 months:<br/>";
+    $engmesazhimeproduktet = "";
+    $expiredproductseng = "SELECT a.stockid, a.barcode, a.emri, a.data_skadimit, DATEDIFF(a.data_skadimit, CURRENT_DATE) AS DateDiff from tblstocks as a where DATEDIFF(a.data_skadimit, CURRENT_DATE) < 180";
+    $expiredproductsqueryeng = mysqli_query($conn,$expiredproductseng);
+    while($expiredproductslisteng = mysqli_fetch_array($expiredproductsqueryeng)){
+      $engmesazhimeproduktet .= "Drug name: " . $expiredproductslisteng["emri"] . ", Best before: " . $expiredproductslisteng["data_skadimit"] . "<br/>";
+
+    }
+    $engmsg .= $engmesazhimeproduktet;
+    $engmsg .= "<br/>This message is an automated message, so please do not reply to this e-mail!";
+
+    $msg .= $engmsg;
+
+
     $subj = 'Produktet me afat nen 6 muaj!';
-    $to = 'bgllareva@limakkosovo.aero'; //emaili i doktorit le te shkon ketu
+    $to = 'bessiaebb@gmail.com'; //emaili i doktorit le te shkon ketu
     $from = 'medical.db2@gmail.com';
     $name = 'MedicalDB';
     //$body = $msg;
@@ -659,7 +674,7 @@ $(".mdl-color-text--blue-grey-400 material-icons").on("click", function() {
             -->
             <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKontrolla('shtokontroll'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/register==.png"/></i>Regjistro&nbsp;<small>(Register)</small></a>
 
-            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kërkesat <small> (Requests)</small>&nbsp;<?php if($nrkerkesave > 0){
+            <a id="ashtok" class="mdl-navigation__link" style="color:white;" href="" onclick="showHideKerkesat('viewkontrollat'); return false;"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation"><img src="images/icons/kerkesat.png"/></i>Kërkesat&nbsp;<small> (Requests)</small>&nbsp;<?php if($nrkerkesave > 0){
                     echo "(" . $nrkerkesave . ")";
                 } ?>
             </a>

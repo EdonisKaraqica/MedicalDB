@@ -65,30 +65,30 @@ $(function() {
 <fieldset>
 
 <!-- Form Name -->
-<legend >Statistikat e raporteve të kontrolleve në periudha kohore</legend>
+<legend >Statistikat e raporteve të kontrolleve në periudha kohore<br/><h4>(Statistics of audit reports in time periods)</h4></legend>
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Shfaq statistikat sipas</label>
+  <label class="col-md-4 control-label" for="selectbasic">Shfaq statistikat sipas <small>(Show stats by)</small>:</label>
   <div class="col-md-4">
     <select id="type" name="selectbasic" class="form-control">
-      <option value="">Zgjedhe</option>
-      <option value="Java">Javes</option>
-      <option value="Muaji">Muajit</option>
-      <option value="Viti">Vitit</option>
+      <option value="">Zgjedhe (Choose)</option>
+      <option value="Java">Javes (Week)</option>
+      <option value="Muaji">Muajit (Month)</option>
+      <option value="Viti">Vitit (Year)</option>
     </select>
   </div>
 </div>
 
 </fieldset>
 <div id="java">
-	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe javen</label>
+	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe javen (Choose Week)</label>
   <div class="col-md-4">
 
 <input type="week" id="javainput" name="javainput" class="form-control" value="2017-W36">
 
 
-<button type="submit" id="btnJava" name="btnJava" class="form-control">Kerko</button>
+<button type="submit" id="btnJava" name="btnJava" class="form-control">Kerko (Search)</button>
 
 
 <p id="demo"></p>
@@ -108,13 +108,13 @@ function myFunction() {
 
 
 <div id="muaji">
-	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe Muajin</label>
+	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe Muajin (Choose Month)</label>
   <div class="col-md-4">
 
 <input type="month" id="muajiinput" name="muajiinput" class="form-control" value="2017-09">
 
 
-<button type="submit" id="btnMuaji" name="btnMuaji"  class="form-control">Kerko</button>
+<button type="submit" id="btnMuaji" name="btnMuaji"  class="form-control">Kerko (Search)</button>
 
 
 <p id="demo"></p>
@@ -129,7 +129,7 @@ function myFunction() {
 </div>
 
 <div id="viti">
-	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe Vitin</label>
+	 <label class="col-md-4 control-label" for="selectbasic">Zgjedhe Vitin (Choose Year)</label>
 
 
 <div class="col-md-4">
@@ -144,7 +144,7 @@ function myFunction() {
       <option value="2011">2011</option>
 
     </select>
-    <button type="submit" id="btnViti" name="btnViti"  class="form-control">Kerko</button>
+    <button type="submit" id="btnViti" name="btnViti"  class="form-control">Kerko (Search)</button>
   </div>
 
 
